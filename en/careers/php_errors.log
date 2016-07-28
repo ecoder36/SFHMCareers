@@ -1,0 +1,20 @@
+[06-Jul-2016 21:27:28 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (13/13/2012) at position 0 (1): Unexpected character' in /home/ubuntu/workspace/en/careers/test/datedef.php:12
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/test/datedef.php(12): DateTime->__construct('13/13/2012')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/test/datedef.php on line 12
+[06-Jul-2016 21:28:15 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (26/01/2010) at position 0 (2): Unexpected character' in /home/ubuntu/workspace/en/careers/test/datedef.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/test/datedef.php(11): DateTime->__construct('26/01/2010')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/test/datedef.php on line 11
+[06-Jul-2016 21:33:19 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (26/01/2010) at position 0 (2): Unexpected character' in /home/ubuntu/workspace/en/careers/test/datedef.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/test/datedef.php(11): DateTime->__construct('26/01/2010')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/test/datedef.php on line 11
+[06-Jul-2016 21:33:44 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (26 01 2010) at position 0 (2): Unexpected character' in /home/ubuntu/workspace/en/careers/test/datedef.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/test/datedef.php(11): DateTime->__construct('26 01 2010')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/test/datedef.php on line 11

@@ -1,0 +1,597 @@
+[26-Jun-2016 18:47:13 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/en/careers/addjobs.php on line 84
+[26-Jun-2016 22:06:18 Asia/Riyadh] PHP Fatal error:  Call to undefined function jobs_get_by_jobnumbera() in /home/ubuntu/workspace/en/careers/addjobs.php on line 18
+[26-Jun-2016 22:06:18 Asia/Riyadh] PHP Stack trace:
+[26-Jun-2016 22:06:18 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/addjobs.php:0
+[26-Jun-2016 20:40:41 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/addjobs.php on line 681
+[27-Jun-2016 04:01:02 Asia/Riyadh] PHP Fatal error:  Call to undefined function dept_get() in /home/ubuntu/workspace/en/careers/addjobs.php on line 296
+[27-Jun-2016 04:01:02 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 04:01:02 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/addjobs.php:0
+[27-Jun-2016 15:49:43 UTC] PHP Parse error:  syntax error, unexpected '?' in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 232
+[27-Jun-2016 18:51:34 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 18:51:34 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 18:51:34 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 18:51:47 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 18:51:47 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 18:51:47 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 18:52:37 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 253
+[27-Jun-2016 18:52:37 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 18:52:37 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 18:55:35 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 253
+[27-Jun-2016 18:55:35 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 18:55:35 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 18:56:41 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 253
+[27-Jun-2016 18:56:41 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 18:56:41 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:07:30 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 215
+[27-Jun-2016 19:07:30 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:07:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 16:08:17 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting ',' or ';' in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 212
+[27-Jun-2016 19:08:33 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 212
+[27-Jun-2016 19:08:33 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:08:33 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:31:24 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 212
+[27-Jun-2016 19:31:24 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:31:24 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:32:14 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 212
+[27-Jun-2016 19:32:14 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:32:14 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:33:30 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 212
+[27-Jun-2016 19:33:30 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:33:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:35:02 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 212
+[27-Jun-2016 19:35:02 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:35:02 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:55:17 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:55:17 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:55:17 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:55:23 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:55:23 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:55:23 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:55:24 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:55:24 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:55:24 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:56:05 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:56:05 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:56:05 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:56:07 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:56:07 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:56:07 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:56:15 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:56:15 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:56:15 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:56:23 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:56:23 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:56:23 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:56:54 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:56:54 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:56:54 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:56:56 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:56:56 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:56:56 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:57:01 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:57:01 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:57:01 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 19:57:04 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 246
+[27-Jun-2016 19:57:04 Asia/Riyadh] PHP Stack trace:
+[27-Jun-2016 19:57:04 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobsadmin.php:0
+[27-Jun-2016 17:04:16 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/jobsadmin.php on line 324
+[27-Jun-2016 19:05:11 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/t.php on line 2369
+[28-Jun-2016 01:06:11 UTC] PHP Warning:  require_once(db.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/en/careers/viewjob.php on line 4
+[28-Jun-2016 01:06:11 UTC] PHP Stack trace:
+[28-Jun-2016 01:06:11 UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/viewjob.php:0
+[28-Jun-2016 01:06:11 UTC] PHP Fatal error:  require_once(): Failed opening required 'db.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/en/careers/viewjob.php on line 4
+[28-Jun-2016 01:06:11 UTC] PHP Stack trace:
+[28-Jun-2016 01:06:11 UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/viewjob.php:0
+[01-Jul-2016 04:11:45 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/en/careers/viewjob.php on line 408
+[01-Jul-2016 12:23:35 UTC] PHP Parse error:  syntax error, unexpected '"<br> gre to hijri:<br>"' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/ubuntu/workspace/en/careers/Hijri_GregorianTest.php on line 17
+[01-Jul-2016 12:24:14 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/ubuntu/workspace/en/careers/Hijri_GregorianTest.php on line 17
+[01-Jul-2016 12:24:31 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/ubuntu/workspace/en/careers/Hijri_GregorianTest.php on line 17
+[01-Jul-2016 12:25:09 UTC] PHP Parse error:  syntax error, unexpected 'd' (T_STRING) in /home/ubuntu/workspace/en/careers/Hijri_GregorianTest.php on line 16
+[01-Jul-2016 12:27:43 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/ubuntu/workspace/en/careers/Hijri_GregorianTest.php on line 18
+[02-Jul-2016 00:53:10 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/ubuntu/workspace/en/careers/applyform.php on line 38
+[02-Jul-2016 00:53:38 UTC] PHP Parse error:  syntax error, unexpected '$' in /home/ubuntu/workspace/en/careers/applyform.php on line 40
+[02-Jul-2016 03:53:51 Asia/Riyadh] PHP Fatal error:  Call to undefined function jobs_get() in /home/ubuntu/workspace/en/careers/applyform.php on line 12
+[02-Jul-2016 03:53:51 Asia/Riyadh] PHP Stack trace:
+[02-Jul-2016 03:53:51 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applyform.php:0
+[02-Jul-2016 03:54:35 Asia/Riyadh] PHP Warning:  Missing argument 7 for rid_add(), called in /home/ubuntu/workspace/en/careers/applyform.php on line 40 and defined in /home/ubuntu/workspace/en/careers/require/api/addresumesAPI.php on line 6
+[02-Jul-2016 03:54:35 Asia/Riyadh] PHP Stack trace:
+[02-Jul-2016 03:54:35 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applyform.php:0
+[02-Jul-2016 03:54:35 Asia/Riyadh] PHP   2. rid_add() /home/ubuntu/workspace/en/careers/applyform.php:40
+[02-Jul-2016 14:45:41 Asia/Riyadh] PHP Fatal error:  Call to undefined function rapp2_update() in /home/ubuntu/workspace/en/careers/applyform.php on line 112
+[02-Jul-2016 14:45:41 Asia/Riyadh] PHP Stack trace:
+[02-Jul-2016 14:45:41 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applyform.php:0
+[02-Jul-2016 12:36:16 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/ubuntu/workspace/en/careers/applyform.php on line 93
+[03-Jul-2016 14:55:09 Asia/Riyadh] PHP Fatal error:  Call to undefined function rapp_get_by_idnumber() in /home/ubuntu/workspace/en/careers/userprofile.php on line 15
+[03-Jul-2016 14:55:09 Asia/Riyadh] PHP Stack trace:
+[03-Jul-2016 14:55:09 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[05-Jul-2016 01:55:44 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/userprofile.php on line 1164
+[05-Jul-2016 01:56:04 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/userprofile.php on line 1164
+[05-Jul-2016 02:20:08 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/ubuntu/workspace/en/careers/userprofile.php on line 1053
+[05-Jul-2016 06:24:03 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/userprofile.php on line 42
+[05-Jul-2016 06:24:03 Asia/Riyadh] PHP Stack trace:
+[05-Jul-2016 06:24:03 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[05-Jul-2016 06:24:53 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/userprofile.php on line 42
+[05-Jul-2016 06:24:53 Asia/Riyadh] PHP Stack trace:
+[05-Jul-2016 06:24:53 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[05-Jul-2016 06:25:16 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/userprofile.php on line 42
+[05-Jul-2016 06:25:16 Asia/Riyadh] PHP Stack trace:
+[05-Jul-2016 06:25:16 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[05-Jul-2016 07:12:27 Asia/Riyadh] PHP Fatal error:  Call to undefined function rcertifications_update() in /home/ubuntu/workspace/en/careers/userprofile.php on line 44
+[05-Jul-2016 07:12:27 Asia/Riyadh] PHP Stack trace:
+[05-Jul-2016 07:12:27 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[05-Jul-2016 07:12:36 Asia/Riyadh] PHP Fatal error:  Call to undefined function rcertifications_update() in /home/ubuntu/workspace/en/careers/userprofile.php on line 44
+[05-Jul-2016 07:12:36 Asia/Riyadh] PHP Stack trace:
+[05-Jul-2016 07:12:36 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 57
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 58
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 59
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 60
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 61
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:54:29 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 58
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 59
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 60
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP Warning:  Illegal offset type in /home/ubuntu/workspace/en/careers/userprofile.php on line 61
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 00:55:07 Asia/Riyadh] PHP   2. upload() /home/ubuntu/workspace/en/careers/userprofile.php:92
+[06-Jul-2016 04:26:23 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/userprofile.php on line 1444
+[06-Jul-2016 17:04:36 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/en/careers/userprofile.php on line 88
+[06-Jul-2016 17:04:38 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/en/careers/userprofile.php on line 88
+[06-Jul-2016 20:09:17 Asia/Riyadh] PHP Warning:  Missing argument 6 for rtarining_add(), called in /home/ubuntu/workspace/en/careers/userprofile.php on line 63 and defined in /home/ubuntu/workspace/en/careers/require/api/trainingAPI.php on line 3
+[06-Jul-2016 20:09:17 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 20:09:17 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 20:09:17 Asia/Riyadh] PHP   2. rtarining_add() /home/ubuntu/workspace/en/careers/userprofile.php:63
+[06-Jul-2016 20:10:21 Asia/Riyadh] PHP Warning:  Missing argument 6 for rtarining_add(), called in /home/ubuntu/workspace/en/careers/userprofile.php on line 64 and defined in /home/ubuntu/workspace/en/careers/require/api/trainingAPI.php on line 3
+[06-Jul-2016 20:10:21 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 20:10:21 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 20:10:21 Asia/Riyadh] PHP   2. rtarining_add() /home/ubuntu/workspace/en/careers/userprofile.php:64
+[06-Jul-2016 20:10:32 Asia/Riyadh] PHP Warning:  Missing argument 6 for rtarining_add(), called in /home/ubuntu/workspace/en/careers/userprofile.php on line 64 and defined in /home/ubuntu/workspace/en/careers/require/api/trainingAPI.php on line 3
+[06-Jul-2016 20:10:32 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 20:10:32 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 20:10:32 Asia/Riyadh] PHP   2. rtarining_add() /home/ubuntu/workspace/en/careers/userprofile.php:64
+[06-Jul-2016 21:05:42 Asia/Riyadh] PHP Fatal error:  Call to undefined function rtarining_get() in /home/ubuntu/workspace/en/careers/require/api/trainingAPI.php on line 73
+[06-Jul-2016 21:05:42 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 21:05:42 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 21:05:42 Asia/Riyadh] PHP   2. rtraining_get_by_idnumberandtranname() /home/ubuntu/workspace/en/careers/userprofile.php:53
+[06-Jul-2016 21:06:22 Asia/Riyadh] PHP Fatal error:  Call to undefined function rtarining_get() in /home/ubuntu/workspace/en/careers/require/api/trainingAPI.php on line 73
+[06-Jul-2016 21:06:22 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 21:06:22 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 21:06:22 Asia/Riyadh] PHP   2. rtraining_get_by_idnumberandtranname() /home/ubuntu/workspace/en/careers/userprofile.php:53
+[06-Jul-2016 22:13:20 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (14-06-2016<br>) at position 10 (<): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:70
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(70): DateTime->__construct('14-06-2016<br>')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 70
+[06-Jul-2016 22:14:14 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (14-06-2016<br>) at position 10 (<): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:71
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(71): DateTime->__construct('14-06-2016<br>')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:14:59 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string ($date1) at position 0 ($): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:71
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(71): DateTime->__construct('$date1')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:15:21 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string ($date1) at position 0 ($): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:71
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(71): DateTime->__construct('$date1')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:16:06 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string ($date1) at position 0 ($): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:71
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(71): DateTime->__construct('$date1')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:16:37 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string ($date1) at position 0 ($): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:71
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(71): DateTime->__construct('$date1')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:17:16 Asia/Riyadh] PHP Fatal error:  Call to undefined function DateTime() in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:17:16 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 22:17:16 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 22:19:40 Asia/Riyadh] PHP Fatal error:  Call to undefined function DateTime() in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:19:40 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 22:19:40 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 22:19:51 Asia/Riyadh] PHP Fatal error:  Call to undefined function DateTime() in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:19:51 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 22:19:51 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 22:20:09 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string ('21-01-2016'<br>) at position 0 ('): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:71
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(71): DateTime->__construct(''21-01-2016'<br...')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:22:22 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string ('21-01-2016') at position 0 ('): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:71
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(71): DateTime->__construct(''21-01-2016'')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:25:44 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string ('06-04-2015') at position 0 ('): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:71
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(71): DateTime->__construct(''06-04-2015'')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 71
+[06-Jul-2016 22:32:44 Asia/Riyadh] PHP Catchable fatal error:  Object of class DateInterval could not be converted to string in /home/ubuntu/workspace/en/careers/userprofile.php on line 74
+[06-Jul-2016 22:32:44 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 22:32:44 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 22:32:58 Asia/Riyadh] PHP Catchable fatal error:  Object of class DateInterval could not be converted to string in /home/ubuntu/workspace/en/careers/userprofile.php on line 74
+[06-Jul-2016 22:32:58 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 22:32:58 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[06-Jul-2016 23:13:42 Asia/Riyadh] PHP Fatal error:  Call to undefined method DateInterval::date() in /home/ubuntu/workspace/en/careers/userprofile.php on line 75
+[06-Jul-2016 23:13:42 Asia/Riyadh] PHP Stack trace:
+[06-Jul-2016 23:13:42 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[07-Jul-2016 10:21:03 Asia/Riyadh] PHP Fatal error:  Call to undefined function rtarining_add() in /home/ubuntu/workspace/en/careers/userprofile.php on line 79
+[07-Jul-2016 10:21:03 Asia/Riyadh] PHP Stack trace:
+[07-Jul-2016 10:21:03 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[07-Jul-2016 08:57:29 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/userprofile.php on line 1611
+[07-Jul-2016 11:58:50 Asia/Riyadh] PHP Fatal error:  Call to undefined function rtraining_ge_sum() in /home/ubuntu/workspace/en/careers/userprofile.php on line 909
+[07-Jul-2016 11:58:50 Asia/Riyadh] PHP Stack trace:
+[07-Jul-2016 11:58:50 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[07-Jul-2016 09:00:28 UTC] PHP Parse error:  syntax error, unexpected '/' in /home/ubuntu/workspace/en/careers/userprofile.php on line 927
+[07-Jul-2016 12:12:01 Asia/Riyadh] PHP Fatal error:  Call to a member function sum() on a non-object in /home/ubuntu/workspace/en/careers/userprofile.php on line 931
+[07-Jul-2016 12:12:01 Asia/Riyadh] PHP Stack trace:
+[07-Jul-2016 12:12:01 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[07-Jul-2016 12:12:33 Asia/Riyadh] PHP Fatal error:  Call to undefined function sum() in /home/ubuntu/workspace/en/careers/userprofile.php on line 931
+[07-Jul-2016 12:12:33 Asia/Riyadh] PHP Stack trace:
+[07-Jul-2016 12:12:33 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[08-Jul-2016 02:40:37 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/applyform.php on line 1078
+[08-Jul-2016 06:18:49 Asia/Riyadh] PHP Fatal error:  Call to undefined function rinfo_get_by_idnumber() in /home/ubuntu/workspace/en/careers/userprofile.php on line 20
+[08-Jul-2016 06:18:49 Asia/Riyadh] PHP Stack trace:
+[08-Jul-2016 06:18:49 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[08-Jul-2016 07:29:16 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/jobs.php on line 315
+[09-Jul-2016 04:26:22 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 329
+[09-Jul-2016 04:26:22 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:26:22 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:27:39 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 329
+[09-Jul-2016 04:27:39 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:27:39 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:27:44 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 329
+[09-Jul-2016 04:27:44 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:27:44 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:27:53 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 329
+[09-Jul-2016 04:27:53 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:27:53 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:28:27 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 329
+[09-Jul-2016 04:28:27 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:28:27 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:28:36 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 329
+[09-Jul-2016 04:28:36 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:28:36 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:29:13 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 329
+[09-Jul-2016 04:29:13 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:29:13 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:29:21 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 329
+[09-Jul-2016 04:29:21 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:29:21 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:30:25 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 330
+[09-Jul-2016 04:30:25 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:30:25 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:30:35 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 330
+[09-Jul-2016 04:30:35 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:30:35 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:32:43 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 330
+[09-Jul-2016 04:32:43 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:32:43 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:33:04 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 330
+[09-Jul-2016 04:33:04 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:33:04 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:33:12 Asia/Riyadh] PHP Warning:  move_uploaded_file(picatt/324r32.57805458d9c6a.570d8269357445.11754597.jpg): failed to open stream: No such file or directory in /home/ubuntu/workspace/en/careers/userprofile.php on line 33
+[09-Jul-2016 04:33:12 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:33:12 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:33:12 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/en/careers/userprofile.php:33
+[09-Jul-2016 04:33:12 Asia/Riyadh] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpsRN4Yn' to 'picatt/324r32.57805458d9c6a.570d8269357445.11754597.jpg' in /home/ubuntu/workspace/en/careers/userprofile.php on line 33
+[09-Jul-2016 04:33:12 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:33:12 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 04:33:12 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/en/careers/userprofile.php:33
+[09-Jul-2016 04:33:45 Asia/Riyadh] PHP Warning:  Division by zero in /home/ubuntu/workspace/en/careers/userprofile.php on line 330
+[09-Jul-2016 04:33:45 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 04:33:45 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 03:32:35 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/ubuntu/workspace/en/careers/userprofile.php on line 496
+[09-Jul-2016 09:34:01 UTC] PHP Fatal error:  Can't use function return value in write context in /home/ubuntu/workspace/en/careers/userprofile.php on line 261
+[09-Jul-2016 12:45:52 Asia/Riyadh] PHP Fatal error:  Call to undefined function rexperiences_get_by_idnumberanddate() in /home/ubuntu/workspace/en/careers/userprofile.php on line 235
+[09-Jul-2016 12:45:52 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 12:45:52 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 12:46:57 Asia/Riyadh] PHP Fatal error:  Call to undefined function rexperiences_get_by_idnumberanddate() in /home/ubuntu/workspace/en/careers/userprofile.php on line 235
+[09-Jul-2016 12:46:57 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 12:46:57 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 12:47:06 Asia/Riyadh] PHP Fatal error:  Call to undefined function rexperiences_get_by_idnumberanddate() in /home/ubuntu/workspace/en/careers/userprofile.php on line 235
+[09-Jul-2016 12:47:06 Asia/Riyadh] PHP Stack trace:
+[09-Jul-2016 12:47:06 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 12:54:35 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (05-005-07-) at position 0 (0): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:251
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(251): DateTime->__construct('05-005-07-')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 251
+[09-Jul-2016 12:55:44 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (05-005-07-) at position 0 (0): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:251
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(251): DateTime->__construct('05-005-07-')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 251
+[09-Jul-2016 12:00:13 UTC] PHP Warning:  require_once(logsession.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/en/careers/userprofile.php on line 4
+[09-Jul-2016 12:00:13 UTC] PHP Stack trace:
+[09-Jul-2016 12:00:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 12:00:13 UTC] PHP Fatal error:  require_once(): Failed opening required 'logsession.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/en/careers/userprofile.php on line 4
+[09-Jul-2016 12:00:13 UTC] PHP Stack trace:
+[09-Jul-2016 12:00:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[09-Jul-2016 12:38:39 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/en/careers/applyform.php on line 81
+[09-Jul-2016 23:37:39 UTC] PHP Fatal error:  Call to undefined function jobs_get_by_jobnumber() in /home/ubuntu/workspace/en/careers/applyform.php on line 13
+[09-Jul-2016 23:37:39 UTC] PHP Stack trace:
+[09-Jul-2016 23:37:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applyform.php:0
+[09-Jul-2016 23:44:57 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/ubuntu/workspace/en/careers/applyform.php on line 6
+[10-Jul-2016 00:00:22 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/en/careers/applyform.php on line 92
+[10-Jul-2016 05:35:32 Asia/Riyadh] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/log/logsession.php on line 2
+[10-Jul-2016 05:35:32 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 05:35:32 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobs.php:0
+[10-Jul-2016 05:35:32 Asia/Riyadh] PHP   2. require_once() /home/ubuntu/workspace/en/careers/jobs.php:47
+[10-Jul-2016 05:35:32 Asia/Riyadh] PHP   3. require_once() /home/ubuntu/workspace/en/careers/require/bheader.php:41
+[10-Jul-2016 05:35:32 Asia/Riyadh] PHP   4. session_start() /home/ubuntu/workspace/en/careers/log/logsession.php:2
+[10-Jul-2016 05:35:38 Asia/Riyadh] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/log/logsession.php on line 2
+[10-Jul-2016 05:35:38 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 05:35:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobs.php:0
+[10-Jul-2016 05:35:38 Asia/Riyadh] PHP   2. require_once() /home/ubuntu/workspace/en/careers/jobs.php:47
+[10-Jul-2016 05:35:38 Asia/Riyadh] PHP   3. require_once() /home/ubuntu/workspace/en/careers/require/bheader.php:41
+[10-Jul-2016 05:35:38 Asia/Riyadh] PHP   4. session_start() /home/ubuntu/workspace/en/careers/log/logsession.php:2
+[10-Jul-2016 05:35:43 Asia/Riyadh] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/log/logsession.php on line 2
+[10-Jul-2016 05:35:43 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 05:35:43 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[10-Jul-2016 05:35:43 Asia/Riyadh] PHP   2. require_once() /home/ubuntu/workspace/en/careers/applicantslist.php:54
+[10-Jul-2016 05:35:43 Asia/Riyadh] PHP   3. require_once() /home/ubuntu/workspace/en/careers/require/bheader.php:41
+[10-Jul-2016 05:35:43 Asia/Riyadh] PHP   4. session_start() /home/ubuntu/workspace/en/careers/log/logsession.php:2
+[10-Jul-2016 05:35:50 Asia/Riyadh] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/log/logsession.php on line 2
+[10-Jul-2016 05:35:50 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 05:35:50 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/jobs.php:0
+[10-Jul-2016 05:35:50 Asia/Riyadh] PHP   2. require_once() /home/ubuntu/workspace/en/careers/jobs.php:47
+[10-Jul-2016 05:35:50 Asia/Riyadh] PHP   3. require_once() /home/ubuntu/workspace/en/careers/require/bheader.php:41
+[10-Jul-2016 05:35:50 Asia/Riyadh] PHP   4. session_start() /home/ubuntu/workspace/en/careers/log/logsession.php:2
+[10-Jul-2016 10:34:09 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/adminusers.php on line 383
+[10-Jul-2016 13:35:39 Asia/Riyadh] PHP Warning:  require_once(db.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/en/careers/adminusers.php on line 272
+[10-Jul-2016 13:35:39 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 13:35:39 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminusers.php:0
+[10-Jul-2016 13:35:39 Asia/Riyadh] PHP Fatal error:  require_once(): Failed opening required 'db.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/en/careers/adminusers.php on line 272
+[10-Jul-2016 13:35:39 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 13:35:39 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminusers.php:0
+[10-Jul-2016 15:13:36 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[10-Jul-2016 15:13:36 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 15:13:36 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[10-Jul-2016 15:13:36 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[10-Jul-2016 15:20:57 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[10-Jul-2016 15:20:57 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 15:20:57 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[10-Jul-2016 15:20:57 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[10-Jul-2016 15:29:15 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[10-Jul-2016 15:29:15 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 15:29:15 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[10-Jul-2016 15:29:15 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[10-Jul-2016 17:57:17 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[10-Jul-2016 17:57:17 Asia/Riyadh] PHP Stack trace:
+[10-Jul-2016 17:57:17 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[10-Jul-2016 17:57:17 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[11-Jul-2016 03:40:39 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[11-Jul-2016 03:40:39 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 03:40:39 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[11-Jul-2016 03:40:39 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[11-Jul-2016 03:41:08 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[11-Jul-2016 03:41:08 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 03:41:08 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[11-Jul-2016 03:41:08 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[11-Jul-2016 05:24:49 Asia/Riyadh] PHP Fatal error:  Call to undefined function rexperiences_get_sum() in /home/ubuntu/workspace/en/careers/userprofile.php on line 1002
+[11-Jul-2016 05:24:49 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 05:24:49 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/userprofile.php:0
+[11-Jul-2016 07:01:19 Asia/Riyadh] PHP Warning:  require_once(/home/ubuntu/workspace/en/careers/require/themepanel.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/en/careers/login.php on line 113
+[11-Jul-2016 07:01:19 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 07:01:19 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/login.php:0
+[11-Jul-2016 07:01:19 Asia/Riyadh] PHP Fatal error:  require_once(): Failed opening required '/home/ubuntu/workspace/en/careers/require/themepanel.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/en/careers/login.php on line 113
+[11-Jul-2016 07:01:19 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 07:01:19 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/login.php:0
+[11-Jul-2016 07:05:51 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[11-Jul-2016 07:05:51 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 07:05:51 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[11-Jul-2016 07:05:51 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[11-Jul-2016 04:18:55 UTC] PHP Parse error:  syntax error, unexpected '$user' (T_VARIABLE) in /home/ubuntu/workspace/en/careers/admintable.php on line 181
+[11-Jul-2016 04:48:17 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/ubuntu/workspace/en/careers/userprofilehr.php on line 475
+[11-Jul-2016 04:48:42 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/ubuntu/workspace/en/careers/userprofilehr.php on line 475
+[11-Jul-2016 08:03:06 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[11-Jul-2016 08:03:06 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 08:03:06 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[11-Jul-2016 08:03:06 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[11-Jul-2016 08:03:55 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[11-Jul-2016 08:03:55 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 08:03:55 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[11-Jul-2016 08:03:55 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[11-Jul-2016 11:22:03 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[11-Jul-2016 11:22:03 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 11:22:03 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[11-Jul-2016 11:22:03 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[11-Jul-2016 11:25:10 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[11-Jul-2016 11:25:10 Asia/Riyadh] PHP Stack trace:
+[11-Jul-2016 11:25:10 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[11-Jul-2016 11:25:10 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[12-Jul-2016 02:49:10 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:41) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[12-Jul-2016 02:49:10 Asia/Riyadh] PHP Stack trace:
+[12-Jul-2016 02:49:10 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[12-Jul-2016 02:49:10 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[12-Jul-2016 03:46:35 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (4673636736) at position 8 (3): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:272
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(272): DateTime->__construct('4673636736')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 272
+[12-Jul-2016 03:47:22 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (43452345) at position 7 (5): Unexpected character' in /home/ubuntu/workspace/en/careers/userprofile.php:272
+Stack trace:
+#0 /home/ubuntu/workspace/en/careers/userprofile.php(272): DateTime->__construct('43452345')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/careers/userprofile.php on line 272
+[12-Jul-2016 07:25:11 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[12-Jul-2016 07:25:11 Asia/Riyadh] PHP Stack trace:
+[12-Jul-2016 07:25:11 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[12-Jul-2016 07:25:11 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[13-Jul-2016 05:26:04 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[13-Jul-2016 05:26:04 Asia/Riyadh] PHP Stack trace:
+[13-Jul-2016 05:26:04 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[13-Jul-2016 05:26:04 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[13-Jul-2016 19:01:21 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[13-Jul-2016 19:01:21 Asia/Riyadh] PHP Stack trace:
+[13-Jul-2016 19:01:21 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[13-Jul-2016 19:01:21 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[14-Jul-2016 07:58:59 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[14-Jul-2016 07:58:59 Asia/Riyadh] PHP Stack trace:
+[14-Jul-2016 07:58:59 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[14-Jul-2016 07:58:59 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[14-Jul-2016 14:40:37 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[14-Jul-2016 14:40:37 Asia/Riyadh] PHP Stack trace:
+[14-Jul-2016 14:40:37 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[14-Jul-2016 14:40:37 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[14-Jul-2016 14:54:23 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[14-Jul-2016 14:54:23 Asia/Riyadh] PHP Stack trace:
+[14-Jul-2016 14:54:23 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[14-Jul-2016 14:54:23 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[14-Jul-2016 14:55:26 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[14-Jul-2016 14:55:26 Asia/Riyadh] PHP Stack trace:
+[14-Jul-2016 14:55:26 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[14-Jul-2016 14:55:26 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[14-Jul-2016 14:57:45 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[14-Jul-2016 14:57:45 Asia/Riyadh] PHP Stack trace:
+[14-Jul-2016 14:57:45 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[14-Jul-2016 14:57:45 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[14-Jul-2016 17:09:34 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[14-Jul-2016 17:09:34 Asia/Riyadh] PHP Stack trace:
+[14-Jul-2016 17:09:34 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[14-Jul-2016 17:09:34 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[14-Jul-2016 20:13:50 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[14-Jul-2016 20:13:50 Asia/Riyadh] PHP Stack trace:
+[14-Jul-2016 20:13:50 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[14-Jul-2016 20:13:50 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[15-Jul-2016 13:21:07 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[15-Jul-2016 13:21:07 Asia/Riyadh] PHP Stack trace:
+[15-Jul-2016 13:21:07 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[15-Jul-2016 13:21:07 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[15-Jul-2016 15:24:15 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[15-Jul-2016 15:24:15 Asia/Riyadh] PHP Stack trace:
+[15-Jul-2016 15:24:15 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[15-Jul-2016 15:24:15 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[15-Jul-2016 15:38:40 Asia/Riyadh] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/en/careers/applicantslist.php on line 121
+[15-Jul-2016 15:38:40 Asia/Riyadh] PHP Stack trace:
+[15-Jul-2016 15:38:40 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[15-Jul-2016 15:39:20 Asia/Riyadh] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/en/careers/applicantslist.php on line 121
+[15-Jul-2016 15:39:20 Asia/Riyadh] PHP Stack trace:
+[15-Jul-2016 15:39:20 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[15-Jul-2016 15:39:22 Asia/Riyadh] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/en/careers/applicantslist.php on line 121
+[15-Jul-2016 15:39:22 Asia/Riyadh] PHP Stack trace:
+[15-Jul-2016 15:39:22 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[15-Jul-2016 15:39:26 Asia/Riyadh] PHP Fatal error:  Function name must be a string in /home/ubuntu/workspace/en/careers/applicantslist.php on line 121
+[15-Jul-2016 15:39:26 Asia/Riyadh] PHP Stack trace:
+[15-Jul-2016 15:39:26 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[15-Jul-2016 12:40:09 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/ubuntu/workspace/en/careers/applicantslist.php on line 121
+[15-Jul-2016 12:41:12 UTC] PHP Fatal error:  Cannot use isset() on the result of a function call (you can use "null !== func()" instead) in /home/ubuntu/workspace/en/careers/applicantslist.php on line 122
+[15-Jul-2016 12:55:35 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/ubuntu/workspace/en/careers/applicantslist.php on line 124
+[15-Jul-2016 16:58:18 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[15-Jul-2016 16:58:18 Asia/Riyadh] PHP Stack trace:
+[15-Jul-2016 16:58:18 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[15-Jul-2016 16:58:18 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[15-Jul-2016 17:16:48 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[15-Jul-2016 17:16:48 Asia/Riyadh] PHP Stack trace:
+[15-Jul-2016 17:16:48 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[15-Jul-2016 17:16:48 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 09:09:05 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 09:09:05 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 09:09:05 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 09:09:05 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 09:26:45 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 09:26:45 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 09:26:45 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 09:26:45 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 09:32:14 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 09:32:14 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 09:32:14 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 09:32:14 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 10:52:59 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 10:52:59 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 10:52:59 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 10:52:59 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 10:53:32 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 10:53:32 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 10:53:32 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 10:53:32 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 10:54:21 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 10:54:21 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 10:54:21 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 10:54:21 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 12:40:53 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 12:40:53 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 12:40:53 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 12:40:53 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 12:41:19 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 12:41:19 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 12:41:19 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 12:41:19 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[16-Jul-2016 14:28:11 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[16-Jul-2016 14:28:11 Asia/Riyadh] PHP Stack trace:
+[16-Jul-2016 14:28:11 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[16-Jul-2016 14:28:11 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[17-Jul-2016 16:23:05 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[17-Jul-2016 16:23:05 Asia/Riyadh] PHP Stack trace:
+[17-Jul-2016 16:23:05 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[17-Jul-2016 16:23:05 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[18-Jul-2016 13:18:24 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[18-Jul-2016 13:18:24 Asia/Riyadh] PHP Stack trace:
+[18-Jul-2016 13:18:24 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[18-Jul-2016 13:18:24 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[18-Jul-2016 16:58:48 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[18-Jul-2016 16:58:48 Asia/Riyadh] PHP Stack trace:
+[18-Jul-2016 16:58:48 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[18-Jul-2016 16:58:48 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[18-Jul-2016 17:49:54 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[18-Jul-2016 17:49:54 Asia/Riyadh] PHP Stack trace:
+[18-Jul-2016 17:49:54 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[18-Jul-2016 17:49:54 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[18-Jul-2016 18:52:10 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[18-Jul-2016 18:52:10 Asia/Riyadh] PHP Stack trace:
+[18-Jul-2016 18:52:10 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[18-Jul-2016 18:52:10 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[18-Jul-2016 20:05:16 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[18-Jul-2016 20:05:16 Asia/Riyadh] PHP Stack trace:
+[18-Jul-2016 20:05:16 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[18-Jul-2016 20:05:16 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[18-Jul-2016 20:18:30 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[18-Jul-2016 20:18:30 Asia/Riyadh] PHP Stack trace:
+[18-Jul-2016 20:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[18-Jul-2016 20:18:30 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[21-Jul-2016 11:02:22 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[21-Jul-2016 11:02:22 Asia/Riyadh] PHP Stack trace:
+[21-Jul-2016 11:02:22 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[21-Jul-2016 11:02:22 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[26-Jul-2016 22:37:37 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[26-Jul-2016 22:37:37 Asia/Riyadh] PHP Stack trace:
+[26-Jul-2016 22:37:37 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[26-Jul-2016 22:37:37 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[26-Jul-2016 22:38:45 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[26-Jul-2016 22:38:45 Asia/Riyadh] PHP Stack trace:
+[26-Jul-2016 22:38:45 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[26-Jul-2016 22:38:45 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[27-Jul-2016 14:31:49 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[27-Jul-2016 14:31:49 Asia/Riyadh] PHP Stack trace:
+[27-Jul-2016 14:31:49 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[27-Jul-2016 14:31:49 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
