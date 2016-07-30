@@ -595,3 +595,7 @@ Stack trace:
 [27-Jul-2016 14:31:49 Asia/Riyadh] PHP Stack trace:
 [27-Jul-2016 14:31:49 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
 [27-Jul-2016 14:31:49 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[30-Jul-2016 10:40:19 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[30-Jul-2016 10:40:19 Asia/Riyadh] PHP Stack trace:
+[30-Jul-2016 10:40:19 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[30-Jul-2016 10:40:19 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277

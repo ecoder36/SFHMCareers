@@ -7,8 +7,6 @@
 <?php
 @require_once('require/api/db.php');
 @require_once('require/api/formAPI.php');
-
-            
 ?>
 <!DOCTYPE html>
 
@@ -56,7 +54,7 @@
                 <!-- BEGIN CONTENT BODY -->
                 <!-- BEGIN PAGE HEAD-->
                 <div class="page-head">
-                    <div class="container-fluid">
+                    <div class="container">
                         <!-- BEGIN PAGE TITLE -->
                         <div class="page-title">
                             <h1> 
@@ -84,7 +82,6 @@
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
                                 <span>السجل </span>
-                               
                             </li>
                             
                         </ul>
@@ -141,19 +138,23 @@
                                           {
                                               $user = $users[$i];
                                               
+                                              if( $user->att != null)
+                                                          $att = "<a href='file/$user->att' target='_blank' class='primary-link'>رابط</a>";
+                                                          else {
+                                                              $att= "لا يوجد ملف ";
+                                                                }
                                          echo  "<tr>   
                                                   <td> $user->name  </td>
-                                                  <td> $user->bdate  </td>
+                                                  <td> $user->bdate </td>
                                                   <td> $user->age  </td>
                                                   <td> $user->sex  </td>
                                                   <td> $user->idnumber  </td>
-                                                  <td> $user->fidnumber  </td>
+                                                  <td> $user->fidnumber </td>
                                                   <td> $user->city  </td>
                                                   <td> $user->phone1  </td>
                                                   <td> $user->phone2  </td>
-                                                  <td> <a href='file/$user->att' target='_blank' class='primary-link'>Link</a> </td>
-                                                  <td> $user->date   </td>
-                                                  
+                                                  <td> $att </td>
+                                                  <td> $user->date </td>
                                                   "
                                                   ?>
                                                  <!-- <td>
@@ -174,11 +175,7 @@
                                             
                                             <?php } else { ?>
                                             <!-- BEGIN FORM-->
-                                             
-                                            
                                             <form  action="?hgj=dgfjgh&jhjl=hgjghg" id="form_sample_3" class="form-horizontal">
-                                                
-                                                
                                                     <input type="hidden" name="idnumber" class="form-control" value="7853" />    
                                                     <input type="hidden" name="id" class="form-control" value="56 56" /> 
                                                     <div class="form-group">

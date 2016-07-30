@@ -47,9 +47,9 @@
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
                         <h2>للإتصال</h2>
-                        <address class="margin-bottom-40"> هاتف : 0125278888
+                        <address class="margin-bottom-40">  
                             <br> البريد الإلكتروني :
-                            <a href="mailto:info@sfhm.com">info@sfhm.com</a>
+                            <a href="mailto:info@sfhm.com"></a>
                         </address>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
         <!-- BEGIN INNER FOOTER -->
         <div class="page-footer">
             <div class="container-fluid"> جميع الحقوق محفوظة 2016 &copy; سلطان زقزوق .
-                <a href="#" title="" >SFHMCareers</a>
+                <a href="#" title="" ></a>
             </div>
         </div>
         <div class="scroll-to-top">

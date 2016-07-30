@@ -175,6 +175,11 @@ if(@$error) {
                                             </div>
                                         </div>
                                         <div class="portlet-body">
+                                            <?php
+                                                if(isset($_GET['done'])){echo '<div class="alert alert-success ">
+                                                <strong> تم إضافة بياناتك بنجاح , وشكرا . </strong></div>';}
+                                            ?>
+                                                <?php if(!isset($_GET['done'])){ ?>		
                                             <!-- BEGIN FORM-->
                                             <form method="post" id="form_sample_2" class="form-horizontal" enctype="multipart/form-data">
                                                 <div class="form-body">
@@ -182,14 +187,10 @@ if(@$error) {
                                                         <button class="close" data-close="alert"></button> يوجد خطأ في النموذج , يرجى التأكد منه </div>
                                                     
                                                         <?php
-                                                     if(@$error) {
+                                                         if(@$error) {
                                                 		echo '<div class="alert alert-danger"><button class="close" data-close="alert"></button><strong> يوجد خطأ في النموذج يرجى التأكد منه  </strong></div>';
                                                 		}
                                                 		?>
-                                                		 <?php
-                                                            if(isset($_GET['done'])){echo '<div class="alert alert-success ">
-                                                            <button class="close" data-close="alert"></button><strong> تم إضافة بياناتك بنجاح , وشكرا . </strong></div>';}
-                                                        ?>
                                                 		
                                                 		
                                                     <div class="form-group  margin-top-20">
@@ -321,9 +322,6 @@ if(@$error) {
                                                             </div>
                                                         </div>
                                                     </div>
-                                    
-                                    
-                                    
                                                 </div>
                                                 <div class="form-actions">
                                                     <div class="row">
@@ -334,6 +332,9 @@ if(@$error) {
                                                 </div>
                                             </form>
                                             <!-- END FORM-->
+                                            <?php } ?>
+                                            
+                                            
                                         </div>
                                     </div>
                                     <!-- END VALIDATION STATES-->
