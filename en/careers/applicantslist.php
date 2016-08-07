@@ -10,7 +10,8 @@ if($_SESSION['admin_info'] != false  )
 @require_once('require/api/addjobsAPI.php');
 @require_once('require/api/addresumesAPI.php');
 
-   $rapp = rapp_get_by_idnumber(trim(@$_GET['idnumber']));                          
+   $rapp = rapp_get_by_idnumber(trim(@$_GET['idnumber']));
+   
 ?>
 
 <!DOCTYPE html>
@@ -135,6 +136,7 @@ if($_SESSION['admin_info'] != false  )
                                                                            <label><input type="checkbox" name="myCheckbox[]" value="ID Number" >ID Number</label> 
                                                                            <label><input type="checkbox" name="myCheckbox[]" value="Reference Number" >Reference Number</label>  
                                                                            <label><input type="checkbox" name="myCheckbox[]" value="Status" >Status</label>
+                                                                            <label><input type="checkbox" name="myCheckbox[]" value="Nationality" >Nationality</label>
                                                                            <label><input type="checkbox" name="myCheckbox[]" value="CV Link" >CV Link</label>
                                                                         </div>
                                                                         <div class="col-md-4 checkbox-list">
@@ -212,7 +214,7 @@ if($_SESSION['admin_info'] != false  )
                                                       $userst = jobsen_get_by_jobnumber("$jobnumber");
                                                       $idnumber= $user->idnumber ;
                                                       $reducation = reducation_get_by_idnumber("$idnumber");
-                                                      
+                                                      $rid =   rid_get_by_idnumber("$idnumber");
                                                       if( $reducation->cvatt != null)
                                                           $cv = " <a href='file/$reducation->cvatt' target='_blank' class='primary-link'>CV Link</a>";
                                                           else {
@@ -261,6 +263,8 @@ if($_SESSION['admin_info'] != false  )
                                                                    $val = $cv ;
                                                                }elseif($param_val == 'Profile Link'){
                                                                    $val = $profile ;
+                                                               }elseif($param_val == 'Nationality'){
+                                                                   $val = $rid->nationality ;
                                                                }
                                                                else{
                                                                    $val = "" ;

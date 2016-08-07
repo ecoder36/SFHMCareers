@@ -196,13 +196,21 @@ if(isset($_GET['jobnumber']))
                                                $applc = @count($appl);
                                                 $cand = rapp_get("WHERE `jobnumber` = '$user->jobnumber' AND `approval` = 'Candidate' ORDER BY `id` DESC");
                                                $can = @count($cand);
+                                               
+                                               if($applc == '0'){
+                                                 $applc1 = "<label class='btn green btn-outline' href=\"applicantslist.php?approval= &jobnumber=$user->jobnumber \" > $applc</label>";
+                                               }else{
+                                                 $applc1 = "<a class='btn btn-info btn-outline' href=\"applicantslist.php?approval= &jobnumber=$user->jobnumber \" > $applc</a>";
+                                               }
                                     echo  "<tr>   
                                                   
                                                   <td> <a class='btn green btn-outline' href=\"viewjob.php?jobnumber=$user->jobnumber \" data-toggle='modal'>$userst->jobname
                                                   <i class='fa fa-share'></i>
                                                   </a></td>
-                                                  <td> <a class='btn green btn-outline' href=\"applicantslist.php?approval= &jobnumber=$user->jobnumber \" > $applc
-                                                    </a>
+                                                  <td> 
+                                                  $applc1
+                                                  
+                                                    
                                                      </td>
                                                   <td> <a class='btn green btn-outline' href=\"applicantslist.php?approval=Candidate&jobnumber=$user->jobnumber \" > $can
                                                     </a>
