@@ -68,9 +68,16 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                     header("Location: login.php?iderror=erorr&idnumber=$idnumber");
                                                 die();
                                                    }else{
+                                                        $name = $_FILES['file']['name']; $tmp_name = $_FILES['file']['tmp_name'];
+                                                        $type = $_FILES['file']['type']; $size = $_FILES['file']['size']; $error = $_FILES['file']['error'];
+                                                        $uniqid = uniqid();
+                                                        $file_name = $idnumber.'.'.$uniqid.'.'.$name  ;
+                                                        if(move_uploaded_file($tmp_name, "../../en/careers/file/".$file_name)){ $cvatt = $file_name; } else {  $cvatt = 'null' ; }
+                                                        
+                                                        
                                                      @$result = rapp_add(trim($_POST['idnumber']),trim($_GET['jobnumber']),$rno=null,trim($_POST['afullname']),trim($_POST['efullname']),trim($_POST['bdate']),trim($_POST['email']),$_POST['phone'],$pass=null,$approval=null,$acceptance=null).
                                                      rid_add(trim($_POST['idnumber']),$expire=null,$_POST['country'],$_POST['city'],$_POST['gender'],$_POST['mstatus'],$idatt=null).
-                                                     reducation_add(trim($_POST['idnumber']),$_POST['universityname'],$_POST['degree'],$_POST['major'],$_POST['universitydate'],$_POST['universitycountry'],$_POST['universitycity'],$_POST['grad'],$cvatt=null,$ceratt=null,$traatt=null).rinfo_add(trim($_POST['idnumber']));
+                                                     reducation_add(trim($_POST['idnumber']),$_POST['universityname'],$_POST['degree'],$_POST['major'],$_POST['universitydate'],$_POST['universitycountry'],$_POST['universitycity'],$_POST['grad'],$ceratt=null,$traatt=null,$cvatt).rinfo_add(trim($_POST['idnumber']));
                                                      if($result)
                                                      {
                                                           $idno = rapp_get_by_idnumber(trim($_POST['idnumber'])) ;
@@ -133,6 +140,7 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
         
         
         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
@@ -211,7 +219,7 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                             </div>
                                         </div>
                                         <div class="portlet-body form">
-                                            <form method="post" class="form-horizontal" id="submit_form">
+                                            <form method="post" class="form-horizontal" id="submit_form" enctype="multipart/form-data">
                                                 <div class="form-wizard">
                                                     <div class="form-body">
                                                         <ul class="nav nav-pills nav-justified steps">
@@ -959,6 +967,19 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                                                         <span class="help-block"> مثال : 3.55 من 4.00 أو 98.85% </span>
                                                                     </div>
                                                                 </div>
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-3">ملف السيرة الذاتية</label>
+                                                                    <div class="col-md-4">
+                                                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                            <span class="btn green btn-file">
+                                                                                <span class="fileinput-new"> اختيار الملف </span>
+                                                                                <span class="fileinput-exists"> تغيير </span>
+                                                                                <input type="file" name="file"> </span>
+                                                                            <span class="fileinput-filename"> </span> &nbsp;
+                                                                            <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 
                                                             </div>
                                                             <div class="tab-pane" id="tab4">
@@ -1122,6 +1143,8 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         
+         <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+         
          <script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>

@@ -49,6 +49,7 @@ var FormWizard = function () {
                         email: true
                     },
                     phone: {
+                        digits: true,
                         required: true
                     },
                     //general details
@@ -97,6 +98,9 @@ var FormWizard = function () {
                         required: true
                     },
                     grad: {
+                        required: true
+                    },
+                    file: {
                         required: true
                     },
                     //account

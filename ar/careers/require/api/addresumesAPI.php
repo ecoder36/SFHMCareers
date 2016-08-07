@@ -29,7 +29,7 @@ function rid_add($idnumber,$expire,$nationality,$city,$gender,$mstatus,$idatt)
 
 }
 
-function reducation_add($idnumber,$eduname,$degree,$major,$edudate,$educuntry,$educity,$grade,$cvatt,$ceratt,$traatt)
+function reducation_add($idnumber,$eduname,$degree,$major,$edudate,$educuntry,$educity,$grade,$ceratt,$traatt,$cvatt)
 {
 
     global $tf_handle;
@@ -44,11 +44,11 @@ function reducation_add($idnumber,$eduname,$degree,$major,$edudate,$educuntry,$e
     $n_educuntry         = @mysql_real_escape_string(strip_tags($educuntry),$tf_handle);
     $n_educity           = @mysql_real_escape_string(strip_tags($educity),$tf_handle);
     $n_grade             = @mysql_real_escape_string(strip_tags($grade),$tf_handle);
-    $n_cvatt             = @mysql_real_escape_string(strip_tags($cvatt),$tf_handle);
     $n_ceratt            = @mysql_real_escape_string(strip_tags($ceratt),$tf_handle);
     $n_traatt            = @mysql_real_escape_string(strip_tags($traatt),$tf_handle);
+    $n_cvatt             = @mysql_real_escape_string(strip_tags($cvatt),$tf_handle);
     
-    $query = sprintf("INSERT INTO `reducation` VALUE(NULL,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",$n_idnumber,$n_eduname,$n_degree,$n_major,$n_edudate,$n_educuntry,$n_educity,$n_grade,$n_cvatt,$n_ceratt,$n_traatt);
+    $query = sprintf("INSERT INTO `reducation` VALUE(NULL,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",$n_idnumber,$n_eduname,$n_degree,$n_major,$n_edudate,$n_educuntry,$n_educity,$n_grade,$n_ceratt,$n_traatt,$n_cvatt);
     //echo $query;
     $qresult = @mysql_query($query);
     if (!$qresult)

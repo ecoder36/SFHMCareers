@@ -1,17 +1,51 @@
 
 <?php
+
 require_once('log/adminlogsession.php');
 
 if($_SESSION['admin_info'] != false  )
 {
-    
-@require_once('require/api/db.php');
-@require_once('require/api/rappAPI.php');
-@require_once('require/api/addjobsAPI.php');
-@require_once('require/api/addresumesAPI.php');
+  
 
-   $rapp = rapp_get_by_idnumber(trim(@$_GET['idnumber']));                          
+@require_once('require/api/db.php');
+@require_once('require/api/addjobsAPI.php');
+@require_once('require/api/rappAPI.php');
+
+//if(isset($_GET['jobnumber']))
+//if(isset($_POST['date']))
+if(isset($_GET['jobnumber']))
+{
+     $job   =   jobs_get_by_jobnumber(trim($_GET['jobnumber']));
+     $_id = $job->id ;
+     $_jobnumber = trim($_GET['jobnumber']);
+            if($_jobnumber == 0)
+                die('Bad Access 2');
+                
+                if($_GET['required'] == 0){
+                    $required = "00" ;
+                }else{
+                    $required = $_GET['required'] ;
+                }
+                if($_GET['date'] == ''){
+                    $dater = " " ;
+                }else{
+                    $dater = $_GET['date'] ;
+                }
+               
+     $result = jobs_date_update($_id,$dater,$required);
+
+                                 if($result)
+                                 {
+                                     
+                                     header("Location: ?dates=".$_GET['date']." required ".$_GET['required']."");
+                                 }else{ 
+                                     die('Update Failure');
+                                     }
+                                    
+                                 die();   
+}
 ?>
+
 
 <!DOCTYPE html>
 
@@ -21,7 +55,7 @@ if($_SESSION['admin_info'] != false  )
 
     <head>
         <meta charset="utf-8" />
-        <title>Applicants List </title>
+        <title>Admin Jobs </title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -56,7 +90,7 @@ if($_SESSION['admin_info'] != false  )
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
-        <?php $acapplicantslist ="active" ?>
+        <?php $acadmintable ="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         <!-- END HEADER -->
         <!-- BEGIN CONTAINER -->
@@ -69,8 +103,8 @@ if($_SESSION['admin_info'] != false  )
                     <div class="container-fluid">
                         <!-- BEGIN PAGE TITLE -->
                         <div class="page-title">
-                            <h1>Applicants
-                                <small>Applicants List</small>
+                            <h1>Jobs
+                                <small>Jobs Admin</small>
                             </h1>
                         </div>
                         <!-- END PAGE TITLE -->
@@ -89,15 +123,15 @@ if($_SESSION['admin_info'] != false  )
                     <div class="container-fluid">
                         <!-- BEGIN PAGE BREADCRUMBS -->
                         <ul class="page-breadcrumb breadcrumb">
-                            
+                       
                             <li>
-                                <span>Applicants List</span>
+                                <span>Jobs</span>
                             </li>
                         </ul>
-                      
                         <!-- END PAGE BREADCRUMBS -->
                         <!-- BEGIN PAGE CONTENT INNER -->
                         <div class="page-content-inner">
+                            
                             <div class="row">
                                 <div class="col-md-12">
                                      <?php
@@ -110,81 +144,80 @@ if($_SESSION['admin_info'] != false  )
                                     <div class="portlet light ">
                                         <div class="portlet-title">
                                             <div class="caption font-dark">
-                                                <span class="label"><a class="btn btn-circle btn-icon-only btn-default" data-original-title="Select Columns" href="#daterangepicker_modal" data-toggle="modal">
-                                                        <i class="icon-wrench"></i>
-                                                    </a></span>
+                                                <i class="icon-settings font-dark"></i>
+                                                <span class="caption-subject bold uppercase">Jobs</span>
                                             </div>
-                                            <div class="tools">
-                                            </div>
+                                            <div class="tools"> </div>
                                         </div>
-                                         <div id="daterangepicker_modal" class="modal fade" role="dialog" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                        <h4 class="modal-title">Select Columns </h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                         <div class="row">
-                                                            <div class="col-md-12">
-                                                                <form action="" method="post" class="form-horizontal">
-                                                                    <div class="form-group">
-                                                                       <label class="col-md-3">Checkboxes</label>
-                                                                        <div class="col-md-4 checkbox-list">
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Position" >Position</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="ID Number" >ID Number</label> 
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Reference Number" >Reference Number</label>  
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Status" >Status</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="CV Link" >CV Link</label>
-                                                                        </div>
-                                                                        <div class="col-md-4 checkbox-list">
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Applicants En Name" >Applicants En Name</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Applicants Ar Name" >Applicants Ar Name</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Email" >Email</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Phone" >Phone</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Profile Link" >Profile Link</label>
-                                                                        </div>
-                                                                    </div>
-                                                                     <input type="hidden" name="jobnumber" class="form-control" value="<?php echo $user->jobnumber ; ?>" />
-                                                                    <div class="modal-footer">
-                                                                        <button type="submit" class="btn green btn-primary" ><i class="fa fa-save"></i></button>
-                                                                        <button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
+                                        <div class="portlet-body">
+                                            <div class="table-toolbar">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="btn-group">
+                                                             <a class="btn green" href="#daterangepicker_modal" data-toggle="modal"> Click 
+                                                                <i class="fa fa-plus"></i>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
-                                        
-                                        <div class="portlet-body">
-                                             <?php 
-                                             
-                                             @$jobnum = ($_GET['jobnumber']);
-                                             @$approv = ($_GET['approval']);
+                                             <div id="daterangepicker_modal" class="modal fade" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                                    <h4 class="modal-title"></h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                     <div class="row">
+                                                                        <div class="col-md-12">
+                                                                                <form action="" method="post" class="form-horizontal">
+                                                                                    
+                                                                                    <div class="form-group">
+                                                                                       <label class="col-md-3">Checkboxes</label>
+                                                                                        <div class="col-md-9 checkbox-list">
+                                                                                            <label >
+                                                                                                <input type="checkbox" name="myCheckbox[]" value="Position" >Position</label>
+                                                                                             <label>
+                                                                                                <input type="checkbox" name="myCheckbox[]" value="Applicants" >Applicants</label>
+                                                                                             <label>
+                                                                                                <input type="checkbox" name="myCheckbox[]" value="Candidates" >Candidates</label> 
+                                                                                             <label>
+                                                                                                <input type="checkbox" name="myCheckbox[]" value="Date" >Date</label>  
+                                                                                            <label>
+                                                                                                <input type="checkbox" name="myCheckbox[]" value="Required" >Required</label>     
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                     <input type="hidden" name="jobnumber" class="form-control" value="<?php echo $user->jobnumber ; ?>" />
+                                                                                    
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="submit" class="btn green btn-primary" ><i class="fa fa-save"></i></button>
+                                                                                            <button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+                                                                                        </div>
+                                                                                </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                             <?php      
                                             
-                                             if(!isset($jobnum) ){
-                                              $users = rapp_get('ORDER BY `id` DESC');
-                                             }
-                                             if(isset($jobnum) ){
-                                            $users = rapp_get("WHERE `jobnumber` = '$jobnum' AND `approval` = '$approv' ORDER BY `id` DESC");
-                                             }
-                                             
+                                            $users = jobs_get('ORDER BY `id` DESC');
                                             if($users == NULL)
-                                                  echo ('');
-                                                  
+                                              //  die ('problem');
+                                                  echo ('problem');
                                             $ucount = @count($users);
                                             if($ucount == 0)
-                                                  echo ('');
-                                                  
+                                                  echo ('No users');
                                             ?>
-                                            <table class="table table-striped table-bordered table-hover" id="sample_2">
+                                            <table class="table table-striped table-bordered table-hover" id="sample_1">
                                                 <thead>
                                                     <tr>
+                                                        
                                                         <?php
-                                                      $myboxes = $_POST['myCheckbox'];
+                                                              $myboxes = $_POST['myCheckbox'];
                                                       if(!empty($myboxes))
                                                       {
                                                               $test = array_unique($myboxes);
@@ -192,50 +225,43 @@ if($_SESSION['admin_info'] != false  )
                                                                 echo '<th>'.$val.'</th>' ;
                                                                } 
                                                       } else  {
+                                                                echo("You didn't select any boxes.");
+                                                              }
                                                         ?>
-                                                        <th> Position </th>
-                                                        <th> Applicant En Name </th>
-                                                        <th> IDnumber </th>
-                                                        <th> Rno </th>
-                                                        <th> Status </th>
-                                                        <th> Action </th>
-                                                        <?php } ?>
+                                                        
+                                                       
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    
                                                      <?php
-                                                  for($i = 0 ; $i < $ucount; $i++)
-                                                  {
-                                                      $user = $users[$i];
-                                                      $jobnumber= $user->jobnumber ;
-                                                      $userst = jobsen_get_by_jobnumber("$jobnumber");
-                                                      $idnumber= $user->idnumber ;
-                                                      $reducation = reducation_get_by_idnumber("$idnumber");
-                                                      
-                                                      if( $reducation->cvatt != null)
-                                                          $cv = " <a href='file/$reducation->cvatt' target='_blank' class='primary-link'>CV Link</a>";
-                                                          else {
-                                                          $cv = " NO CV ";
-                                                                }
-                                                      
-                                                      
-                                                      if($user->approval == "Candidate"){
-                                                          $approvalc = "<span class='label label-sm label-success'>$user->approval</span>" ;
-                                                      }
-                                                      if($user->approval == "Excluded"){
-                                                          $approvalc = "<span class='label label-sm label-danger'>$user->approval</span>" ;
-                                                      }
-                                                      if($user->approval == ""){
-                                                          $approvalc = "<span class='label label-sm label-warning'>new</span>" ;
-                                                      }
-                                                       
-                                                       $profile= '<a class="btn blue-steel tooltips"  data-original-title="View Profile" href="userprofilehr.php?idnumber='.$user->idnumber.'" ><i class="fa fa-user blue-steel"></i> Profile</a>';
-                                                       
-                                                       $myboxes = $_POST['myCheckbox'];
-                                                     //  $test = array_unique($myboxes);
+                                          for($i = 0 ; $i < $ucount; $i++)
+                                          {
+                                              $user = $users[$i];
+                                              $jobnumber= $user->jobnumber ;
+                                              $userst = jobsen_get_by_jobnumber("$jobnumber" );
+                                                    
+                                                date_default_timezone_set("Asia/Riyadh");
+                                                $date1 = substr($user->ldate,0,10);
+                                                $date2 = substr($user->ldate,-10);
+                                                $datenow = Date('d-m-Y') ;
+
+                                            if(strtotime($date1) <=  strtotime($datenow) && strtotime($datenow)  <= strtotime($date2)){
+                                            $gdate = "<span class='label label-sm label-success'>$user->ldate</span>" ;
+                                            }else{
+                                                $gdate =$user->ldate ;
+                                            }
+                                        
+                                            
+                                              $appl = rapp_get("WHERE `jobnumber` = '$user->jobnumber' AND `approval` = '' ORDER BY `id` DESC");
+                                               $applc = @count($appl);
+                                                $cand = rapp_get("WHERE `jobnumber` = '$user->jobnumber' AND `approval` = 'Candidate' ORDER BY `id` DESC");
+                                               $can = @count($cand);
+                                               
+
+                                                        $test = array_unique($myboxes);
                                                         $user = $users[$i];
-                                                       
+                                                        $myboxes = $_POST['myCheckbox'];
                                                       if(!empty($myboxes))
                                                       {   
                                                             echo  "<tr>"  ; 
@@ -243,24 +269,14 @@ if($_SESSION['admin_info'] != false  )
                                                              {
                                                                if ($param_val == 'Position'){
                                                                $val = $userst->jobname ;
-                                                               }elseif($param_val == 'Applicants En Name'){
-                                                                   $val = $user->efullname ;
-                                                               }elseif($param_val == 'Applicants Ar Name'){
-                                                                   $val = $user->afullname ;
-                                                               }elseif($param_val == 'ID Number'){
-                                                                   $val = $user->idnumber ;
-                                                               }elseif($param_val == 'Reference Number'){
-                                                                   $val = $user->rno ;
-                                                               }elseif($param_val == 'Status'){
-                                                                   $val = $approvalc ;
-                                                               }elseif($param_val == 'Email'){
-                                                                   $val = $user->email ;
-                                                               }elseif($param_val == 'Phone'){
-                                                                   $val = $user->mobile ;
-                                                               }elseif($param_val == 'CV Link'){
-                                                                   $val = $cv ;
-                                                               }elseif($param_val == 'Profile Link'){
-                                                                   $val = $profile ;
+                                                               }elseif($param_val == 'Applicants'){
+                                                                   $val = $applc ;
+                                                               }elseif($param_val == 'Candidates'){
+                                                                   $val = $can ;
+                                                               }elseif($param_val == 'Date'){
+                                                                   $val = $gdate ;
+                                                               }elseif($param_val == 'Required'){
+                                                                   $val = $user->requairedno ;
                                                                }
                                                                else{
                                                                    $val = "" ;
@@ -268,22 +284,25 @@ if($_SESSION['admin_info'] != false  )
                                                                echo "<td>".$val."</td>" ;
                                                              }   
                                                           echo  "</tr>" ;   
-                                                      }else{     
-                                                      
-                                                       echo  "<tr>   
-                                                              <td> $userst->jobname   </td>
-                                                              <td> $user->efullname   </td>
-                                                              <td> $user->idnumber   </td>
-                                                              <td> $user->rno   </td>
-                                                              <td> $approvalc  </td>
-                                                              <td> $profile </td>
-                                                             </tr>"
-                                                             
-                                                              ; 
-                                                      }
-                                                  }
+                                                      }     
+                                                 
+                                  /*  echo  "<tr>   
+                                                  
+                                                  <td> $userst->jobname</td>
+                                                  <td>  $applc</td>
+                                                  <td> $can </td>
+                                                  <td> $gdate   </td>
+                                                  <td> $user->requairedno   </td>
+                                                  </tr>"; */
+                                              
+                                              
+                                          }
+                                                  
+                                                  
+                                                  
                                                   ?>
                                                 </tbody>
+                                                
                                             </table>
                                         </div>
                                     </div>
@@ -314,7 +333,6 @@ if($_SESSION['admin_info'] != false  )
                                     <!-- END EXAMPLE TABLE PORTLET-->
                                 </div>
                             </div>
-                            
                         </div>
                         <!-- END PAGE CONTENT INNER -->
                     </div>
@@ -347,19 +365,18 @@ if($_SESSION['admin_info'] != false  )
         <script src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/clockface/js/clockface.js" type="text/javascript"></script>
+        
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <script src="../assets/global/scripts/datatable.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-        
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-
-        <script src="require/js/applicantslist.js" type="text/javascript"></script>
-        
+        <script src="require/js/adminprint.js" type="text/javascript"></script>
+        <script src="require/js/date.js" type="text/javascript"></script>  
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="../assets/layouts/layout3/scripts/layout.min.js" type="text/javascript"></script>
@@ -369,6 +386,7 @@ if($_SESSION['admin_info'] != false  )
     </body>
 
 </html>
+
 
 <?php  }
 if($_SESSION['admin_info'] == false ){

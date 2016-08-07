@@ -599,3 +599,132 @@ Stack trace:
 [30-Jul-2016 10:40:19 Asia/Riyadh] PHP Stack trace:
 [30-Jul-2016 10:40:19 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
 [30-Jul-2016 10:40:19 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[03-Aug-2016 03:00:26 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[03-Aug-2016 03:00:26 Asia/Riyadh] PHP Stack trace:
+[03-Aug-2016 03:00:26 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[03-Aug-2016 03:00:26 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[06-Aug-2016 13:18:42 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[06-Aug-2016 13:18:42 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 13:18:42 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[06-Aug-2016 13:18:42 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[06-Aug-2016 10:27:37 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/ubuntu/workspace/en/careers/adminuserstest.php on line 319
+[06-Aug-2016 12:03:12 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/en/careers/adminuserstest.php on line 401
+[06-Aug-2016 15:06:26 Asia/Riyadh] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/ubuntu/workspace/en/careers/adminuserstest.php on line 314
+[06-Aug-2016 15:06:26 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 15:06:26 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminuserstest.php:0
+[06-Aug-2016 22:59:09 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[06-Aug-2016 22:59:09 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 22:59:09 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[06-Aug-2016 22:59:09 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 234
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:18:30 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:234
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Warning:  array_unique() expects parameter 1 to be array, null given in /home/ubuntu/workspace/en/careers/applicantslist.php on line 235
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP Stack trace:
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[06-Aug-2016 23:19:38 Asia/Riyadh] PHP   2. array_unique() /home/ubuntu/workspace/en/careers/applicantslist.php:235
+[06-Aug-2016 23:01:31 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/careers/applicantslist.php on line 387
+[07-Aug-2016 02:30:16 Asia/Riyadh] PHP Fatal error:  Call to undefined function reducation_get_by_idnumber() in /home/ubuntu/workspace/en/careers/applicantslist.php on line 212
+[07-Aug-2016 02:30:16 Asia/Riyadh] PHP Stack trace:
+[07-Aug-2016 02:30:16 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/applicantslist.php:0
+[07-Aug-2016 02:37:12 Asia/Riyadh] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ubuntu/workspace/en/careers/require/bheader.php:44) in /home/ubuntu/workspace/en/careers/adminlogin.php on line 277
+[07-Aug-2016 02:37:12 Asia/Riyadh] PHP Stack trace:
+[07-Aug-2016 02:37:12 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/careers/adminlogin.php:0
+[07-Aug-2016 02:37:12 Asia/Riyadh] PHP   2. header() /home/ubuntu/workspace/en/careers/adminlogin.php:277
