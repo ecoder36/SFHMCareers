@@ -169,6 +169,112 @@ if($fcount == 1)
         return true;
 }
 
+function rapp_approval_update($uid,$approval)
+{
+    global $tf_handle;
+    $id = (int)$uid;
+    if($id == 0)
+        return false;
+
+
+    $user = rapp_get_by_id($id);
+    if(!$user)
+        return false ;
+
+if (empty($approval))
+        return false;
+
+$fields = array();
+$query = 'UPDATE `rapp` SET ';
+
+if (!empty($approval))
+{
+    $n_approval = @mysql_real_escape_string(strip_tags($approval),$tf_handle);
+    $fields[@count($fields)] = "`approval` = '$n_approval'";
+}
+
+
+$fcount = @count($fields) ;
+if($fcount == 1)
+{
+    $query .= $fields[0].' WHERE `id` = '.$id;
+    //echo $query;
+    $qresult = @mysql_query($query);
+    if(!$qresult)
+        return false;
+    else
+        return true;
+}
+
+    for($i = 0; $i < $fcount; $i++)
+    {
+        $query .= $fields[$i];
+        if($i != ($fcount - 1))
+                $query .=' , ';
+    }
+
+    $query .= ' WHERE `id` = '.$id;
+    //echo $query;
+    $qresult = @mysql_query($query);
+    if(!$qresult)
+        return false;
+    else
+        return true;
+}
+
+function rapp_jobnumber_update($uid,$jobnumber)
+{
+        global $tf_handle;
+        $id = (int)$uid;
+        if($id == 0)
+            return false;
+    
+    
+        $user = rapp_get_by_id($id);
+        if(!$user)
+            return false ;
+    
+    if (empty($jobnumber))
+            return false;
+    
+    $fields = array();
+    $query = 'UPDATE `rapp` SET ';
+    
+    if (!empty($jobnumber))
+    {
+        $n_jobnumber = @mysql_real_escape_string(strip_tags($jobnumber),$tf_handle);
+        $fields[@count($fields)] = "`jobnumber` = '$n_jobnumber'";
+    }
+    
+    
+    $fcount = @count($fields) ;
+    if($fcount == 1)
+    {
+        $query .= $fields[0].' WHERE `id` = '.$id;
+        //echo $query;
+        $qresult = @mysql_query($query);
+        if(!$qresult)
+            return false;
+        else
+            return true;
+    }
+    
+        for($i = 0; $i < $fcount; $i++)
+        {
+            $query .= $fields[$i];
+            if($i != ($fcount - 1))
+                    $query .=' , ';
+        }
+    
+        $query .= ' WHERE `id` = '.$id;
+        //echo $query;
+        $qresult = @mysql_query($query);
+        if(!$qresult)
+            return false;
+        else
+            return true;
+}
+
 function rapp_mail_phone_update($id,$mail,$phone)
 {
         global $tf_handle;

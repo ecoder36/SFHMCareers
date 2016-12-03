@@ -4,6 +4,8 @@
 
 @require_once('require/api/db.php');
 @require_once('require/api/addjobsAPI.php');
+@require_once('log/logsession.php');
+@require_once('require/api/rappAPI.php');
 
 if(empty($_GET['jobnumber'])){
       header("Location: jobs.php?viewerror=errorc");
@@ -18,6 +20,40 @@ if(empty($_GET['jobnumber'])){
  $joben =   jobsar_get_by_jobnumber(trim($_GET['jobnumber']));
  $job   =   jobs_get_by_jobnumber(trim($_GET['jobnumber']));
 
+if( ( @$_SESSION['user_info'] != false ) && isset($_GET['userapply'])){
+    
+            @$ids             =  $_SESSION['user_info']->id;
+            @$idnumbers       =  $_SESSION['user_info']->idnumber;
+           
+  $rapp =       rapp_get_by_idnumber($idnumbers); 
+                             $_id = (int)$ids ;
+
+                            if($_id == 0)
+                                die('Bad Access');
+                                
+                           
+                            $jobnumber = trim($_GET['jobnumber']);
+                                
+                            if($rapp->approval != "Excluded"){
+                                header("Location: ?jobnumber=$jobnumber&notapply=you can't apply now");
+                                
+                            }else{    
+                                $newapproval = "New" ;
+                            $result = rapp_jobnumber_update($_id,$jobnumber).rapp_approval_update($_id,$newapproval);;
+                            
+                            tinyf_db_close();
+                            
+                            if($result)
+                            {
+                                header("Location: ?jobnumber=$jobnumber&apply=done , you apply successfully");
+                            }else{
+                                die('Failure');
+                                }
+                            }
+                                
+           }                            
+                            
+    
 
 tinyf_db_close();
 
@@ -110,6 +146,14 @@ tinyf_db_close();
                             <?php    if(isset($_GET['dateerror'])){echo '<div class="alert alert-danger ">
                                 <button class="close" data-close="alert"></button><strong>Error! </strong> You can not apply for this job now!</div>';}
                               ?>
+                               <?php
+                            if(isset($_GET['apply'])){echo ' <div class="alert alert-success ">
+                             <button class="close" data-close="alert"></button><strong> تم التقديم على الوظيفة بنجاح </strong></div>';}
+                        ?>
+                         <?php
+                            if(isset($_GET['notapply'])){echo ' <div class="alert alert-danger ">
+                             <button class="close" data-close="alert"></button><strong>لايمكنك التقديم على هذه الوظيفة لأنك متقدم على وظيفة أخرى </strong></div>';}
+                        ?>
                             <div class="row">
                                 <div class="col-md-8">
                                     <!-- BEGIN UNORDERED LISTS PORTLET-->
@@ -229,8 +273,18 @@ tinyf_db_close();
                                                     <div class="portlet-body">
                                                         <div class="row">
                                                             <div class="col-md-8"> 
-                                                            <a class="btn green btn-outline" href="applyform.php?jobnumber=<?php echo $joben->jobnumber ; ?>" data-toggle="modal"> تقدم ل <?php echo $joben->jobname; ?>
-                                                                <i class="fa fa-share"></i>
+                                                            
+                                                             <?php 
+                                                        require_once('log/logsession.php');
+                                                        if(@$_SESSION['user_info'] == true ){ 
+                                                        $link = "?jobnumber=$joben->jobnumber&userapply=apply" ;
+                                                        }else{
+                                                        $link = "applyform.php?jobnumber=$joben->jobnumber" ;
+                                                        }
+                                                        ?>
+                                                        
+                                                            <a class="btn green btn-outline" href="<?php echo $link ; ?>" data-toggle="modal"> تقدم لوظيفة <?php echo $joben->jobname; ?>
+                                                                <i class="fa fa-reply"></i>
                                                             </a>
                                                                
                                                             </div>

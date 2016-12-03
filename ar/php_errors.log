@@ -28,3 +28,4 @@
 [28-Jul-2016 02:10:17 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/form/form.php:0
 [30-Jul-2016 12:10:18 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/ar/form/form.php on line 182
 [04-Aug-2016 13:19:13 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/ar/mail/link.php on line 117
+[28-Aug-2016 17:10:30 UTC] PHP Parse error:  syntax error, unexpected 'التقديم' (T_STRING), expecting ',' or ';' in /home/ubuntu/workspace/ar/careers/jobdisplay.php on line 151

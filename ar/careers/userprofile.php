@@ -489,7 +489,7 @@ tinyf_db_close();
                                                       if($rapp->approval == "Excluded"){
                                                           $approvalc = "<span class='label label-sm label-danger'> مستبعد </span>" ;
                                                       }
-                                                      if($rapp->approval == ""){
+                                                      if($rapp->approval == "" || $rapp->approval == "New" ){
                                                           $approvalc = "<span class='label label-sm label-warning'> جديد </span>" ;
                                                       }?>
                                                 <span class="caption-helper uppercase">الحالة  </span>

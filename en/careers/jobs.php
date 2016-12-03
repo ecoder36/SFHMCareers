@@ -4,8 +4,7 @@
 <?php
 @require_once('require/api/db.php');
 @require_once('require/api/addjobsAPI.php');
-
-            
+@require_once('log/logsession.php');
 ?>
 
 
@@ -58,7 +57,7 @@
                     <div class="container-fluid">
                         <!-- BEGIN PAGE TITLE -->
                         <div class="page-title">
-                            <h1>Jobs Datatable
+                            <h1>
                                 <small>Jobs List</small>
                             </h1>
                         </div>
@@ -78,7 +77,7 @@
                 <!-- END PAGE HEAD-->
                 <!-- BEGIN PAGE CONTENT BODY -->
                 <div class="page-content">
-                    <div class="container-fluid">
+                    <div class="container">
                         <!-- BEGIN PAGE BREADCRUMBS -->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
@@ -120,11 +119,7 @@
                                             <table class="table table-striped table-bordered table-hover" id="sample_1">
                                                 <thead>
                                                     <tr>
-                                                        <th> Position </th>
-                                                        <th> city </th>
-                                                        <th> Date Posted </th>
-                                                        <th> Job Type </th>
-                                                        <th> Action </th>
+                                                        <th> Jobs Datatable </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -139,22 +134,21 @@
                                                 $date1 = substr($user->ldate,0,10);
                                                 $date2 = substr($user->ldate,-10);
                                               $datenow = Date('d-m-Y') ;
-
-                                            if(strtotime($date1) <=  strtotime($datenow) && strtotime($datenow)  <= strtotime($date2)){
-                                         echo  "<tr>   
-                                                  <td> $userst->jobname   </td>
-                                                  <td> $userst->city   </td>
-                                                  <td><i class='fa fa-calendar-o'></i> $date1   </td>
-                                                  <td><i class='fa fa-clock-o'></i> $userst->perment, $userst->employmenttype   </td>
-                                                  "
-                                                  ?>
-                                                  <td>
-                                                         <a class="btn green btn-outline" href="jobdisplay.php?jobnumber=<?php echo $user->jobnumber ; ?>" > View
-                                                           <i class="fa fa-share"></i>
-                                                         </a>
-                                                  </td>
-                                                <?php
-                                                echo"</tr>"; 
+                                              
+                                              if($userst->employmenttype == 'Full-time'){$ctime = 'Full Time' ; $color = "<span class='pull-right font-green'>" ;}
+                                              if($userst->employmenttype == 'Part-time'){$ctime = 'Part Time' ; $color = "<span class='pull-right font-red-soft'>" ;}
+                                             if(strtotime($date1) <=  strtotime($datenow) && strtotime($datenow)  <= strtotime($date2)){
+                                             echo  "
+                                                <tr>  
+                                                    <td><a class='font-blue-hoki' style='text-decoration: none;' href=\"jobdisplay.php?jobnumber=$user->jobnumber \">
+                                                    <h3>$userst->jobname<small>  $color <i class='fa fa-clock-o'></i><span class=''> $ctime </span></span></small></h3>  
+                                                    <p class='text-justify'>
+                                                      <i title='Job Location' class='fa fa-map-marker font-green tooltips'></i> $userst->city  
+                                                      <abbr title='Date of availability apply for this job'><i class='fa fa-calendar-minus-o font-green'></i></abbr> $date1 to $date2
+                                                    </p>
+                                                   </a></td>
+                                                </tr>
+                                                    "; 
                                             
                                                 }
                                             

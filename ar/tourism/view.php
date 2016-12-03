@@ -146,26 +146,26 @@ if(isset($_GET['del']) && (isset($_GET['p'] ) && $_GET['p'] == $password  ) )
                                             
                                             <table class="table table-striped table-bordered table-hover" id="sample_1">
                                                 <thead>
-                                                    <tr>
+                                                     <tr>
                                                         <th>  الدولة  </th>
-                                                        <th>   إسم المعد  </th>
+                                                        <th>   إسم معد التقرير  </th>
                                                         <th>  سناب  </th>
-                                                        <th>  الصورة  </th>
-                                                        <th>   تاريخ الاعداد  </th>
+                                                        <th>   تاريخ الاعداد </th>
+                                                        <th>   الصورة   </th>
                                                         <th>    </th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                 <tbody>
                                                      <?php
                                           for($i = 0 ; $i < $ucount; $i++)
                                           {
                                               $user = $users[$i];
-                                              $url = 'https://jobs-testaa.c9users.io/ar/tourism/link.php?' ;
-                                              $delurl = 'https://jobs-testaa.c9users.io/ar/tourism/view.php?' ;
-                                              $del = "<a href='$delurl&del=$user->id&5945&p=$password' class='primary-link'> delet </a>";
+                                              $url = 'link.php?' ;
+                                              $delurl = 'view.php?' ;
+                                              $del = "<a href='$delurl&del=$user->id&5945&p=$password' class='btn btn-circle btn-sm red-sunglo' onclick=\"return confirm('هل أنت متأكد من حذف تقرير ($user->name) ?')\"> حذف </a>";
                                               
                                               if( $user->link != null)
-                                                          $att = "<a href='$url&$user->link' target='_blank' class='primary-link'>رابط</a>";
+                                                          $att = "<a href='$url&$user->link' class='btn btn-circle btn-sm green'>عرض</a>";
                                                           else {
                                                               $att= "لا يوجد ملف ";
                                                                 }
@@ -173,8 +173,8 @@ if(isset($_GET['del']) && (isset($_GET['p'] ) && $_GET['p'] == $password  ) )
                                                   <td> $user->name  </td>
                                                   <td> $user->pname </td>
                                                   <td> $user->snap  </td>
-                                                  <td> $att </td>
                                                   <td> $user->date </td>
+                                                  <td> $att </td>
                                                   <td> $del </td>
                                                   "
                                                   ?>
@@ -191,6 +191,7 @@ if(isset($_GET['del']) && (isset($_GET['p'] ) && $_GET['p'] == $password  ) )
                                             }
                                                   ?>
                                                 </tbody>
+                                                
                                                 
                                             </table>
                                             

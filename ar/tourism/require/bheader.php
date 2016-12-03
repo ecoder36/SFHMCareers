@@ -52,57 +52,14 @@
                             </li>
                             
                             <li class="menu-dropdown mega-menu-dropdown <?php  echo @$view ; ?> ">
-                                <a href="view.php">  عرض
+                                <a href="view.php">  لوحة التحكم
                                     <span class="arrow"></span>
                                 </a>
                             </li>
                         
                             <?php //} ?>
-                             <?php if(@$_SESSION['user_info'] != false ){ ?>
+                            
                              
-                             
-                             
-                             
-                              <li class="menu-dropdown mega-menu-dropdown <?php  echo @$aclogin ; ?> ">
-                                <a href="login.php"> تسجيل الدخول
-                                    <span class="arrow"></span>
-                                </a>
-                            </li>
-                             <li class="menu-dropdown mega-menu-dropdown  ">
-                                <a href="log/logout.php">تسجيل الخروج
-                                    <span class="arrow"></span>
-                                </a>
-                            </li>
-                             
-                             
-                            <li class="menu-dropdown mega-menu-dropdown <?php  echo @$acuprofile ; ?> ">
-                                <a href="userprofile.php?idnumber=<?php echo @$_SESSION['user_info']->idnumber ;?>"> صفحة السيرة الذاتية
-                                    <span class="arrow"></span>
-                                </a>
-                            </li>
-                            <li class="menu-dropdown mega-menu-dropdown <?php  echo @$acchangepass ; ?> ">
-                                <a href="changepass.php?id=<?php echo @$_SESSION['user_info']->id ; ?>&idnumber=<?php echo @$_SESSION['user_info']->idnumber ;?>"> تغيير كلمة المرور
-                                    <span class="arrow"></span>
-                                </a>
-                            </li>
-                            <li class="menu-dropdown mega-menu-dropdown  ">
-                                <a href="log/logout.php">تسجيل الخروج
-                                    <span class="arrow"></span>
-                                </a>
-                            </li>
-                            <?php } ?>
-                             <?php if(@$_SESSION['user_info'] == true  && @$_SESSION['admin_info'] == true ){ ?>
-                            <li class="menu-dropdown mega-menu-dropdown  ">
-                                <a href="log/logout.php"> user Logout
-                                    <span class="arrow"></span>
-                                </a>
-                            </li>
-                            <li class="menu-dropdown mega-menu-dropdown  ">
-                                <a href="log/adminlogout.php"> admin Logout
-                                    <span class="arrow"></span>
-                                </a>
-                            </li>
-                            <?php } ?>
                             
                             
                            <!-- <li class="menu-dropdown classic-menu-dropdown ">

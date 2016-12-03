@@ -2,12 +2,13 @@
 
 <?php
 
-
+//include 'phar://ArPHP.phar/Arabic.php';
+//header('content-type: image/jpeg;charset=windows-1256');
 
 @require_once('require/api/db.php');
 @require_once('require/api/formAPI.php');
 
-$url = 'https://jobs-testaa.c9users.io/ar/tourism/link.php?' ;
+$url = 'link.php?' ;
 $link1= "name=".$_POST["name"]."&visa=".$_POST["visa"]."&visa2=".$_POST["visa2"]."&nair=".$_POST["nair"]."&iair=".$_POST["iair"]."&cur=".$_POST["cur"]."&cur1=".$_POST["cur1"]."&cur2=".$_POST["cur2"]."&drv=".$_POST["drv"]."&drv1=".$_POST["drv1"]."&drv2=".$_POST["drv2"]."&rent1=".$_POST["rent1"]."&rent2=".$_POST["rent2"]."&t1=".$_POST["t1"]."&t2=".$_POST["t2"]."&t3=".$_POST["t3"]."&t4=".$_POST["t4"]."&t5=".$_POST["t5"]."&time=".$_POST["time"]."&sh1=".$_POST["sh1"]."&sh2=".$_POST["sh2"]."&sh3=".$_POST["sh3"]."&sh4=".$_POST["sh4"]."&r1=".$_POST["r1"]."&r2=".$_POST["r2"]."&r3=".$_POST["r3"]."&r4=".$_POST["r4"]."&book=".$_POST["book"]."&pname=".$_POST["pname"]."&snap=".$_POST["snap"]."&com=".$_POST["com"]."&com2=".$_POST["com2"]."" ;
 $link= "
         name=".$_POST["name"]."
@@ -208,7 +209,7 @@ if(@$error) {
                                                 </form>
                                                
                                                  
-                                      <!--         <a class="btn btn-circle red-sunglo"   href='https://jobs-testaa.c9users.io/ar/mail/link.php?<?php // echo $link ; ?>' target='_blank' >
+                                      <!--         <a class="btn btn-circle red-sunglo"   href='link.php?<?php // echo $link ; ?>' target='_blank' >
                                                                 <i class="fa fa-pencil"></i> رابط الصورة  </a> -->
                                                 <a class="btn btn-circle btn-icon-only btn-default" data-toggle="modal" href="#edite_modal">
                                                     <i class="icon-wrench"></i>
@@ -225,25 +226,44 @@ if(@$error) {
                                                       <img id="screama" width="1080" height="1920" src="info.jpg" class="a" alt="The Scream">
                                                     </div> 
                                                 </div>
-                                                    
+                                                   <style type="text/css">
+                                                      @font-face{
+                                                      font-family:'Regulara1';
+                                                      src: url('stoor.ttf'); /* here you go, IE */
+                                                    }                                                 
+                                                    @font-face {
+                                                      font-family: 'Regulara2';
+                                                      src:  url('UniversNextArabic-Regular.ttf') ;
+                                                      font-weight: normal;
+                                                      font-style: normal;
+                                                    }
+                                                   </style>
+                                                   <span style="font-family: 'Regulara1';">&nbsp;</span>
+                                                   <span style="font-family: 'Regulara2';">&nbsp;</span>
                                                     <script> 
                                                     window.onload = function() {
                                                                 var c = document.getElementById("myCan");
                                                                 var ctx = c.getContext("2d");
                                                                 var img = document.getElementById("screama");
                                            
+                                           
                                                         ctx.drawImage(img, 0, 0);
                                                          
+                                                        
                                                         //ctx.font="30px";
                                                        //  ctx.fillStyle = "red" ;
                                                       //  ctx.fillRect(400, 62,93,30);
                                                         ctx.fillStyle ="#000";
                                                         
                                                       //  ctx.font="AF_Al-HadaSimplified";
-                                                       ctx.font=" bold 69px Courier New";
+                                                      // ctx.font=" bold 69px Courier New";
+                                                      ctx.beginPath();
+                                                      ctx.font="50px 'Regulara1'";
                                                       ctx.fillStyle ="#262692";
-                                                        ctx.fillText('<?php echo $_POST["name"] ; ?>',729,129,150);
-                                                         ctx.font="  30px Arial";
+                                                        ctx.fillText('<?php echo $_POST["name"] ; ?>',729,129,350);
+                                                        /* ctx.font="30px Arial"; */
+                                                        ctx.beginPath();
+                                                        ctx.font='30px "Regulara2"';
                                                         ctx.fillStyle = '#F0ECEC';
                                                        ctx.fillRect(40, 1157,203,30);
                                                         ctx.fillStyle ="white";
@@ -254,7 +274,7 @@ if(@$error) {
                                                         ctx.fillText('<?php echo $_POST["nair"] ; ?>',680,290,490);
                                                         ctx.fillText('<?php echo $_POST["iair"] ; ?>',440,350,300);
                                                         ctx.fillText('<?php echo $_POST["cur"] ; ?>',960,480,195);
-                                                        ctx.font="25px Times New Roman";
+                                                        ctx.font="25px";
                                                         ctx.fillText('<?php echo $_POST["cur1"] ; ?>',1050,515,260);
                                                         ctx.fillText('<?php echo $_POST["cur2"] ; ?>',1050,545,260);
                                                           ctx.fillStyle ="#4F4D4D";
@@ -263,29 +283,29 @@ if(@$error) {
                                                         ctx.fillText('<?php echo $_POST["drv1"] ; ?>',1050,685,280);
                                                         ctx.fillText('<?php echo $_POST["drv2"] ; ?>',1050,715,280);
                                                         ctx.fillStyle ="#165C4E";
-                                                        ctx.font="bold 25px Times New Roman";
+                                                        ctx.font="bold 25px";
                                                         ctx.fillText('<?php echo $_POST["rent1"] ; ?>',895,800,780);
                                                         ctx.fillText('<?php echo $_POST["rent2"] ; ?>',895,850,780);
                                                         ctx.beginPath();
                                                         ctx.fillStyle ="#5C1616";
-                                                        ctx.font=" 45px Times New Roman";
+                                                        ctx.font="45px";
                                                         ctx.textAlign = 'center';
                                                         ctx.fillText('<?php echo $_POST["t1"] ; ?>',700,1035,600);
                                                         ctx.fillText('<?php echo $_POST["t2"] ; ?>',700,1095,600);
                                                         ctx.fillText('<?php echo $_POST["t3"] ; ?>',700,1155,600);
                                                         ctx.fillText('<?php echo $_POST["t4"] ; ?>',700,1215,600);
                                                         ctx.fillText('<?php echo $_POST["t5"] ; ?>',700,1275,600);
-                                                        ctx.font="bold 25px Arial";
+                                                        ctx.font="bold 25px";
                                                          ctx.textAlign = 'center';
                                                         ctx.fillStyle ="#5F2727";
                                                         ctx.fillText('<?php echo $_POST["time"] ; ?>',130,1190,200);
-                                                        ctx.font="25px Arial";
+                                                        ctx.font="25px";
                                                         ctx.fillStyle ="#301111";
                                                         ctx.textAlign = 'center';
                                                         ctx.fillText('<?php echo $_POST["pname"] ; ?>',140,1407,200);
                                                         ctx.fillText('<?php echo $_POST["snap"] ; ?>',130,1443,160);
                                                         ctx.textAlign = 'right';
-                                                        ctx.font="bold 25px Arial";
+                                                        ctx.font="bold 25px";
                                                         ctx.fillStyle ="#5C1616";
                                                         ctx.fillText('<?php echo $_POST["sh1"] ; ?>',910,1500,300);
                                                         ctx.fillText('<?php echo $_POST["sh2"] ; ?>',910,1550,300);

@@ -199,33 +199,54 @@ if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['status'])){
                                                     <span class="caption-subject theme-font bold uppercase"><?php echo $rapp->rno ; ?></span><br/>
                                                       <span class="caption-helper uppercase">applied for  </span>
                                                 <span class="caption-subject theme-font bold uppercase"><?php echo $enjobname->jobname ; ?></span><br/>
+                                                <span class="caption-helper uppercase">  date </span>
+                                                    <span class="caption-subject theme-font bold uppercase"><?php echo $rapp->experience  ; ?></span>
+                                                    <br/>  
                                                <?php  if($rapp->approval == "Candidate"){
                                                           $approvalc = "<span class='label label-sm label-success'>$rapp->approval</span>" ;
                                                       }
                                                       if($rapp->approval == "Excluded"){
                                                           $approvalc = "<span class='label label-sm label-danger'>$rapp->approval</span>" ;
                                                       }
-                                                      if($rapp->approval == ""){
+                                                      if($rapp->approval == "" || $rapp->approval == "New" ){
                                                           $approvalc = "<span class='label label-sm label-warning'>new</span>" ;
                                                       }?>
                                                 <span class="caption-helper uppercase">status  </span>
                                                 <span class="caption-subject theme-font bold uppercase"><?php echo $approvalc ; ?></span>
-                                                    
                                                 </div>
                                                 <div class="actions">
                                                 </div>
                                             </div>
-                                            <div class="portlet-body">
-                                                
-                                               <span class="label"><a class="btn green btn-outline tooltips" href="?idnumber=<?php echo $rapp->idnumber ; ?>&name=<?php echo $rapp->efullname ; ?>&rno=<?php echo $rapp->rno ; ?>&id=<?php echo $rapp->id ; ?>&74236424202&resetpass=rest"  onclick="return confirm('Are you sure to Reset Password for this user (<?php echo $rapp->efullname ; ?>)  ?')" > Reset Password
+                                            
+                                            <div class="margin-top-20 timeline-body-head-actions text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-circle red btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
+                                                        <i class="fa fa-angle-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu">
+                                                        
+                                                        <li>
+                                                             <a class="yellow-lemon btn red btn-outline tooltips" data-original-title="New"  href="?idnumber=<?php echo $rapp->idnumber ; ?>&name=<?php echo $rapp->efullname ; ?>&status=New &id=<?php echo $rapp->id ; ?>&74236424202" onclick="return confirm('Are you sure to make (<?php echo $rapp->efullname ; ?>) New ?')"> 
+                                                                New </a>
+                                                        </li>
+                                                        <li>
+                                                             <a class="btn green btn-outline tooltips" data-original-title="Candidate"  href="?idnumber=<?php echo $rapp->idnumber ; ?>&name=<?php echo $rapp->efullname ; ?>&status=Candidate&id=<?php echo $rapp->id ; ?>&74236424202" onclick="return confirm('Are you sure to make (<?php echo $rapp->efullname ; ?>) Candidate ?')"> 
+                                                                Candidate <i class="fa fa-check"></i></a>
+                                                        </li>
+                                                        <li>
+                                                             <a class="btn red btn-outline tooltips" data-original-title="Exclude" href="?idnumber=<?php echo $rapp->idnumber ; ?>&name=<?php echo $rapp->efullname ; ?>&status=Excluded&id=<?php echo $rapp->id ; ?>&74236424202" onclick="return confirm('Are you sure to make (<?php echo $rapp->efullname ; ?>) Excluded  ?')"> 
+                                                                Exclude <i class="fa fa-remove"></i></a>
+                                                        </li>
+                                                      
+                                                        <li class="divider"> </li>
+                                                        <li>
+                                                            <a class="btn green btn-outline tooltips" href="?idnumber=<?php echo $rapp->idnumber ; ?>&name=<?php echo $rapp->efullname ; ?>&rno=<?php echo $rapp->rno ; ?>&id=<?php echo $rapp->id ; ?>&74236424202&resetpass=rest"  onclick="return confirm('Are you sure to Reset Password for this user (<?php echo $rapp->efullname ; ?>)  ?')" > Reset Password
                                                                         <i class="fa fa-unlock-alt"></i>
                                                                     </a>
-                                                <a class="btn green btn-outline tooltips" data-original-title="Candidate"  href="?idnumber=<?php echo $rapp->idnumber ; ?>&name=<?php echo $rapp->efullname ; ?>&status=Candidate&id=<?php echo $rapp->id ; ?>&74236424202" onclick="return confirm('Are you sure to make (<?php echo $rapp->efullname ; ?>) Candidate ?')"> 
-                                                                <i class="fa fa-check"></i></a>
-                                                                <a class="btn red btn-outline tooltips" data-original-title="Exclude" href="?idnumber=<?php echo $rapp->idnumber ; ?>&name=<?php echo $rapp->efullname ; ?>&status=Excluded&id=<?php echo $rapp->id ; ?>&74236424202" onclick="return confirm('Are you sure to make (<?php echo $rapp->efullname ; ?>) Excluded  ?')"> 
-                                                                <i class="fa fa-remove"></i></a></span>                    
-                                                
-                                            </div>    
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>                
                                                         
                                         <!-- PORTLET MAIN -->
@@ -384,7 +405,7 @@ if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['status'])){
                                                                          <?php if( $rinfo->twitter != null)
                                                           echo " <a href='$rinfo->twitter' >Twitter Link</a>";
                                                           else {
-                                                              echo "<a  data-toggle='modal' href='#addressedit_modal' >Add Your Twitter Link </a>";
+                                                              echo "No Twitter Link";
                                                                 }
                                                       ?>
                                                                        
@@ -394,7 +415,7 @@ if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['status'])){
                                                                         <?php if( $rinfo->facebook != null)
                                                           echo " <a href='$rinfo->facebook' >Facebook Link</a>";
                                                           else {
-                                                              echo "<a  data-toggle='modal' href='#addressedit_modal' >Add Your Facebook Link </a>";
+                                                              echo "No Facebook Link ";
                                                                 }
                                                       ?>
                                                                        

@@ -49,6 +49,8 @@ var FormWizard = function () {
                         email: true
                     },
                     phone: {
+                        minlength: 10,
+                        maxlength: 10,
                         digits: true,
                         required: true
                     },

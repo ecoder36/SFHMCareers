@@ -25,7 +25,19 @@ function form_add($name,$bdate,$age,$sex,$idnumber,$fidnumber,$city,$phone1,$pho
     
 
 
-    $query = sprintf("INSERT INTO `form` VALUE(NULL,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')",$n_name,$n_bdate,$n_age,$n_sex,$n_idnumber,$n_fidnumber,$n_city,$n_phone1,$n_phone2,$n_att,$n_date);
+    $query = sprintf("INSERT INTO `form` VALUE(NULL,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
+    ,$n_name
+    ,$n_bdate
+    ,$n_age
+    ,$n_sex
+    ,$n_idnumber
+    ,$n_fidnumber
+    ,$n_city
+    ,$n_phone1
+    ,$n_phone2
+    ,$n_att
+    ,$n_date
+    );
     //echo $query;
     $qresult = @mysql_query($query);
     if (!$qresult)

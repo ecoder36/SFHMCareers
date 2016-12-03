@@ -127,7 +127,7 @@ if($_SESSION['admin_info'] != false  )
                         <!-- BEGIN PAGE TITLE -->
                         <div class="page-title">
                             <h1>Add Job Form 
-                                <small>form </small>
+                                <small> </small>
                             </h1>
                         </div>
                         <!-- END PAGE TITLE -->
@@ -146,16 +146,9 @@ if($_SESSION['admin_info'] != false  )
                     <div class="container-fluid">
                         <!-- BEGIN PAGE BREADCRUMBS -->
                         <ul class="page-breadcrumb breadcrumb">
+                            
                             <li>
-                                <a href="index.html">Home</a>
-                                <i class="fa fa-circle"></i>
-                            </li>
-                            <li>
-                                <a href="#">More</a>
-                                <i class="fa fa-circle"></i>
-                            </li>
-                            <li>
-                                <span>Form Stuff</span>
+                                <span></span>
                             </li>
                         </ul>
                         <!-- END PAGE BREADCRUMBS -->
@@ -178,6 +171,11 @@ if($_SESSION['admin_info'] != false  )
                                             </div>
                                         </div>
                                         <div class="portlet-body">
+                                            
+                                               <?php  if(isset($_GET['done'])){echo ' <div class="alert alert-success ">
+                                                <button class="close" data-close="alert"></button><strong>Success! </strong> The Job has been added successfully! </div>';}?>
+                                                                        
+                                                                        
                                             <!-- BEGIN FORM-->
                                           <!--  <form method="post" id="form_sample_3" class="form-horizontal"> -->
                                                 <?php if(@$error) {

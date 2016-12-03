@@ -2,7 +2,7 @@
 <?php
 @require_once('require/api/db.php');
 @require_once('require/api/addjobsAPI.php');
-
+@require_once('log/logsession.php');
             
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@
                 <!-- END PAGE HEAD-->
                 <!-- BEGIN PAGE CONTENT BODY -->
                 <div class="page-content">
-                    <div class="container-fluid">
+                    <div class="container">
                         <!-- BEGIN PAGE BREADCRUMBS -->
                         <ul class="page-breadcrumb breadcrumb">
                             <li>
@@ -117,11 +117,8 @@
                                             <table class="table table-striped table-bordered table-hover" id="sample_1">
                                                 <thead>
                                                     <tr>
-                                                        <th> المسمى الوظيفي </th>
-                                                        <th> المدينة </th>
-                                                        <th> تاريخ عرض الوظيفة </th>
-                                                        <th> نوع الوظيفة </th>
-                                                        <th>  </th>
+                                                       
+                                                        <th> الوظائف </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -136,22 +133,20 @@
                                                 $date1 = substr($user->ldate,0,10);
                                                 $date2 = substr($user->ldate,-10);
                                               $datenow = Date('d-m-Y') ;
-
+                                              if($userst->employmenttype == 'دوام كامل'){$ctime = 'دوام كامل' ; $color = "<span class='pull-right font-green'>" ;}
+                                              if($userst->employmenttype == 'دوام جزئي'){$ctime = 'دوام جزئي' ; $color = "<span class='pull-right font-red-soft'>" ;}
                                             if(strtotime($date1) <=  strtotime($datenow) && strtotime($datenow)  <= strtotime($date2)){
-                                         echo  "<tr>   
-                                                  <td> $userst->jobname   </td>
-                                                  <td> $userst->city   </td>
-                                                  <td><i class='fa fa-calendar-o'></i> $date1   </td>
-                                                  <td><i class='fa fa-clock-o'></i> $userst->perment, $userst->employmenttype   </td>
-                                                  "
-                                                  ?>
-                                                  <td>
-                                                         <a class="btn green btn-outline" href="jobdisplay.php?jobnumber=<?php echo $user->jobnumber ; ?>"> عرض
-                                                                <i class="fa fa-share"></i>
-                                                         </a>
-                                                  </td>
-                                                <?php
-                                                echo"</tr>"; 
+                                         echo  "
+                                                <tr>  
+                                                    <td><a class='font-blue-hoki' style='text-decoration: none;' href=\"jobdisplay.php?jobnumber=$user->jobnumber \">
+                                                    <h3>$userst->jobname<small>  $color <i class='fa fa-clock-o'></i><span class=''> $ctime </span></span></small></h3>  
+                                                    <p class='text-justify'>
+                                                      <i title='Job Location' class='fa fa-map-marker font-green tooltips'></i> $userst->city  
+                                                      <abbr title='تاريخ إمكانية التقدم على هذه الوظيفة'><i class='fa fa-calendar-minus-o font-green'></i></abbr> $date1 إلى $date2
+                                                    </p>
+                                                   </a></td>
+                                                </tr>
+                                                    "; 
                                             
                                                 }
                                             

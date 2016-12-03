@@ -1,4 +1,4 @@
-    <link rel="icon" href="http://www.s-taif.com/upload/pageBrand/114.jpg">
+    <link rel="icon" href="require/114.jpg">
     <body class="page-container-bg-solid page-header-menu-fixed">
 <!-- BEGIN HEADER -->
 <div class="page-header">
@@ -6,7 +6,7 @@
             <div class="page-header-top">
                 <div class="container-fluid">
                     <!-- BEGIN LOGO -->
-                    <div class="pull-right"><br><img width="50" height="50" src="http://www.s-taif.com/upload/pageBrand/114.jpg" alt="logo" class="logo-default"> </div>
+                    <div class="pull-right"><br><img width="50" height="50" src="require/114.jpg" alt="logo" class="logo-default"> </div>
                    <div class="page-logo">
                          <br>
                        <font style="font-family : Verdana;font-size: 600%;  font-size: 3.0vh; " class="logo-default theme-font"><b>SFHMCareers</b></font>
@@ -41,12 +41,14 @@
                                 </a>
                                 
                             </li>-->
-                           <?php if(@$_SESSION['user_info'] == false  && @$_SESSION['admin_info'] == false){ ?>
-                            <li class="menu-dropdown mega-menu-dropdown <?php  echo @$acjobs ; ?> ">
+                           <?php if((@$_SESSION['user_info'] != false || @$_SESSION['user_info'] == false)  && @$_SESSION['admin_info'] == false){ ?>
+                           <li class="menu-dropdown mega-menu-dropdown <?php  echo @$acjobs ; ?> ">
                                 <a href="jobs.php"> Jobs
                                     <span class="arrow"></span>
                                 </a>
                             </li>
+                           <?php } ?>
+                           <?php if(@$_SESSION['user_info'] == false && @$_SESSION['admin_info'] == false){ ?>
                             
                              <li class="menu-dropdown mega-menu-dropdown <?php  echo @$aclogin ; ?> ">
                                 <a href="login.php"> Login
@@ -54,8 +56,9 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            
                              <?php if(@$_SESSION['user_info'] != false && @$_SESSION['admin_info'] == false){ ?>
-                             
+                              
                             <li class="menu-dropdown mega-menu-dropdown <?php  echo @$acuprofile ; ?> ">
                                 <a href="userprofile.php?idnumber=<?php echo @$_SESSION['user_info']->idnumber ;?>"> My CV
                                     <span class="arrow"></span>

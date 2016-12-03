@@ -128,6 +128,7 @@ if(isset($_POST['idforid']))
             $name = $_FILES['idfile']['name']; $tmp_name = $_FILES['idfile']['tmp_name'];
             $type = $_FILES['idfile']['type']; $size = $_FILES['idfile']['size']; $error = $_FILES['idfile']['error'];
             $idnumber = trim($_POST['idnumber']);$uniqid = uniqid();
+            // hexdec(substr(uniqid(),0,1));
             $file_name = $idnumber . '.' . $uniqid . '.' . $name  ;
             if(move_uploaded_file($tmp_name, "file/".$file_name)){ $idfile = $file_name; } else {  $idfile = '' ; }
 
@@ -488,7 +489,7 @@ tinyf_db_close();
                                                       if($rapp->approval == "Excluded"){
                                                           $approvalc = "<span class='label label-sm label-danger'>$rapp->approval</span>" ;
                                                       }
-                                                      if($rapp->approval == ""){
+                                                      if($rapp->approval == "" || $rapp->approval == "New" ){
                                                           $approvalc = "<span class='label label-sm label-warning'>new</span>" ;
                                                       }?>
                                                 <span class="caption-helper uppercase">status  </span>

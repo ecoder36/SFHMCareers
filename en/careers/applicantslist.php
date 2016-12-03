@@ -11,6 +11,77 @@ if($_SESSION['admin_info'] != false  )
 @require_once('require/api/addresumesAPI.php');
 
    $rapp = rapp_get_by_idnumber(trim(@$_GET['idnumber']));
+  
+  
+  
+ // if (isset( @$_POST['sendsms']))
+  // @$_POST['sendsms']
+  if (isset($_POST['smsormail'])){
+      
+  
+   include('sms/sms.class.php');
+    if (isset($_POST['sendsms'])){
+                $DTT_SMS = new Malath_SMS("sultansz","555555",'UTF-8');
+                $Credits = $DTT_SMS->GetCredits();
+                $SenderName = $DTT_SMS->GetSenders();
+        	//	$SmS_Msg = @$_POST['Text'];
+        		$msg = @$_POST['smsormail'];
+        	
+        		$SmS_Msg = $msg;
+                $Mobiles = @$_POST['sendsms'];
+                $Originator ='SFHMCareers';
+               if(@$Mobiles){
+                $Sends = $DTT_SMS->Send_SMS($Mobiles,$Originator,$SmS_Msg);
+             }
+             
+           
+    }
+     if (isset($_POST['sendmail'])){
+                    $msgmail = @$_POST['sendmail'];                         
+                    $to= $msgmail;
+                    $subject='SFHM: SFHMCareers ';
+                                                                                          
+             $message="<html>
+                        <head>
+                        <title>HTML email</title>
+                        </head>
+                        <body>
+                        <p>This email from SFHMCareers!</p>
+                         $efullname <br>
+                         $msgmail
+                        </body>
+                        </html>";
+
+                       
+                        $tmail = $msgmail ;
+                        $headers  = "From: SFHMCareers <szagzoog@sfhm.med.sa>" . "\r\n" .
+                                    'Cc: szagzoog@sfhm.med.sa' . "\r\n" .
+                                    'MIME-Version: 1.0' . "\r\n" .
+                                    'Content-type: text/html; charset=utf-8';
+                        $Sendm = mail($to,$subject,$message,$headers);
+             
+     }
+     
+     if ($_POST['sendsms'] == null && $_POST['sendmail'] == null){
+                  header("Location: ?nosend=done");
+             }
+     // if(!$Sends && !$Sendm){
+    //     header("Location: ?nosend=done");
+    // }
+     if($Sends && $Sendm){
+         header("Location: ?sandmsend=done");
+     }
+     if($Sends){
+         header("Location: ?ssend=done");
+     }
+     if($Sendm){
+         header("Location: ?msend=done");
+     }
+  
+}
+  
+  
+  
    
 ?>
 
@@ -42,6 +113,7 @@ if($_SESSION['admin_info'] != false  )
         <link href="../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
         
+        <link href="../assets/global/plugins/icheck/skins/all.css" rel="stylesheet" type="text/css" />
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
@@ -105,8 +177,16 @@ if($_SESSION['admin_info'] != false  )
                                               if(isset($_GET['viewerror'])){echo '<div class="alert alert-danger ">
                                     <button class="close" data-close="alert"></button><strong>Error! </strong> Wrong Job Number</div>';}?>
                                      <?php
-                                              if(isset($_GET['dates'])){echo '<div class="alert alert-success ">
-                                    <button class="close" data-close="alert"></button><strong>Success! </strong> It has been updated successfully!</div>';}?>
+                                    if(isset($_GET['msend'])){echo '<div class="alert alert-success ">
+                                    <button class="close" data-close="alert"></button><strong>Success! </strong>the Message has been send to the Mail successfully!</div>';}
+                                    if(isset($_GET['ssend'])){echo '<div class="alert alert-success ">
+                                    <button class="close" data-close="alert"></button><strong>Success! </strong>the Message has been send to the Phone successfully!</div>';}
+                                    if(isset($_GET['sandmsend'])){echo '<div class="alert alert-success ">
+                                    <button class="close" data-close="alert"></button><strong>Success! </strong>the Message has been send to the Phone & Mail successfully!</div>';}
+                                    if(isset($_GET['nosend'])){echo '<div class="alert alert-danger ">
+                                    <button class="close" data-close="alert"></button><strong>Error! </strong> the message not send </div>';}
+                                    ?>
+                                    
                                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                     <div class="portlet light ">
                                         <div class="portlet-title">
@@ -132,22 +212,21 @@ if($_SESSION['admin_info'] != false  )
                                                                     <div class="form-group">
                                                                        <label class="col-md-3">Checkboxes</label>
                                                                         <div class="col-md-4 checkbox-list">
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Position" >Position</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="ID Number" >ID Number</label> 
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Reference Number" >Reference Number</label>  
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Status" >Status</label>
-                                                                            <label><input type="checkbox" name="myCheckbox[]" value="Nationality" >Nationality</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="CV Link" >CV Link</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Position" >Position</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="ID Number" >ID Number</label> 
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Reference Number" >Reference Number</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Status" >Status</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Nationality" >Nationality</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="CV Link" >CV Link</label>
                                                                         </div>
                                                                         <div class="col-md-4 checkbox-list">
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Applicants En Name" >Applicants En Name</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Applicants Ar Name" >Applicants Ar Name</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Email" >Email</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Phone" >Phone</label>
-                                                                           <label><input type="checkbox" name="myCheckbox[]" value="Profile Link" >Profile Link</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Applicants En Name" >Applicants En Name</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Applicants Ar Name" >Applicants Ar Name</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Email" >Email</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Phone" >Phone</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="myCheckbox[]" value="Profile Link" >Profile Link</label>
                                                                         </div>
                                                                     </div>
-                                                                     <input type="hidden" name="jobnumber" class="form-control" value="<?php echo $user->jobnumber ; ?>" />
                                                                     <div class="modal-footer">
                                                                         <button type="submit" class="btn green btn-primary" ><i class="fa fa-save"></i></button>
                                                                         <button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
@@ -159,6 +238,11 @@ if($_SESSION['admin_info'] != false  )
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                          
+                                  <?php  
+                                    
+                                   ?>
                                         
                                         
                                         <div class="portlet-body">
@@ -186,7 +270,7 @@ if($_SESSION['admin_info'] != false  )
                                                 <thead>
                                                     <tr>
                                                         <?php
-                                                      $myboxes = $_POST['myCheckbox'];
+                                                      @$myboxes = $_POST['myCheckbox'];
                                                       if(!empty($myboxes))
                                                       {
                                                               $test = array_unique($myboxes);
@@ -221,7 +305,41 @@ if($_SESSION['admin_info'] != false  )
                                                           $cv = " NO CV ";
                                                                 }
                                                       
-                                                      
+                                                      $smsmail = '
+                                         <div id="sms_modal'.$user->id.'" class="modal fade" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                        <h4 class="modal-title">Send Message to '.$user->efullname.'</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                         <div class="row">
+                                                            <div class="col-md-12">
+                                                                <form action="" method="post" class="form-horizontal">
+                                                                    <div class="form-group">
+                                                                       <label class="col-md-3">The Message</label>
+                                                                        <div class="col-md-8 checkbox-list">
+                                                                           <label><textarea type="checkbox" name="smsormail" rows="5" cols="50"></textarea></label>
+                                                                           
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="sendsms" value="'.$user->mobile.'" >Send SMS to '.$user->mobile.'</label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="sendmail" value="'.$user->email.'" >Send MAIL to '.$user->email.'</label>
+                                                                           
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn green btn-primary" ><i class="fa fa-save"></i></button>
+                                                                        <button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ' ;
                                                       if($user->approval == "Candidate"){
                                                           $approvalc = "<span class='label label-sm label-success'>$user->approval</span>" ;
                                                       }
@@ -232,9 +350,12 @@ if($_SESSION['admin_info'] != false  )
                                                           $approvalc = "<span class='label label-sm label-warning'>new</span>" ;
                                                       }
                                                        
-                                                       $profile= '<a class="btn blue-steel tooltips"  data-original-title="View Profile" href="userprofilehr.php?idnumber='.$user->idnumber.'" ><i class="fa fa-user blue-steel"></i> Profile</a>';
+                                                       $profile= '<a class="btn blue-steel tooltips"  data-original-title="View Profile" href="userprofilehr.php?idnumber='.$user->idnumber.'" ><i class="fa fa-user blue-steel"></i> Profile</a>
                                                        
-                                                       $myboxes = $_POST['myCheckbox'];
+                                                       <a class="btn btn-success" title="Send Message" href="#sms_modal'.$user->id.'" data-toggle="modal" ><i class="fa fa-envelope-o blue-steel"></i> Message </a>
+                                                       ';
+                                                       
+                                                       @$myboxes = $_POST['myCheckbox'];
                                                      //  $test = array_unique($myboxes);
                                                         $user = $users[$i];
                                                        
@@ -262,7 +383,7 @@ if($_SESSION['admin_info'] != false  )
                                                                }elseif($param_val == 'CV Link'){
                                                                    $val = $cv ;
                                                                }elseif($param_val == 'Profile Link'){
-                                                                   $val = $profile ;
+                                                                   $val = $profile.$smsmail ;
                                                                }elseif($param_val == 'Nationality'){
                                                                    $val = $rid->nationality ;
                                                                }
@@ -280,7 +401,16 @@ if($_SESSION['admin_info'] != false  )
                                                               <td> $user->idnumber   </td>
                                                               <td> $user->rno   </td>
                                                               <td> $approvalc  </td>
-                                                              <td> $profile </td>
+                                                              <td> $profile 
+                                                              
+                                                              
+                                                              "; ?>
+                                                              
+                                                              <?php echo $smsmail ; ?>
+                                                             <?php echo "
+                                                             
+                                                             
+                                                              </td>
                                                              </tr>"
                                                              
                                                               ; 
@@ -291,6 +421,8 @@ if($_SESSION['admin_info'] != false  )
                                             </table>
                                         </div>
                                     </div>
+                                    
+                                  
                                     <!-- END EXAMPLE TABLE PORTLET-->
                                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                   <!--  <div class="portlet box green">
@@ -358,6 +490,7 @@ if($_SESSION['admin_info'] != false  )
         
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../assets/global/plugins/icheck/icheck.min.js" type="text/javascript"></script>
         <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->

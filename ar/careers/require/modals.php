@@ -369,7 +369,14 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-4"> الشهادة العلمية </label>
                                         <div class="col-md-7">
-                                            <input type="text" class="form-control" name="degree" value="<?php echo $reducation->degree ; ?>" />
+                                            <select name="degree" id="country_list" class="country_list form-control">
+                                                <option value="<?php echo $reducation->degree ; ?>"><?php echo $reducation->degree ; ?></option>
+                                                 <option value="Bachelor">Bachelor</option>
+                                                 <option value="Master">Master</option>
+                                                 <option value="Ph.D.">Ph.D.</option>
+                                                 <option value="Other">Other</option>
+                                             </select>
+                                           <!-- <input type="text" class="form-control" name="degree" value="<?php // echo $reducation->degree ; ?>" />-->
                                             <span class="help-block"> </span>
                                         </div>
                                         

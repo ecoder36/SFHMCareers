@@ -8,9 +8,9 @@ var ComponentsDateTimePickers = function () {
                 orientation: "left",
                 autoclose: true
             });
-            $(".readonly").keydown(function(e){
+            /*$(".readonly").keydown(function(e){
                 e.preventDefault();
-            });
+            });*/
             //$('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
         }
 

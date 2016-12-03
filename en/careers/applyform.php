@@ -68,15 +68,18 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                                 die();
                                                    }else{
                                                        
-                                                        $name = $_FILES['file']['name']; $tmp_name = $_FILES['file']['tmp_name'];
-                                                        $type = $_FILES['file']['type']; $size = $_FILES['file']['size']; $error = $_FILES['file']['error'];
+                                                        @$name = $_FILES['file']['name']; @$tmp_name = $_FILES['file']['tmp_name'];
+                                                        @$type = $_FILES['file']['type']; @$size = $_FILES['file']['size']; @$error = $_FILES['file']['error'];
                                                         $uniqid = uniqid();
                                                         $file_name = $idnumber.'.'.$uniqid.'.'.$name  ;
                                                         if(move_uploaded_file($tmp_name, "file/".$file_name)){ $cvatt = $file_name; } else {  $cvatt = 'null' ; }
                                                         
-                                                     @$result = rapp_add(trim($_POST['idnumber']),trim($_GET['jobnumber']),$rno=null,trim($_POST['afullname']),trim($_POST['efullname']),trim($_POST['bdate']),trim($_POST['email']),$_POST['phone'],$pass=null,$approval=null,$acceptance=null).
+                                                        $ph = @$_POST['phone'] ;
+                                                        $phone = '966'.substr($ph,-9);
+                                                        
+                                                     @$result = rapp_add(trim($_POST['idnumber']),trim($_GET['jobnumber']),$rno=null,trim($_POST['afullname']),trim($_POST['efullname']),trim($_POST['bdate']),trim($_POST['email']),$phone,$pass=null,$approval=null,$acceptance=null).
                                                      rid_add(trim($_POST['idnumber']),$expire=null,$_POST['country'],$_POST['city'],$_POST['gender'],$_POST['mstatus'],$idatt=null).
-                                                     reducation_add(trim($_POST['idnumber']),$_POST['universityname'],$_POST['degree'],$_POST['major'],$_POST['universitydate'],$_POST['universitycountry'],$_POST['universitycity'],$_POST['grad'],$ceratt=null,$traatt=null,$cvatt).rinfo_add(trim($_POST['idnumber']));
+                                                     reducation_add(trim($_POST['idnumber']),$_POST['universityname'],$degree=null,$_POST['major'],$_POST['universitydate'],$_POST['universitycountry'],$_POST['universitycity'],$_POST['grad'],$ceratt=null,$traatt=null,$cvatt).rinfo_add(trim($_POST['idnumber']));
                                                      if($result)
                                                      {
                                                           $idno = rapp_get_by_idnumber(trim($_POST['idnumber'])) ;
@@ -90,6 +93,45 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                                                 }
                                                                 $spass = rapp_update($_id,$ref,$ref);
                                                                  if($spass){
+                                                                     include('sms/sms.class.php');
+                                                                            $DTT_SMS = new Malath_SMS("sultansz","555555",'UTF-8');
+                                                                            $Credits = $DTT_SMS->GetCredits();
+                                                                            $SenderName = $DTT_SMS->GetSenders();
+                                                                            $efullname = $_POST['efullname'] ;
+                                                                    	//	$SmS_Msg = @$_POST['Text'];
+                                                                    		$msg = "$efullname We received your request for apply to $enjob->jobname you can login by your idnumber and your password: $ref to complete your CV ";
+                                                                    	
+                                                                    		echo $msg;
+                                                                    		$SmS_Msg = $msg;
+                                                                            $Mobiles = @$phone;
+                                                                            $Originator ='SFHMCareers';
+                                                                            if($Mobiles){
+                                                                            $Send = $DTT_SMS->Send_SMS($Mobiles,$Originator,$SmS_Msg);
+                                                                         }
+                                                                        
+                                                                          $to= @$_POST['email'];
+                                                                            $subject='SFHM: SFHMCareers ';
+                                                                            
+                                                                             $message="<html>
+                                                                                        <head>
+                                                                                        <title>HTML email</title>
+                                                                                        </head>
+                                                                                        <body>
+                                                                                        <p>This email from SFHMCareers!</p>
+                                                                                        $efullname <br>
+                                                                                        We received your request for apply to $enjob->jobname <br>
+                                                                                        to complete your CV <br>
+                                                                                        you can login by your idnumber and your password: $ref
+                                                                                         
+                                                                                        </body>
+                                                                                        </html>";
+
+                                                                            $headers  = "From: SFHMCareers <szagzoog@sfhm.med.sa>" . "\r\n" .
+                                                                                        'Cc: szagzoog@sfhm.med.sa' . "\r\n" .
+                                                                                        'MIME-Version: 1.0' . "\r\n" .
+                                                                                        'Content-type: text/html; charset=utf-8';
+                                                                             mail($to,$subject,$message,$headers);
+                                                                             
                                                                          header("Location: login.php?idnumber=".$idno->idnumber."&pass=".$ref."");
                                                                          die(); 
                                                                     }else{
@@ -138,7 +180,7 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
         <link href="../assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
         
         
-        
+         <link href="../assets/global/plugins/icheck/skins/all.css" rel="stylesheet" type="text/css" />
         <!-- BEGIN PAGE LEVEL PLUGINS -->
          <link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
@@ -302,7 +344,7 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                                                     </label>
                                                                     <div class="col-md-4">
                                                                         <input type="text" class="form-control" name="phone" value="<?php echo @$_POST['phone']; ?>" />
-                                                                        <span class="help-block"> Provide your Phone Number </span>
+                                                                        <span class="help-block"> Provide your Phone Number 05xxxxxxxx </span>
                                                                     </div>
                                                                 </div>
                                                                 
@@ -356,6 +398,7 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                                                     </div>
                                                                 </div>
                                                                 
+                                                                
                                                               <!--  <div class="form-group">
                                                                     <label class="control-label col-md-3">Birth Date
                                                                         <span class="required"> * </span>
@@ -366,35 +409,41 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                                                     </div>
                                                                 </div>-->
                                                               
-                                                                <div class="form-group">
-                                                                    <label class="control-label col-md-3">Gender
-                                                                        <span class="required"> * </span>
-                                                                    </label>
-                                                                    <div class="col-md-4">
-                                                                        <div class="radio-list">
-                                                                            <label>
-                                                                                <input type="radio" name="gender" value="Male" data-title="Male" /> Male </label>
-                                                                            <label>
-                                                                                <input type="radio" name="gender" value="Female" data-title="Female" /> Female </label>
-                                                                        </div>
-                                                                        <div id="form_gender_error"> </div>
-                                                                    </div>
-                                                                </div>
+                                                           
                                                                 
-                                                                <div class="form-group">
-                                                                    <label class="control-label col-md-3">Marital Status
-                                                                        <span class="required"> * </span>
-                                                                    </label>
-                                                                    <div class="col-md-4">
-                                                                        <div class="radio-list">
-                                                                            <label>
-                                                                                <input type="radio" name="mstatus" value="Single" data-title="Single" /> Single </label>
-                                                                            <label>
-                                                                                <input type="radio" name="mstatus" value="Married" data-title="Married" /> Married </label>
-                                                                        </div>
-                                                                        <div id="form_gender_error"> </div>
-                                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">Gender<span class="required"> * </span></label>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <div class="icheck-inline">
+                                                                    <label>
+                                                                    <input type="radio" name="gender" class="icheck" data-radio="iradio_flat-blue"  value="Male" data-title="Male"> Male </label>
+                                                                    <label>
+                                                                   <input type="radio" name="gender" class="icheck" data-radio="iradio_flat-blue"  value="Female" data-title="Female"> Female </label>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">Marital Status<span class="required"> * </span></label>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <!--<div class="radio-list">-->
+                                                                <div class="icheck-inline">
+                                                                    <label>
+                                                                    <input type="radio" name="mstatus" class="icheck" data-radio="iradio_flat-blue" value="Single" data-title="Single"> Single </label>
+                                                                    <label>
+                                                                   <input type="radio" name="mstatus" class="icheck" data-radio="iradio_flat-blue" value="Married" data-title="Married"> Married </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                  
+                                                    
+                                                                
+                                                                
                                                                 
                                                                 <div class="form-group">
                                                                     <label class="control-label col-md-3">City/Town
@@ -667,15 +716,7 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                                                         <span class="help-block">e.g Umm Al Qura University </span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <label class="control-label col-md-3">degree
-                                                                        <span class="required"> * </span>
-                                                                    </label>
-                                                                    <div class="col-md-4">
-                                                                        <input type="text" class="form-control" name="degree" value="<?php echo @$_POST['degree']; ?>" />
-                                                                        <span class="help-block"> e.g Bachelor  </span>
-                                                                    </div>
-                                                                </div>
+                                                               
                                                                 <div class="form-group">
                                                                     <label class="control-label col-md-3">Major
                                                                         <span class="required"> * </span>
@@ -1063,12 +1104,6 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label class="control-label col-md-3">Degree:</label>
-                                                                    <div class="col-md-4">
-                                                                        <p class="form-control-static" data-display="degree"> </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
                                                                     <label class="control-label col-md-3">Major:</label>
                                                                     <div class="col-md-4">
                                                                         <p class="form-control-static" data-display="major"> </p>
@@ -1170,6 +1205,7 @@ $trimjobnumber = trim($_GET['jobnumber']) ;
         <script src="../assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../assets/global/plugins/icheck/icheck.min.js" type="text/javascript"></script>
         <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
