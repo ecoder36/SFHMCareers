@@ -1,58 +1,78 @@
 
+<?php require_once ('log/logsession.php'); ?> 
+
 <?php
-
-require_once('log/adminlogsession.php');
-
-if($_SESSION['user_info'] != false  )
-{
-
-@require_once ('log/logsession.php'); 
-@require_once('require/api/db.php');
-@require_once('require/api/requestsAPI.php');
-@require_once('require/api/recordsAPI.php');
-@require_once('require/api/listsAPI.php');
-@require_once('require/api/usersAPI.php');
-$userinfo = users_get_by_id(@$_SESSION['user_info']->id);
-
-   if(isset($_POST['site'])){
-
-            $requestchek = request_get_by_site_ptype_status($_POST['site'],$_POST['ptype'],$_POST['status']);
-
-            tinyf_db_close();
-             $ucount = @count($requestchek) ;
-             echo $ucount ;
-          
-                         
-            if ($ucount != 0)
-                   {
-                       $ptype=$_POST['ptype'];
-                       $site=$_POST['site'];
-                       $name=$_POST['name'];
-                       $problem=$_POST['problem'];
-                       header("Location: ?error=123&id=$requestchek->id&site=$site&ptype=$ptype&name=$name&problem=$problem");
-            		}  else {
-
-		       $result =  request_add($_POST['site'],$_POST['ptype'],$_POST['name'],$_POST['problem'],$_POST['ename'],$_POST['status']);
-                    if($result){
-                        $idno = request_get_by_site_ptype_status($_POST['site'],$_POST['ptype'],$_POST['status']);
-                        $rid =  $idno->id ;
-                        $resultr = record_add($rid,$_POST['ename'],$_POST['problem'],$_POST['status']);
-                         header("Location: ?done=123");
-                    }
-                     
-             
-            		}
-   }
+if(@$_SESSION['user_info'] != false ){
 ?>
 
+<?php
+
+if(!isset($_GET['id']))
+die('Bad Access');
+
+$_id = (int)$_GET['id'];
+
+if($_id == 0)
+    die('Bad Access');
+
+include_once('require/api/db.php');
+require_once('require/api/usersAPI.php');
+
+$user = users_get_by_id($_id);
+tinyf_db_close();
+
+if($user == NULL)
+    die('Bad User ID');
+
+
+if(isset($_POST['cpassword'])){
+
+        $userp = users_get_by_pass($_POST['cpassword'],$_GET['idnumber']);
+        if  (!$userp) {
+                              tinyf_db_close();
+                              header("Location: ?id=".$_id."&idnumber=".$_GET['idnumber']."&wpass= Wrong Current Password ");
+                              die();
+                      }else{
+                          
+                          
+                            $pass = trim($_POST['npassword']);
+                            
+                            if (strlen($pass) == 0)
+                                $pass = NULL;
+                                
+                            $result = users_pass_update($_id,$pass);
+                            
+                            tinyf_db_close();
+                            
+                            if($result)
+                            {
+                                header("Location: ?id=".$_id."&idnumber=".$_GET['idnumber']."&upass= password has been updated successfully ");
+                            }else{
+                                die('Failure');
+                                }
+                                
+                            }
+    }
+                     
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
+
+
 
 <html lang="en">
     <!--<![endif]-->
     <!-- BEGIN HEAD -->
+
     <head>
         <meta charset="utf-8" />
-        <title>Form</title>
+        <title>Login</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -65,6 +85,7 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
         <link href="../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+                <link href="../assets/global/plugins/icheck/skins/all.css" rel="stylesheet" type="text/css" />
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -83,8 +104,9 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
-        <?php $newreq="active" ?>
+        <?php $acchangepassa ="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
+        
         <!-- END HEADER -->
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
@@ -95,7 +117,7 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                 <div class="page-head">
                     <div class="container">
                         <!-- BEGIN PAGE TITLE -->
-                        <div class="page-title">
+                         <div class="page-title">
                             <h1 class="font-blue-dark"> <i class="icon-user"></i> <?php echo $_SESSION['user_info']->name ?>
                                 <small></small>
                             </h1>
@@ -103,8 +125,8 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                         <!-- END PAGE TITLE -->
                         <!-- BEGIN PAGE TOOLBAR -->
                         <div class="page-toolbar">
-                             <!-- BEGIN THEME PANEL -->
-                               <?php  // require_once ("require/themepanel.php") ; ?>
+                            <!-- BEGIN THEME PANEL -->
+                            <?php  // require_once ("require/themepanel.php") ; ?>
                             <!-- END THEME PANEL -->
                         </div>
                         <!-- END PAGE TOOLBAR -->
@@ -119,116 +141,110 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                         <!-- END PAGE BREADCRUMBS -->
                         <!-- BEGIN PAGE CONTENT INNER -->
                         <div class="page-content-inner">
+                            
+                            
+                         <!--   <form method="post" id="form_sample_3" class="form-horizontal">-->
                             <div class="row">
                                 <div class="col-md-12">
                                     <!-- BEGIN VALIDATION STATES-->
-                                    <div class="portlet light portlet-fit portlet-form ">
+                                     <div class="portlet light portlet-fit portlet-form ">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                <i class="icon-settings font-dark"></i>
-                                                <span class="caption-subject font-dark sbold uppercase">Request Form</span>
+                                                <i class="icon-settings font-green"></i>
+                                                <span class="caption-subject font-green sbold uppercase">Change Your Password</span>
+                                            </div>
+                                            <div class="actions">
+                                               
+                                                
                                             </div>
                                         </div>
                                         <div class="portlet-body">
-                                             
                                             <!-- BEGIN FORM-->
-                                            <form method="post" id="form_sample_3" class="form-horizontal">
+                                           
+                                             
                                                 <div class="form-body">
                                                     <div class="alert alert-danger display-hide">
                                                         <button class="close" data-close="alert"></button> You have some form errors. Please check below. </div>
-                                                     <?php  if(isset($_GET['done'])){echo ' <div class="alert alert-success ">
-                                                <button class="close" data-close="alert"></button><strong>Success! </strong> The request has been added successfully! </div>';}?>
-                                                     <?php if(isset($_GET['error'])) {
-                                            		echo '<div class="alert alert-danger"><button class="close" data-close="alert"></button><strong>There is error : This problem is added before <a href="ticket.php?id='.$_GET['id'].'">click here</a></strong></div>';
-                                            		} ?>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3">Site
-                                                            <span class="required"> * </span>
-                                                        </label>
-                                                        <div class="col-md-4">
-                                                            
-                                                            <?php
-                                                        $users = list_get('WHERE `tname` = "site" ORDER BY `id` DESC' );
-                                                        if($users == NULL)
-                                                              echo ('');
-                                                        $ucount = @count($users);
-            
-                                                        if($ucount == 0)
-                                                              echo ('');
-            
+                                                         <?php
+                                                        if(isset($_GET['upass'])){echo ' <div class="alert alert-success ">
+                                                         <button class="close" data-close="alert"></button><strong>Success! </strong>'.$_GET['upass'].'</div>';}
+                
+                                                        if(isset($_GET['wpass'])){echo ' <div class="alert alert-danger ">
+                                                        <button class="close" data-close="alert"></button><strong>Error! </strong>'.$_GET['wpass'].'</div>';}
                                                         ?>
-                                                            <select class="form-control select2me" name="site">
-                                                                 <option value="<?php echo @$_GET['site'] ?>"><?php echo @$_GET['site'] ?></option>
-                                                                <option value="">Select...</option>
-                                                                 <?php
-                                                      for($i = 0 ; $i < $ucount; $i++)
-                                                      {
-                                                          $user = $users[$i];
-                                                          
-                                                          ?>
-                                                          
-                                                                <option value="<?php echo $user->content ?>"><?php echo $user->content ?></option>
-                                                                
-                                                            <?php } ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                <form method="post" id="form_sample_3" class="form-horizontal"> 
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3">Problem Type
+                                                        <label class="col-md-3 control-label">Password
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-4">
-                                                            <?php
-                                                             $usersp = list_get('WHERE `tname` = "ptype" ORDER BY `id` DESC' );
-                                                        if($usersp == NULL)
-                                                              echo ('');
-                                                        $ucountp = @count($usersp);
-            
-                                                        if($ucountp == 0)
-                                                              echo ('');
-                                                            ?>
-                                                            <select class="form-control select2me" name="ptype">
-                                                                <option value="<?php echo @$_GET['ptype'] ?>"><?php echo @$_GET['ptype'] ?></option>
-                                                                <option value="">Select...</option>
-                                                                 <?php
-                                                      for($i = 0 ; $i < $ucountp; $i++)
-                                                      {
-                                                          $userp = $usersp[$i];
-                                                          
-                                                          ?>
-                                                                <option value="<?php echo $userp->content ?>"><?php echo $userp->content ?></option>
-                                                               <?php } ?> </select>
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-lock"></i>
+                                                                </span>
+                                                                <input type="password" name="cpassword" class="form-control" placeholder="Password"> </div>
+                                                                <span class="help-block"> Enter your Password </span>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3">Name&nbsp;&nbsp;</label>
-                                                        <div class="col-md-4">
-                                                            <input name="name" type="text" class="form-control" value="<?php echo @$_GET['name'] ?>" /> </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3">The Problem
+                                                        <label class="col-md-3 control-label">New Password
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-4">
-                                                            <textarea type="text" rows="5" name="problem" data-required="1" class="form-control" ><?php echo @$_GET['problem'] ?></textarea> </div>
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-lock"></i>
+                                                                </span>
+                                                                <input type="password" name="npassword" class="form-control" placeholder="New Password" id="submit_form_password"> </div>
+                                                                <span class="help-block"> Enter New Password </span>
+                                                        </div>
                                                     </div>
-                                                    <input type="hidden" name="ename" data-required="1" class="form-control" value="<?php echo $userinfo->id ?>" />
-                                                    <input type="hidden" name="status" data-required="1" class="form-control" value="new" />
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">Retype New Password
+                                                            <span class="required"> * </span>
+                                                        </label>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-lock"></i>
+                                                                </span>
+                                                                <input type="password" name="rnpassword" class="form-control" placeholder="New Password Again"> </div>
+                                                                <span class="help-block"> Enter New Password Again </span>
+                                                        </div>
+                                                    </div>
+                                             
+                                                    
                                                 </div>
-                                                <div class="form-actions">
+                                                
+                                                 <div class="form-actions">
                                                     <div class="row">
                                                         <div class="col-md-offset-3 col-md-9">
                                                             <button type="submit" class="btn green">Submit</button>
+                                                            
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> 
                                             </form>
                                             <!-- END FORM-->
                                         </div>
                                         <!-- END VALIDATION STATES-->
                                     </div>
+                                         
+                                    <!-- END VALIDATION STATES-->
                                 </div>
                             </div>
+                            
+                          <!--  <div class="m-heading-1 border-green m-bordered">
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="text-center">
+                                            <button type="submit" class="btn green">Login</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                           <!-- </form>-->
+                            
                         </div>
                         <!-- END PAGE CONTENT INNER -->
                     </div>
@@ -237,11 +253,11 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
-            
-            <!-- END QUICK SIDEBAR -->
+
         </div>
         <!-- END CONTAINER -->
-        <?php require_once ("require/footer.php") ; ?>
+        <!-- BEGIN FOOTER -->
+     <?php require_once ("require/footer.php") ; ?>
         <!-- BEGIN CORE PLUGINS -->
         <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -264,10 +280,12 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
         <script src="./../assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../assets/global/plugins/icheck/icheck.min.js" type="text/javascript"></script>
         <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="require/js/form.js" type="text/javascript"></script>
+        <script src="require/js/pass.js" type="text/javascript"></script>
+        
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="../assets/layouts/layout3/scripts/layout.min.js" type="text/javascript"></script>
@@ -277,9 +295,9 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
     </body>
 
 </html>
-
-<?php }
-if($_SESSION['user_info'] == false ){
-	header("Location: login.php?error=r");
+<?php
+}else
+{
+  die('User Bad Access');  
 }
 ?>

@@ -922,3 +922,68 @@ Stack trace:
 [03-Dec-2016 03:28:06 Asia/Riyadh] PHP Stack trace:
 [03-Dec-2016 03:28:06 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/support/lists.php:0
 [03-Dec-2016 03:28:06 Asia/Riyadh] PHP   2. list_update() /home/ubuntu/workspace/en/support/lists.php:58
+[04-Dec-2016 16:31:39 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (04 12 2016) at position 0 (0): Unexpected character' in /home/ubuntu/workspace/en/support/request.php:142
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/request.php(142): DateTime->__construct('04 12 2016')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/request.php on line 142
+[04-Dec-2016 16:31:48 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (04122016) at position 7 (6): Unexpected character' in /home/ubuntu/workspace/en/support/request.php:142
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/request.php(142): DateTime->__construct('04122016')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/request.php on line 142
+[04-Dec-2016 16:33:59 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (12-59-2016) at position 0 (1): Unexpected character' in /home/ubuntu/workspace/en/support/request.php:142
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/request.php(142): DateTime->__construct('12-59-2016')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/request.php on line 142
+[04-Dec-2016 16:48:22 Asia/Riyadh] PHP Catchable fatal error:  Object of class DateInterval could not be converted to string in /home/ubuntu/workspace/en/support/request.php on line 165
+[04-Dec-2016 16:48:22 Asia/Riyadh] PHP Stack trace:
+[04-Dec-2016 16:48:22 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/support/request.php:0
+[04-Dec-2016 14:08:58 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/en/support/overview.php on line 177
+[04-Dec-2016 15:04:08 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/ubuntu/workspace/en/support/overview.php on line 262
+[04-Dec-2016 17:11:18 UTC] PHP Parse error:  syntax error, unexpected 'user_info' (T_STRING) in /home/ubuntu/workspace/en/support/overview.php on line 245
+[04-Dec-2016 17:11:52 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/support/overview.php on line 347
+[04-Dec-2016 17:12:49 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/support/overview.php on line 347
+[04-Dec-2016 20:14:31 Asia/Riyadh] PHP Fatal error:  Call to undefined function user_get_by_id() in /home/ubuntu/workspace/en/support/ticket.php on line 25
+[04-Dec-2016 20:14:31 Asia/Riyadh] PHP Stack trace:
+[04-Dec-2016 20:14:31 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/support/ticket.php:0
+[04-Dec-2016 22:27:51 Asia/Riyadh] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/support/require/bheader.php on line 121
+[04-Dec-2016 22:27:51 Asia/Riyadh] PHP Stack trace:
+[04-Dec-2016 22:27:51 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/support/overview.php:0
+[04-Dec-2016 22:28:33 Asia/Riyadh] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/support/require/bheader.php on line 121
+[04-Dec-2016 22:28:33 Asia/Riyadh] PHP Stack trace:
+[04-Dec-2016 22:28:33 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/en/support/overview.php:0
+[04-Dec-2016 20:07:54 UTC] PHP Parse error:  syntax error, unexpected 'elseif' (T_ELSEIF) in /home/ubuntu/workspace/en/support/ticket.php on line 535
+[05-Dec-2016 14:53:23 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (date) at position 0 (d): The timezone could not be found in the database' in /home/ubuntu/workspace/en/support/overview.php:317
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/overview.php(317): DateTime->__construct('date')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/overview.php on line 317
+[05-Dec-2016 14:53:29 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (date) at position 0 (d): The timezone could not be found in the database' in /home/ubuntu/workspace/en/support/overview.php:317
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/overview.php(317): DateTime->__construct('date')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/overview.php on line 317
+[05-Dec-2016 14:54:08 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (date) at position 0 (d): The timezone could not be found in the database' in /home/ubuntu/workspace/en/support/overview.php:317
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/overview.php(317): DateTime->__construct('date')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/overview.php on line 317
+[05-Dec-2016 14:54:28 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (date) at position 0 (d): The timezone could not be found in the database' in /home/ubuntu/workspace/en/support/overview.php:317
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/overview.php(317): DateTime->__construct('date')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/overview.php on line 317
+[05-Dec-2016 15:01:00 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (date) at position 0 (d): The timezone could not be found in the database' in /home/ubuntu/workspace/en/support/overview.php:316
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/overview.php(316): DateTime->__construct('date')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/overview.php on line 316
+[05-Dec-2016 15:01:19 Asia/Riyadh] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (date) at position 0 (d): The timezone could not be found in the database' in /home/ubuntu/workspace/en/support/overview.php:316
+Stack trace:
+#0 /home/ubuntu/workspace/en/support/overview.php(316): DateTime->__construct('date')
+#1 {main}
+  thrown in /home/ubuntu/workspace/en/support/overview.php on line 316
+[05-Dec-2016 12:37:07 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/ubuntu/workspace/en/support/overview.php on line 462
+[05-Dec-2016 12:46:15 UTC] PHP Parse error:  syntax error, unexpected '$ruserscl' (T_VARIABLE) in /home/ubuntu/workspace/en/support/overview.php on line 317

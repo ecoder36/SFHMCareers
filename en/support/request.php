@@ -3,7 +3,7 @@
 
 <?php
 @require_once('require/api/db.php');
-@require_once('require/api/addjobsAPI.php');
+
 @require_once('log/logsession.php');
 
 
@@ -141,9 +141,9 @@
                                                 $datetime1 = new DateTime($bd);
                                                 $datetime2 = new DateTime($nd);
                                                 $interval55 = $datetime1->diff($datetime2);
-                                                $date3 = $interval55->format('%d');  
+                                                $date3 = $interval55->format('%R%a');  
                                                 
-                                            if(($user->status == 'new') && ($date3 > '4')){$cstatus = "&nbsp&nbsp&nbsp<span class='label label-lg label-danger'> <i class='fa fa-clock-o'> </i> Since $date3 days </span><span class='label label-success'>New " ;}
+                                            if(($user->status == 'new') && ($date3 >= '4')){$cstatus = "&nbsp&nbsp&nbsp<span class='label label-lg label-danger'> <i class='fa fa-clock-o'> </i> Since $date3 days </span><span class='label label-success'>New " ;}
                                               if(($user->status == 'new') && ($date3 <= '4')){$cstatus = "&nbsp&nbsp&nbsp<span class='label label-success'>new " ;}
                                               if($user->status == 'received'){$cstatus = "&nbsp&nbsp&nbsp<span class='label label-info'>Received " ;}
                                               if($user->status == 'pending'){$cstatus = "&nbsp&nbsp&nbsp<span class='label label-warning'>Pending " ;}
@@ -162,7 +162,7 @@
                                                 
                                                 <tr>
                                                       <td><a class='font-blue-hoki' style='text-decoration: none;' href='ticket.php?id=$user->id'>
-                                                        <h3> $user->ptype   <span class='pull-right'>  $cstatus </span></span></h3>  
+                                                        <h3> $date3 $user->ptype   <span class='pull-right'>  $cstatus </span></span></h3>  
                                                         <p class='text-justify'>
                                                        $user->problem  <br><br>
                                                       <i title='Job Location' class='fa fa-map-marker font-green tooltips'></i> $user->site  

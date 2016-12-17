@@ -5,30 +5,37 @@
 
 require_once('log/adminlogsession.php');
 
-//if($_SESSION['admin_info'] != false  )
-//{
+if($_SESSION['user_info'] != false  )
+{
 
 
 
 @require_once('require/api/db.php');
 @require_once('require/api/requestsAPI.php');
 @require_once('require/api/recordsAPI.php');
+@require_once('require/api/usersAPI.php');
 
 if(empty($_GET['id'])){
-    //  header("Location: applicantslist.php?viewerror=errorab");
+      header("Location: form.php?viewerror=errorab");
   //  die ('error');
 }
 
- $rd =       record_get_by_rid(trim($_GET['id'])); /* */
- $rq =       request_get_by_id(trim($_GET['id'])); /* */
- $_id = (int)$_GET['id'];
+ $rd   =       record_get_by_rid(trim($_GET['id'])); /* */
+ $rq   =       request_get_by_id(trim($_GET['id'])); /* */
+ $userdn = users_get_by_id($rq->doneby);
+ $_id  = (int)$_GET['id'];
  
 //if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['status'])){
  if(isset($_POST['problem'])){
      $reply = $_POST['problem'] ;
      $ustatus = $rq->status ;
-     $themsg = record_add($_id,$uname="testreply",$reply,$ustatus);
+     if(empty(trim($reply))){
+         $themsg =  header("Location: ?id=".$rq->id."&replyp=notdone");
+     }else{
+          $themsg = record_add($_id,$_SESSION['user_info']->id,$reply,$ustatus);
       header("Location: ?id=".$rq->id."&reply=done");
+     }
+    
  }
     if(isset($_GET['status'])){
                           
@@ -41,18 +48,19 @@ if(empty($_GET['id'])){
                                 
                             
                             $ustatus = trim($_GET['status']);
+                             date_default_timezone_set("Asia/Riyadh");
+                             $rdate = date("Y-m-d");
                             
-                            
-                                
-                            $result = rquest_status_update($_id,$ustatus).rquest_doneby_update($_id,$uby="user")
-                            .record_add($_id,$uname="test3",$msg,$ustatus);
+                            $userid = $_SESSION['user_info']->id ;
+                            $result = rquest_status_update($_id,$ustatus).rquest_doneby_update($_id,$userid).rquest_closeddate_update($_id,$rdate)
+                            .record_add($_id,$userid,$msg,$ustatus);
                            
                             
                             tinyf_db_close();
                             
                             if($result)
                             {
-                                header("Location: ?id=".$rq->id."");
+                                header("Location: ?id=".$rq->id."&update=$ustatus");
                               //  header("Location: ?idnumber=".$idnumberofu."&approval= The Applicant ( $name ) has been updated to (<strong>$approval</strong>) successfully");
                             }else{
                                 die('Failure');
@@ -77,7 +85,7 @@ if(empty($_GET['id'])){
         
     <head>
         <meta charset="utf-8" />
-        <title>User Profile</title>
+        <title>Request</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -91,7 +99,7 @@ if(empty($_GET['id'])){
         <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         
-          <link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
@@ -128,7 +136,7 @@ if(empty($_GET['id'])){
                     <div class="container">
                         <!-- BEGIN PAGE TITLE -->
                         <div class="page-title">
-                            <h1 class="theme-font">User Profile
+                            <h1 class="font-blue-dark"><i class="icon-user"></i> <?php echo $_SESSION['user_info']->name ?>
                                 <small></small>
                             </h1>
                         </div>
@@ -136,7 +144,7 @@ if(empty($_GET['id'])){
                         <!-- BEGIN PAGE TOOLBAR -->
                         <div class="page-toolbar">
                             <!-- BEGIN THEME PANEL -->
-                            <?php  require_once ("require/themepanel.php") ; ?>
+                            <?php // require_once ("require/themepanel.php") ; ?>
                             <!-- END THEME PANEL -->
                         </div>
                         <!-- END PAGE TOOLBAR -->
@@ -148,22 +156,26 @@ if(empty($_GET['id'])){
                     <div class="container">
                         <!-- BEGIN PAGE BREADCRUMBS -->
                         <ul class="page-breadcrumb breadcrumb">
-                           <!-- <li>
+                            <!--<li>
                                 <a href="index.html">Home</a>
                                 <i class="fa fa-circle"></i>
                             </li>-->
                           
                             <li>
-                                <span>User Profile</span>
+                                <span>Request</span>
                             </li>
                         </ul>
                          <?php
-                            if(isset($_GET['upass'])){echo ' <div class="alert alert-success ">
-                             <button class="close" data-close="alert"></button><strong>Success! </strong>'.$_GET['upass'].'</div>';}
+                            if(isset($_GET['reply'])){echo ' <div class="alert alert-success ">
+                             <button class="close" data-close="alert"></button><strong>Success! </strong>The Reply has been Added successfully!</div>';}
+                        ?>
+                          <?php
+                            if(isset($_GET['replyp'])){echo ' <div class="alert alert-danger ">
+                             <button class="close" data-close="alert"></button><strong>Error! </strong>There is an error in the text!</div>';}
                         ?>
                          <?php
-                            if(isset($_GET['approval'])){echo ' <div class="alert alert-success ">
-                             <button class="close" data-close="alert"></button><strong>Success! </strong>'.$_GET['approval'].'</div>';}
+                            if(isset($_GET['update'])){echo ' <div class="alert alert-success ">
+                             <button class="close" data-close="alert"></button><strong>Success! </strong>Status has been updated to '.$_GET['update'].' successfully!</div>';}
                         ?>
                         <!-- END PAGE BREADCRUMBS -->
                         <!-- BEGIN PAGE CONTENT INNER -->
@@ -180,7 +192,7 @@ if(empty($_GET['id'])){
                                         <div class="portlet-title tabbable-line">
                                             <div class="caption">
                                                 <i class="icon-globe font-green-sharp"></i>
-                                                <span class="caption-subject font-green-sharp bold uppercase">Feeds</span>
+                                                <span class="caption-subject font-green-sharp bold uppercase">Information</span>
                                             </div>
                                             <ul class="nav nav-tabs">
                                                 <li class="active">
@@ -199,27 +211,23 @@ if(empty($_GET['id'])){
                                                      
                                                          
                                                        <div class="portlet light timeline-body-head-actions text-center ">
+                                                           <?php if(@$_SESSION['user_info']->isadmin == 2){ ?>
                                                            <?php
-                                                           if($rq->status == 'new'){
+                                                           if($rq->status == 'new' && $rq->receiver == ''){
                                                                ?>
                                                                <p>
                                                                 <a class="btn btn-info" href="?status=received&id=<?php echo $rq->id ?>" aria-label="Skip to main navigation">
                                                                    Receve
                                                                 </a> &nbsp &nbsp
-                                                                <a class="btn btn-warning" href="?status=pending&id=<?php echo $rq->id ?>" aria-label="Settings">
-                                                                  <i class="fa fa-cog" aria-hidden="true"></i> 
-                                                                </a>&nbsp &nbsp
-                                                                <a class="btn btn-danger" href="?status=closed&id=<?php echo $rq->id ?>" aria-label="Delete">
-                                                                  <i class="fa fa-times " aria-hidden="true"> </i>
-                                                                </a>
+                                                                
                                                             </p>
                                                             <?php } ?>
                                                            
                                                            <?php  if($rq->status == 'received'){?> 
-                                                           <a class="btn btn-warning" href="?status=pending&id=<?php echo $rq->id ?>" aria-label="Settings">
+                                                           <a class="btn btn-warning tooltips" data-original-title="Pending" href="?status=pending&id=<?php echo $rq->id ?>" aria-label="Settings">
                                                                   <i class="fa fa-cog" aria-hidden="true"></i> 
                                                                 </a>&nbsp &nbsp
-                                                                <a class="btn btn-danger" href="?status=closed&id=<?php echo $rq->id ?>" aria-label="Delete">
+                                                                <a class="btn btn-danger tooltips" data-original-title="Close" href="?status=closed&id=<?php echo $rq->id ?>" aria-label="Delete">
                                                                   <i class="fa fa-times " aria-hidden="true"> </i>
                                                                 </a>
                                                            
@@ -229,7 +237,7 @@ if(empty($_GET['id'])){
                                                             <a class="btn btn-info" href="?status=received&id=<?php echo $rq->id ?>" aria-label="Skip to main navigation">
                                                                    Receve
                                                                 </a> &nbsp &nbsp
-                                                            <a class="btn btn-danger" href="?status=closed&id=<?php echo $rq->id ?>" aria-label="Delete">
+                                                            <a class="btn btn-danger tooltips" data-original-title="Close" href="?status=closed&id=<?php echo $rq->id ?>" aria-label="Delete">
                                                                   <i class="fa fa-times " aria-hidden="true"> </i>
                                                                 </a>
                                                             <?php } ?>
@@ -237,11 +245,8 @@ if(empty($_GET['id'])){
                                                             <?php   if($rq->status == 'closed'){?> 
                                                             
                                                             
-                                                            <?php } ?>
-                                                           
-                                                           
-                                                           
-                                                                        
+                                                            <?php } } ?>
+                                                                           
                                                           
                                                     </div> 
                                                      
@@ -310,14 +315,7 @@ if(empty($_GET['id'])){
                                                                             <span class="font-blue-hoki"> <?php echo $datet  ?> </span>
                                                                         </td>
                                                                     </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            receiver 
-                                                                        </td>
-                                                                        <td>
-                                                                            <span class="font-blue-hoki"> <?php echo $rq->doneby  ?> </span>
-                                                                        </td>
-                                                                    </tr>
+                                                                    
                                                                     <tr>
                                                                         <td>
                                                                              status 
@@ -335,6 +333,14 @@ if(empty($_GET['id'])){
                                                                              
                                                                         </td>
                                                                     </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            receiver 
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class="font-blue-hoki"> <?php echo $userdn->name  ?> </span>
+                                                                        </td>
+                                                                    </tr>
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -348,6 +354,10 @@ if(empty($_GET['id'])){
                                                                  <?php
                                                             $idn = $_GET['id'];
                                                              $dmsga = record_get_by_rid("$idn");
+                                                             
+                                                           
+                                                             $useren = users_get_by_id($rq->ename);
+                                                             
                                                              $dmsg = record_get("WHERE `rid` = '$idn' ORDER BY `id` ASC");
                                                                     if($dmsg == NULL)
                                                                           echo ('null');
@@ -365,7 +375,7 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                         </div>
                                                                         <div class="cont-col2">
-                                                                            <div class="desc"> <?php echo $dmsga->uname ?> Add <span class="label label-sm label-success"> New</span> Request on
+                                                                            <div class="desc"> <?php echo $useren->uname ?> Add <span class="label label-sm label-success"> New</span> Request on
                                                                                 
                                                                                 <br>
                                                                                  <span class="font-grey-salsa"> <?php echo $dmsga->day ?>&nbsp<?php echo substr($dmsga->date,0,10) ?></span>
@@ -382,6 +392,9 @@ if(empty($_GET['id'])){
                                                                           for($i = 0 ; $i < $trcount; $i++)
                                                                           {
                                                                               $user = $dmsg[$i];
+                                                                              
+                                                                               //$useren = users_get_by_id($rq->ename);
+                                                                               $userrecord = users_get_by_id($user->uname);
                                                                               if($user->msg != '' && $rq->problem != $user->msg ){
                                                                  ?>
                                                                  <li>
@@ -393,7 +406,7 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                         </div>
                                                                         <div class="cont-col2">
-                                                                            <div class="desc"> <?php echo $user->uname ?> add <i class="fa fa-mail-forward font-green"></i> reply to request
+                                                                            <div class="desc"> <?php echo $userrecord->uname ?> add <i class="fa fa-mail-forward font-green"></i> reply to request
                                                                                 on
                                                                                 <br>
                                                                                 <span class="font-grey-salsa"> <?php echo $user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
@@ -418,7 +431,7 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                             </div>
                                                                             <div class="cont-col2">
-                                                                                <div class="desc"> <?php echo $user->uname ?> change request to <span class='label label-sm label-info'> Received </span>&nbsp  on
+                                                                                <div class="desc"> <?php echo $userrecord->uname ?> change request to <span class='label label-sm label-info'> Received </span>&nbsp  on
                                                                                <br>
                                                                                 <span class="font-grey-salsa"> <?php echo $user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
                                                                                  </div>
@@ -441,7 +454,7 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                         </div>
                                                                         <div class="cont-col2">
-                                                                            <div class="desc"><?php echo $user->uname ?> change request to <span class='label label-sm label-warning'>  Pending </span>on
+                                                                            <div class="desc"><?php echo $userrecord->uname ?> change request to <span class='label label-sm label-warning'>  Pending </span>on
                                                                             <br>
                                                                                  <span class="font-grey-salsa"> <?php echo $user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
                                                                             </div>
@@ -463,7 +476,7 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                             </div>
                                                                             <div class="cont-col2">
-                                                                                <div class="desc"> <?php echo $user->uname ?> change request to <span class='label label-sm label-danger'> Closed </span>  on
+                                                                                <div class="desc"> <?php echo $userrecord->uname ?> change request to <span class='label label-sm label-danger'> Closed </span>  on
                                                                                <br>
                                                                                 <span class="font-grey-salsa"> <?php echo $user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
                                                                                  </div>
@@ -501,8 +514,8 @@ if(empty($_GET['id'])){
                                                     <div class="portlet-title">
                                                         <div class="caption">
                                                             <i class="icon-microphone font-green"></i>
-                                                            <span class="caption-subject bold font-green uppercase"> Timeline 1</span>
-                                                            <span class="caption-helper">default option...</span>
+                                                            <span class="caption-subject bold font-green uppercase"> Request Messages </span>
+                                                            <span class="caption-helper"></span>
                                                         </div>
                                                     </div>
                                                     <div class="portlet-body">
@@ -510,29 +523,35 @@ if(empty($_GET['id'])){
                                                             <?php
                                                             $idn = $_GET['id'];
                                                              $dmsg = record_get("WHERE `msg` NOT LIKE '' AND `rid` = '$idn' ORDER BY `id` ASC");
+                                                            
                                                                     if($dmsg == NULL)
-                                                                          echo ('null');
+                                                                          echo ('');
                                                                     $trcount = @count($dmsg);
                                                                     if($trcount == 0)
-                                                                          echo ('0');
+                                                                          echo ('');
                                                                 ?>
                                                                 <?php
                                                                           for($i = 0 ; $i < $trcount; $i++)
                                                                           {
                                                                               $user = $dmsg[$i];
+                                                                               $userrecord2 = users_get_by_id($user->uname);
                                                                  ?>
                                                             <!-- TIMELINE ITEM -->
                                                             <div class="timeline-item">
                                                                 <div class="timeline-badge">
                                                                     <div class="timeline-icon">
-                                                                        <i class="icon-user-following font-green"></i>
+                                                                        <?php if($i == 0){$icon = '<i class="icon-docs font-green"></i>';}  
+                                                                        if($i != 0){$icon = '<i class="icon-user-following font-green"></i>';} 
+                                                                        echo $icon ?>
+                                                                        
+                                                                         
                                                                     </div>
                                                                 </div>
                                                                 <div class="timeline-body">
                                                                     <div class="timeline-body-arrow"> </div>
                                                                     <div class="timeline-body-head">
                                                                         <div class="timeline-body-head-caption">
-                                                                            <span class="timeline-body-alerttitle font-green">Posted By : <?php echo $user->uname ;?></span>
+                                                                            <span class="timeline-body-alerttitle font-green">Posted By : <?php echo $userrecord2->name ;?></span>
                                                                             <span class="timeline-body-time font-grey-cascade"><?php echo $user->day ; ?>&nbsp <?php echo $user->date ?></span>
                                                                         </div>
                                                                         <div class="timeline-body-head-actions">
@@ -549,6 +568,7 @@ if(empty($_GET['id'])){
                                                             <!-- END TIMELINE ITEM -->
                                                             <?php } ?>
                                                             <!-- TIMELINE ITEM -->
+                                                             <?php   if($rq->status != 'closed'){?> 
                                                             <div class="timeline-item">
                                                                 <div class="timeline-badge">
                                                                     <div class="timeline-icon">
@@ -567,11 +587,11 @@ if(empty($_GET['id'])){
                                                                         </div>
                                                                     </div>
                                                                     <div class="timeline-body-content">
-                                                                        <form method="post" class="form-horizontal">
+                                                                        <form method="post" id="form_sample_3" class="form-horizontal">
                                                                             <div class="form-body">
                                                                                 <div class="form-group">
                                                                                     <div class="col-md-6">
-                                                                                        <textarea placeholder="Reply . note:This textarea has a limit of 225 chars." maxlength="225" type="text" rows="5" required name="problem" data-required="1" class="form-control" ></textarea> </div>
+                                                                                        <textarea placeholder="Reply . note:This textarea has a limit of 225 characters." maxlength="225" type="text" rows="5" required name="problem" data-required="1" class="form-control" ></textarea> </div>
                                                                                 </div>
                                                                                 <div class="form-actions">
                                                                                     <div class="row">
@@ -586,6 +606,7 @@ if(empty($_GET['id'])){
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <?php } ?>
                                                             <!-- END TIMELINE ITEM -->
                                                         </div>
                                                     </div>
@@ -636,12 +657,22 @@ if(empty($_GET['id'])){
         <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
         <script src="../assets/global/plugins/gmaps/gmaps.min.js" type="text/javascript"></script>
 
+
+<script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+        <script src="./../assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="require/js/trandate.js" type="text/javascript"></script>  
+        <script src="require/js/form.js" type="text/javascript"></script>  
        <!-- <script src="../assets/pages/scripts/profile.min.js" type="text/javascript"></script>
         <script src="../assets/pages/scripts/timeline.min.js" type="text/javascript"></script>-->
         <!-- END PAGE LEVEL SCRIPTS -->
@@ -654,3 +685,8 @@ if(empty($_GET['id'])){
     </body>
 
 </html>
+<?php }
+if($_SESSION['user_info'] == false ){
+	header("Location: login.php?error=r");
+}
+?>

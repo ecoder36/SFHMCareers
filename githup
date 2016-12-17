@@ -1,0 +1,34 @@
+
+
+git status
+
+
+git add .
+
+
+
+git status
+
+
+
+ git push
+ 
+ 
+ 
+ git status
+ 
+ 
+ 
+ git commit -m "Add support system"
+ 
+ 
+ 
+git status
+
+
+
+ git push
+ 
+ 
+ 
+ git status
