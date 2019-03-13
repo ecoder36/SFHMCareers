@@ -22,7 +22,7 @@ var TableDatatablesEditable = function () {
             jqTds[1].innerHTML = '<input autocomplete="off" name="name" type="text" class=" copy1 form-control input-small" value="' + aData[1] + '">';
             jqTds[2].innerHTML = '<input name="uname" type="text" class=" copy2 form-control input-small" value="' + aData[2] + '">';
             jqTds[3].innerHTML = '<input name="password" type="password" class=" copy3 form-control input-small" value="' + aData[3] + '">';
-            jqTds[4].innerHTML = '<select name="perm" type="text" class="copy4 form-control input-small" ><option >' + aData[4] + '</option><option value="user">user</option><option value="technician">technician</option><option value="admin">admin</option></select>';
+            jqTds[4].innerHTML = '<select name="perm" type="text" class="copy4 form-control input-small" ><option >' + aData[4] + '</option><option value="user">user</option><option value="admin">admin</option></select>';
           //  jqTds[4].innerHTML = '<input name="isadmin" type="text" class=" copy4 form-control input-small" value="' + aData[4] + '">';
 
             jqTds[5].innerHTML='<form clas="edit" action="?id='+aData[0]+'&859" method="post" ><input type="hidden" class="copy1c" name="name" value="'+aData[1]+'"><input type="hidden" class="copy2c" name="uname" value="'+aData[2]+'"><input type="hidden" class="copy3c" name="password" value="'+aData[3]+'"><input type="hidden" class="copy4c" name="perm" value="'+aData[4]+'"><button type="submit" onclick="$(this).parent(\'form\').submit();" class="btn btn-primary">Save</button></form>',

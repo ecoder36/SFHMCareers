@@ -13,6 +13,13 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
 @require_once('require/api/recordsAPI.php');
 @require_once('require/api/usersAPI.php');
 
+if(isset($_GET['dline'])){
+    $result = rquest_dline_update($_GET['id'],$_POST['dline']);
+    if($result){
+        $doned = $_GET['dline'] ;
+      header("Location: ?done=$doned");
+    }
+}
 ?>
 
 
@@ -42,17 +49,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
         <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+
         <?php $view="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         <!-- END HEADER -->
@@ -94,7 +91,6 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
                      <div class="page-content-inner">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form-horizontal form-row-seperated" action="#">
                                         <div class="portlet">
                                             <div class="portlet-title">
                                                 <div class="caption">
@@ -127,8 +123,8 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
                                                         <div class="tab-pane active" id="tab_general">
                                                             
                                                             <div class="table-container">
-                                                                <div class="portlet light  box green">
-                                                                    <div class="portlet-title">
+                                                                <div class="portlet light  box grey-silver" style="border:1px solid #caa88e;">
+                                                                    <div class="portlet-title" style="background-color:#caa88e;">
                                                                         <div class="caption font-dark">
                                                                             <!--<span class="label"><a class="btn btn-circle btn-icon-only btn-default" data-original-title="Select Columns" href="#daterangepicker_modal" data-toggle="modal">
                                                                                     <i class="icon-wrench"></i>
@@ -138,8 +134,13 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
                                                                         </div>
                                                                     </div>
                                                                     <div class="portlet-body">
+                                                                        
+                                                                        <?php
+                            if(isset($_GET['done'])){echo ' <div class="alert alert-success ">
+                             <button class="close" data-close="alert"></button><strong>Success! </strong>The dedline has been changed successfully!</div>';}
+                        ?>
                                                     <?php                    
-                                             $users = request_get('WHERE `status` != "closed" ORDER BY `status` ASC, `id` DESC');
+                                             $users = request_get('WHERE `status` != "closed" ORDER BY `status` ASC, `id` DESC ');
                                             if($users == NULL)
                                               //  die ('problem');
                                                   echo ('');
@@ -188,20 +189,28 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
                                                 $interval55 = $datetime1->diff($datetime2);
                                                 $date3 = $interval55->format('%R%a');  
                                                 
-                                              if(($user->status == 'new') && ($date3 > '4')){$username=$useren->uname ; $tr = '<tr class="danger">'; $cstatus = "&nbsp&nbsp&nbsp<span class='label label-lg label-danger'> <i class='fa fa-clock-o'> </i> $date3 days </span><span class='label label-success'>New " ; }
-                                              elseif(($user->status == 'new') && ($date3 <= '4')){$username=$useren->uname ;$tr = '<tr>'; $cstatus = "&nbsp&nbsp&nbsp<span class='label label-success'>new " ;}
+                                                
+                                                if($user->dline == null){
+                                              if(($user->status == 'new') && ($date3 > '4')){$username=$useren->uname ; $tr = '<tr class="danger">'; $cstatus = "<span class='label label-lg label-danger'> <i class='fa fa-clock-o'> </i> $date3 days </span><span class='label label-success'>New " ; }
+                                              elseif(($user->status == 'new') && ($date3 <= '4')){$username=$useren->uname ;$tr = '<tr>'; $cstatus = "<span class='label label-success'>New " ;}
                                               else{$tr = '<tr>';}
+                                                }
+                                                 if($user->dline != null){
+                                              if(($user->status == 'new') && ($date3 > $user->dline)){$username=$useren->uname ; $tr = '<tr class="danger">'; $cstatus = "<span class='label label-lg label-danger'> <i class='fa fa-clock-o'> </i> $date3 days </span><span class='label label-success'>New " ; }
+                                              elseif(($user->status == 'new') && ($date3 <= $user->dline)){$username=$useren->uname ;$tr = '<tr>'; $cstatus = "<span class='label label-success'>New " ;}
+                                              else{$tr = '<tr>';}
+                                                }
                                               
-                                              if($user->status == 'received'){$username=$userdn->uname ;$cstatus = "&nbsp&nbsp&nbsp<span class='label label-info'>Received " ;}
-                                              if($user->status == 'pending'){$username=$userdn->uname ;$cstatus = "&nbsp&nbsp&nbsp<span class='label label-warning'>Pending " ;}
-                                              if($user->status == 'closed'){$username=$userdn->uname ;$cstatus = "&nbsp&nbsp&nbsp<span class='label label-danger'>Closed" ;}
+                                              
+                                              
+                                              if($user->status == 'received'){$username=$userdn->uname ;$cstatus = "<span class='label label-info'>Received " ;}
+                                              if($user->status == 'closed'){$username=$userdn->uname ;$cstatus = "<span class='label label-danger'>Closed" ;}
                                               
                         
                                 
                                 
-                                              if($userid->status == 'received'){$receiver = "<span class='pull-right font-green'> <i title='recevied by' class='fa fa-wrench tooltips'></i><span class=''> $userid->uname </span></span> " ;}
-                                              if($useridp->status == 'pending'){$receiver = "<span class='pull-right font-green'> <i title='recevied by' class='fa fa-wrench tooltips'></i><span class=''> $useridp->uname </span></span> " ;}
-                                              if($useridc->status == 'closed'){$receiver = "<span class='pull-right font-green'> <i title='recevied by' class='fa fa-wrench tooltips'></i><span class=''> $useridc->uname </span></span> " ;}
+                                              if(@$userid->status == 'received'){$receiver = "<span class='pull-right font-green'> <i title='recevied by' class='fa fa-wrench tooltips'></i><span class=''> $userid->uname </span></span> " ;}
+                                              if(@$useridc->status == 'closed'){$receiver = "<span class='pull-right font-green'> <i title='recevied by' class='fa fa-wrench tooltips'></i><span class=''> $useridc->uname </span></span> " ;}
                                           
                                          //    if(strtotime($date1) <=  strtotime($datenow) && strtotime($datenow)  <= strtotime($date2)){
                                                   ?>
@@ -215,11 +224,48 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
                                                                                 <td> <?php echo $username ?> </td>
                                                                                 <td ><?php echo substr($user->date,0,10) ?>   </td>
                                                                                 <td ><?php echo $cstatus ?> </td>
-                                                                                <td ><a href="ticket.php?id=<?php echo $user->id ?>" class="btn btn-sm btn-default btn-editable"><i class="fa fa-share"></i> View</a>    </td>
+                                                                                <td ><a href="ticket.php?id=<?php echo $user->id ?>" class="btn btn-sm btn-default btn-editable"><i class="fa fa-share"></i> View</a>
+                                                                                <?php if(($user->status == 'new') && $_SESSION['user_info']->isadmin == 1 ){ ?>
+                                                                                <a data-toggle="modal" href="#sadd_modal<?php echo $user->id ?>" class="btn btn-sm btn-warning btn-editable "><?php  if($user->dline == null){ echo 4 ; }else{ echo $user->dline ; } ?></a> 
+                                                                                <?php  } ?>
+                                                                                </td>
+                                                                                
+                                                                                <!-- Start Site EDIT FORM -->
+                                    <div id="sadd_modal<?php echo $user->id ?>" class="modal fade" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                    <h4 class="modal-title"><?php if($user->dline == null){ echo "dedline for this request is 4 dayes";}else{echo "dedline for this request is $user->dline dayes" ;} ?></h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="?dline=4&id=<?php echo $user->id ; ?>" class="form-horizontal" method="post">
+                                                        
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">New Dedline</label>
+                                                            <div class="col-md-6">
+                                                                <input type="number" class="form-control" name="dline" value="" />
+                                                                 <span class="help-block"><P> </P>  </span>
+                                                            </div>
+                                                        </div> 
+                                                        <input type="hidden" name="id" class="form-control" value="<?php echo $user->id ?>" /> 
+                                                        <div class="form-actions">
+                                                            <div class="row">
+                                                                <div class="col-md-offset-8 col-md-9">
+                                                                    <button type="submit" class="btn yellow btn-primary">Submit</button>
+                                                                    <button type="button" data-dismiss="modal" class="btn default" aria-hidden="true">Cancel</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END Site EDIT FORM -->
+                                    
                                                                             </tr>
                                                                             <?php  } ?>
-                                                                            
-                                                                            
                                                                             
                                                                         </tbody>
                                                                     </table>
@@ -234,8 +280,8 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
                                                         
                                                         <div class="tab-pane" id="tab_history">
                                                             <div class="table-container">
-                                                                <div class="portlet light  box blue-madison">
-                                                                    <div class="portlet-title">
+                                                                <div class="portlet light  box blue-madison" style="border:1px solid #caa88e;">
+                                                                    <div class="portlet-title" style="background-color:#caa88e;">
                                                                         
                                                                         <div class="tools">
                                                                         </div>
@@ -300,7 +346,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin != 3 )
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>

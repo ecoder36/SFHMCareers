@@ -1,13 +1,13 @@
 
 <?php require_once ('log/logsession.php'); 
 
-if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
+if($_SESSION['user_info_2'] != false && $_SESSION['user_info_2']->isadmin == 1 )
 {
 ?>
 <?php
 
 @require_once('require/api/db.php');
-@require_once('require/api/listsAPI.php');
+@require_once('require/api/regionAPI.php');
 
 if(isset($_GET['del']))
 {
@@ -17,7 +17,7 @@ if(isset($_GET['del']))
             if($_del == 0)
                 die('Access Problem 2');
 
-             $result = list_delete($_del);
+             $result = region_delete($_del);
              tinyf_db_close();
              if($result){
                       header("Location: ?ddel=$dc");
@@ -41,7 +41,7 @@ if(isset($_GET['id']))
             //  die('Bad Access 2');
  if($_id != 0)
 {
-            $user = list_get_by_content($_POST['content']);
+            $user = region_get_by_region_city($_POST['eregion'],$_POST['ecity']);
        //     echo $_id;
             if ($user != NULL)
               {
@@ -51,17 +51,17 @@ if(isset($_GET['id']))
                              $res = $user [$i] ;
                                     if (($res->id != $_id))
                                     {
-                                        header("Location: ?beforeupdategetinfo=".$_POST['content']."&old=".$res->content."");
+                                        header("Location: ?beforeupdategetinfo=".$_POST['ecity']."&old=".$res->ecity."");
                                          die();
                                     }
                           }
                      tinyf_db_close();
               }
           {   
-                        $result = list_update($_id,$_POST['content']);
+                        $result = region_update($_id,$_POST['eregion'],$_POST['ecity']);
                         tinyf_db_close();
                         //u_db_close();
-                        $un = $_POST['content'];
+                        $un = $_POST['ecity'];
                         if($result)
                              {
                               header("Location: ?contentupdate=$un");
@@ -75,11 +75,11 @@ if(isset($_GET['id']))
     }
           if($_id == 0)
           {
-                            if(!isset($_GET['id']) || (!isset($_POST['content'])) || (!isset($_GET['tname']))  )
+                            if(!isset($_GET['id']) || (!isset($_POST['eregion'])) || (!isset($_GET['ecity']))  )
                             {
-                                die('Problem2');
+                                die('Problem23');
                             }
-                            $user = list_get_by_content($_POST['content']);
+                            $user = region_get_by_region_city($_POST['eregion'],$_POST['ecity']);
                             if ($user != NULL)
                             {
                                         $rcount =@count($user);
@@ -88,17 +88,16 @@ if(isset($_GET['id']))
                                              $resu = $user [$i];
                                           }
                                       tinyf_db_close();
-                                      header("Location:?beforeaddgetinfo=".$_POST['content']."&old=".$resu->content."");
+                                      header("Location:?beforeaddgetinfo=".$_POST['ecity']."&old=".$resu->ecity."");
                                       die();
                             }
                       
-                          
 
-                          $result = list_add($_POST['tname'],(ltrim($_POST['content'])));
+                          $result = region_add($_POST['eregion'],$_POST['ecity']);
                           tinyf_db_close();
                           if($result)
                               {
-                                  header("Location:?added=".$_POST['content']."");
+                                  header("Location:?added=".$_POST['ecity']."");
                               }
                           else
                           header("Location:?error=er");
@@ -134,17 +133,7 @@ if(isset($_GET['id']))
         <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+<?php $arlink = "../../ar/cssystem/lists.php" ?>
  <?php $lists="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
 
@@ -159,7 +148,7 @@ if(isset($_GET['id']))
                     <div class="container">
                         <!-- BEGIN PAGE TITLE -->
                         <div class="page-title">
-                            <h1 class="font-blue-dark"> <i class="icon-user"></i> <?php echo $_SESSION['user_info']->name ?>
+                            <h1 class="font-blue-dark"> <i class="icon-user"></i> <?php echo $_SESSION['user_info_2']->name ?>
                                 <small></small>
                             </h1>
                         </div>
@@ -196,13 +185,13 @@ if(isset($_GET['id']))
                         <button class="close" data-close="alert"></button><strong>Error Update failure! </strong> '.$_GET['beforeupdategetinfo'].' is on the table </div>';}
                      ?>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                     <div class="portlet light ">
                                         <div class="portlet-title">
-                                            <div class="caption font-green">
-                                                <i class="icon-settings font-green"></i>
-                                                <span class="caption-subject bold uppercase">Sites</span>
+                                            <div class="caption font-yellow">
+                                                <i class="icon-settings font-yellow"></i>
+                                                <span class="caption-subject bold uppercase">Regions & Ceties</span>
                                             </div>
                                             <div class="tools"> </div>
                                         </div>
@@ -212,13 +201,13 @@ if(isset($_GET['id']))
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="btn-group">
-                                                             <a class="btn green" data-toggle="modal" href="#sadd_modal"><i class="fa fa-plus"></i> Add New </a>
+                                                             <a class="btn yellow" data-toggle="modal" href="#sadd_modal"><i class="fa fa-plus"></i> Add New </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                              <?php
-                                                        $users = list_get('WHERE `tname` = "site" ORDER BY `id` DESC' );
+                                                        $users = region_get('ORDER BY `id` DESC' );
                                                         if($users == NULL)
                                                           //  die ('problem');
                                                               echo ('');
@@ -232,7 +221,8 @@ if(isset($_GET['id']))
                                                 <thead>
                                                     <tr>
                                                         <th style="display:none;" class="all">Id</th>
-                                                        <th class="min-phone-l">Site</th>
+                                                        <th class="min-phone-l">region</th>
+                                                        <th class="min-phone-l">city</th>
                                                         <th class="none">Edit</th>
                                                         <th class="none">Delete</th>
                                                     </tr>
@@ -244,9 +234,10 @@ if(isset($_GET['id']))
                                                           $user = $users[$i]; ?>
                                                     <tr>
                                                         <td style="display:none;"><?php echo $user->id ?></td>
-                                                        <td><?php echo $user->content ?></td>
+                                                        <td><?php echo $user->eregion ?></td>
+                                                        <td><?php echo $user->ecity ?></td>
                                                         <td> <a class="edit" href="javascript:;"> Edit </a> </td>
-                                                    <td> <a class="delete1" href="?del=<?php echo $user->id ?>&dc=<?php echo $user->content ?>&5945" onclick="return confirm('Are you sure to delete the (<?php echo $user->content ?>) ?')"> Delete </a> </td>
+                                                    <td> <a class="delete1" href="?del=<?php echo $user->id ?>&dc=<?php echo $user->ecity ?>&5945" onclick="return confirm('Are you sure to delete the (<?php echo $user->ecity ?>) ?')"> Delete </a> </td>
                                                     </tr>
                                                 <?php }  ?>
                                                     
@@ -260,22 +251,28 @@ if(isset($_GET['id']))
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                    <h4 class="modal-title">Add New Site </h4>
+                                                    <h4 class="modal-title">Add New city </h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="?id=&tname=site" class="form-horizontal" method="post" enctype="multipart/form-data">
+                                                    <form action="?id=&eregion=e&ecity=c" class="form-horizontal" method="post" enctype="multipart/form-data">
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-4">Site</label>
+                                                            <label class="control-label col-md-4">region</label>
                                                             <div class="col-md-6">
-                                                                <input type="text" class="form-control" name="content" value="" />
+                                                                <input type="text" class="form-control" name="eregion" value="" />
                                                                  <span class="help-block"><P> </P>  </span>
                                                             </div>
                                                         </div> 
-                                                        <input type="hidden" name="tname" class="form-control" value="site" /> 
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">city</label>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="form-control" name="ecity" value="" />
+                                                                 <span class="help-block"><P> </P>  </span>
+                                                            </div>
+                                                        </div> 
                                                         <div class="form-actions">
                                                             <div class="row">
                                                                 <div class="col-md-offset-8 col-md-9">
-                                                                    <button type="submit" class="btn green btn-primary">Submit</button>
+                                                                    <button type="submit" class="btn yellow btn-primary">Submit</button>
                                                                     <button type="button" data-dismiss="modal" class="btn default" aria-hidden="true">Cancel</button>
                                                                 </div>
                                                             </div>
@@ -288,101 +285,7 @@ if(isset($_GET['id']))
                                     <!-- END Site EDIT FORM -->
                                     <!-- END EXAMPLE TABLE PORTLET-->
                                 </div>
-                                <div class="col-md-6">
-                                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                    <div class="portlet light ">
-                                        <div class="portlet-title">
-                                            <div class="caption font-green">
-                                                <i class="icon-settings font-green"></i>
-                                                <span class="caption-subject bold uppercase">Problems Types</span>
-                                            </div>
-                                            <div class="tools"> </div>
-                                        </div>
-                                        <div class="portlet-body">
-                                           <div class="table-toolbar">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="btn-group">
-                                                             <a class="btn green" data-toggle="modal" href="#cadd_modal"><i class="fa fa-plus"></i> Add New </a>
-                                                           
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             <?php
-                                                        $users = list_get('WHERE `tname` = "ptype" ORDER BY `id` DESC' );
-                                                        if($users == NULL)
-                                                          //  die ('problem');
-                                                              echo ('');
-                                                        $ucount = @count($users);
-                                                        if($ucount == 0)
-                                                      //      die ('No users');
-                                                              echo ('');
-            
-                                                        ?>
-                                            <table class="table table-striped table-bordered table-hover" width="100%" id="sample_editable_11">
-                                                <thead>
-                                                    <tr>
-                                                        <th style="display:none;" class="all">Id</th>
-                                                        <th class="min-phone-l">Type</th>
-                                                        <th class="none">Edit</th>
-                                                        <th class="none">Delete</th>
-                                                        
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    
-                                                   <?php for($i = 0 ; $i < $ucount; $i++)
-                                                      {
-                                                          
-                                                          $user = $users[$i]; ?>
-                                                    <tr>
-                                                        <td style="display:none;"><?php $j = $i + 1 ; echo $user->id ?></td>
-                                                        <td><?php echo $user->content ?></td>
-                                                        <td> <a class="edit" href="javascript:;"> Edit </a> </td>
-                                                    <td> <a class="delete1" href="?del=<?php echo $user->id ?>&dc=<?php echo $user->content ?>&5945" onclick="return confirm('Are you sure to delete the (<?php echo $user->content ?>) ?')"> Delete </a> </td>
-                                                    </tr>
-                                                <?php }  ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    
-                                     <!-- Start Type EDIT FORM -->
-                                    <div id="cadd_modal" class="modal fade" role="dialog" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                    <h4 class="modal-title">Add New Type </h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="?id=&tname=ptype" class="form-horizontal" method="post" enctype="multipart/form-data">
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-4">Type</label>
-                                                            <div class="col-md-6">
-                                                                <input type="text" class="form-control" name="content" value="" />
-                                                                 <span class="help-block"><P> </P>  </span>
-                                                            </div>
-                                                        </div>
-                                                        <input type="hidden" name="tname" class="form-control" value="ptype" /> 
-                                                        <div class="form-actions">
-                                                            <div class="row">
-                                                                <div class="col-md-offset-8 col-md-9">
-                                                                    <button type="submit" class="btn green btn-primary">Submit</button>
-                                                                    <button type="button" data-dismiss="modal" class="btn default" aria-hidden="true">Cancel</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- END Type EDIT FORM -->
-                                    <!-- END EXAMPLE TABLE PORTLET-->
-                                    
-                                </div>
+                               
                             </div>
                            
                         </div>
@@ -430,10 +333,10 @@ if(isset($_GET['id']))
 </html>
 
 <?php  }
-if($_SESSION['user_info'] == false ){
+if($_SESSION['user_info_2'] == false ){
 	header("Location: login.php?error=r");
 }
-if(@$_SESSION['user_info']->isadmin != 1){
+if(@$_SESSION['user_info_2']->isadmin != 1){
 	header("Location: overview.php");
 }
 ?>

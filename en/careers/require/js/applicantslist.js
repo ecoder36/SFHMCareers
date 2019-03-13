@@ -152,7 +152,7 @@ var TableDatatablesButtons = function () {
                 { extend: 'print', className: 'btn dark btn-outline' },
                 { extend: 'copy', className: 'btn red btn-outline' },
                 { extend: 'pdf', className: 'btn green btn-outline' },
-                { extend: 'excel', className: 'btn yellow btn-outline ' },
+             //   { extend: 'excel', className: 'btn yellow btn-outline ' },
                 { extend: 'csv', className: 'btn purple btn-outline ' },
                // { extend: 'colvis', className: 'btn dark btn-outline', text: 'Columns'}
             ],
@@ -213,7 +213,7 @@ var TableDatatablesButtons = function () {
                 { extend: 'print', className: 'btn default' },
                 { extend: 'copy', className: 'btn default' },
                 { extend: 'pdf', className: 'btn default' },
-                { extend: 'excel', className: 'btn default' },
+              //  { extend: 'excel', className: 'btn default' },
                 { extend: 'csv', className: 'btn default' },
                /* {
                     text: 'Reload',

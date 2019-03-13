@@ -70,6 +70,16 @@ var TableDatatablesEditable1 = function () {
             "language": {
                 "lengthMenu": " _MENU_ "
             },
+             buttons: [
+               // { extend: 'print', className: 'btn dark btn-outline' },
+                // { extend: 'pdf', className: 'btn green btn-outline' },
+                //{ extend: 'csv', className: 'btn purple btn-outline ' },
+                { extend: 'print', className: 'btn default' },
+                { extend: 'copy', className: 'btn default' },
+                { extend: 'pdf', className: 'btn default' },
+               // { extend: 'excel', className: 'btn default' },
+                { extend: 'csv', className: 'btn default' }
+            ],
             "columnDefs": [{ // set default column settings
                 'orderable': true,
                 'visible': false,
@@ -222,13 +232,16 @@ var TableDatatablesEditable = function () {
             var jqTds = $('>td', nRow);
           //  jqTds[0].innerHTML = '<input disabled type="text" class="form-control input-small" value="' + aData[0] + '">';
            jqTds.innerHTML = aData[0] ;
-            jqTds[1].innerHTML = '<input name="content" type="text" class="copy1 form-control input-small" value="' + aData[1] + '">';
+            jqTds[1].innerHTML = '<input name="eregion" type="text" class="copy1 form-control input-small" value="' + aData[1] + '">';
+           
+            jqTds[2].innerHTML = '<input name="ecity" type="text" class="copy2 form-control input-small" value="' + aData[2] + '">';
           
 
-            jqTds[2].innerHTML='<form style="display:inline" clas="edit" action="?id='+aData[0]+'&859&tname=site&content='+ aData[1] +'" method="post"><input type="hidden" class="copy1c" name="content" value="'+aData[1]+'"><button type="submit" onclick="$(this).parent(\'form\').submit();" class="btn btn-primary"> Save </button></form>',
+            jqTds[3].innerHTML='<form style="display:inline" clas="edit" action="?id='+aData[0]+'&859&eregion='+ aData[1] +'" method="post"><input type="hidden" class="copy1c" name="eregion" value="'+aData[1]+'"><input type="hidden" class="copy2c" name="ecity" value="'+aData[2]+'"><button type="submit" onclick="$(this).parent(\'form\').submit();" class="btn btn-primary"> Save </button></form>',
             $(".copy1").keyup(function(){ $(".copy1c").val($(this).val()); });
-            
-            jqTds[3].innerHTML = '<a class="cancel" href="">Cancel</a>';
+            $(".copy2").keyup(function(){ $(".copy2c").val($(this).val()); });
+           
+            jqTds[4].innerHTML = '<a class="cancel" href="">Cancel</a>';
            
         }
         
@@ -236,8 +249,9 @@ var TableDatatablesEditable = function () {
             var jqInputs = $('input', nRow);
             oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 2, false);
-            oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 3, false);
+            oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
+            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 3, false);
+            oTable.fnUpdate('<a class="delete" href="">Delete</a>', nRow, 4, false);
             oTable.fnDraw();
         }
 
@@ -245,7 +259,8 @@ var TableDatatablesEditable = function () {
             var jqInputs = $('input', nRow);
             oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
             oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 2, false);
+            oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
+            oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 3, false);
             oTable.fnDraw();
         }
 
@@ -288,8 +303,19 @@ var TableDatatablesEditable = function () {
                 "searchable": false,
                 "visible": false
             }],
+             "buttons": [
+               // { extend: 'print', className: 'btn dark btn-outline' },
+                // { extend: 'pdf', className: 'btn green btn-outline' },
+                //{ extend: 'csv', className: 'btn purple btn-outline ' },
+                { extend: 'print', className: 'btn default' },
+               // { extend: 'copy', className: 'btn default' },
+                { extend: 'pdf', className: 'btn default' },
+               // { extend: 'excel', className: 'btn default' },
+               // { extend: 'csv', className: 'btn default' }
+            ],
+            
             "order": [
-                [3, "asc"]
+                [1, "asc"]
             ] // set first column as a default sort by asc
         });
         
@@ -326,6 +352,8 @@ var TableDatatablesEditable = function () {
             nNew = true;
         });
 
+
+            
         table.on('click', '.delete', function (e) {
             e.preventDefault();
 

@@ -1,12 +1,14 @@
 <?php
 
-function request_add($site,$ptype,$name,$problem,$ename,$status)
+function request_add($region,$city,$site,$ptype,$name,$problem,$ename,$status)
 {
 
     global $tf_handle;
     if( (empty($site)) &&  (empty($ptype)) )
         return false;
     
+    $n_region         = @mysql_real_escape_string(strip_tags($region),$tf_handle);
+    $n_city           = @mysql_real_escape_string(strip_tags($city),$tf_handle);
     $n_site           = @mysql_real_escape_string(strip_tags($site),$tf_handle);
     $n_ptype          = @mysql_real_escape_string(strip_tags($ptype),$tf_handle);
   	$n_name           = @mysql_real_escape_string(strip_tags($name),$tf_handle);
@@ -20,7 +22,7 @@ function request_add($site,$ptype,$name,$problem,$ename,$status)
     $n_day            = @mysql_real_escape_string(strip_tags($day),$tf_handle);
     $n_status         = @mysql_real_escape_string(strip_tags($status),$tf_handle);
 
-    $query = sprintf("INSERT INTO `requests` VALUE(NULL,'%s','%s','%s','%s','%s','%s','%s','%s',NULL,NULL)",$n_site,$n_ptype,$n_name,$n_problem,$n_ename,$n_date,$n_day,$n_status);
+    $query = sprintf("INSERT INTO `requests` VALUE(NULL,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',NULL,NULL,NULL)",$n_region,$n_city,$n_site,$n_ptype,$n_name,$n_problem,$n_ename,$n_date,$n_day,$n_status);
     //echo $query;
     
     $qresult = @mysql_query($query);
@@ -206,6 +208,53 @@ if (!empty($rdate))
 {
     $n_rdate = @mysql_real_escape_string(strip_tags($rdate),$tf_handle);
     $fields[@count($fields)] = "`rdate` = '$n_rdate'";
+}
+
+
+$fcount = @count($fields) ;
+if($fcount == 1)
+{
+    $query .= $fields[0].' WHERE `id` = '.$id.'';
+    //echo $query;
+    $qresult = @mysql_query($query);
+    if(!$qresult)
+        return false;
+    else
+        return true;
+}
+
+    for($i = 0; $i < $fcount; $i++)
+    {
+        $query .= $fields[$i];
+        if($i != ($fcount - 1))
+                $query .=' , ';
+    }
+
+    $query .= ' WHERE `id` = '.$id.'';
+    //echo $query;
+    $qresult = @mysql_query($query);
+    if(!$qresult)
+        return false;
+    else
+        return true;
+}
+
+function rquest_dline_update($id,$rdate)
+{
+    global $tf_handle;
+
+    $user = request_get_by_id($id);
+    if(!$user)
+        return false ;
+
+
+$fields = array();
+$query = 'UPDATE `requests` SET ';
+
+if (!empty($rdate))
+{
+    $n_rdate = @mysql_real_escape_string(strip_tags($rdate),$tf_handle);
+    $fields[@count($fields)] = "`dline` = '$n_rdate'";
 }
 
 

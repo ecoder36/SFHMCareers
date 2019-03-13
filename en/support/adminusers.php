@@ -27,7 +27,7 @@ if(isset($_GET['del']) && isset($_GET['idstatus']))
                    //die('Success');
              }
              else {
-                      die('Failure delete');
+                      header("Location: ?nddel=d");
                   }
                   
               die();
@@ -161,17 +161,7 @@ if(isset($_GET['id']))
         <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+
         <?php $acadminusers ="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         <!-- END HEADER -->
@@ -225,6 +215,9 @@ if(isset($_GET['id']))
                       if(isset($_GET['ddel'])){echo ' <div class="alert alert-success ">
                        <button class="close" data-close="alert"></button><strong>Success! </strong>The user has been updated successfully! </div>';}
 
+                        if(isset($_GET['nddel'])){echo ' <div class="alert alert-danger ">
+                       <button class="close" data-close="alert"></button><strong>Error! </strong>The user has not been updated  </div>';}
+
                      if(isset($_GET['error'])){echo ' <div class="alert alert-danger ">
                      <button class="close" data-close="alert"></button><strong>Error! </strong> Please fill In Name , UserName and Password </div>';}
 
@@ -249,7 +242,7 @@ if(isset($_GET['id']))
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="btn-group">
-                                                            <button id="sample_editable_1_new" class="btn green"> Add New
+                                                            <button id="sample_editable_1_new" class="btn yellow"> Add New
                                                                 <i class="fa fa-plus"></i>
                                                             </button>
                                                         </div>

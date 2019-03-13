@@ -93,17 +93,7 @@ if(isset($_POST['cpassword'])){
         <link href="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+
         <?php $acchangepassa ="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         
@@ -150,8 +140,8 @@ if(isset($_POST['cpassword'])){
                                      <div class="portlet light portlet-fit portlet-form ">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                <i class="icon-settings font-green"></i>
-                                                <span class="caption-subject font-green sbold uppercase">Change Your Password</span>
+                                                <i class="icon-settings font-yellow"></i>
+                                                <span class="caption-subject font-yellow sbold uppercase">Change Your Password</span>
                                             </div>
                                             <div class="actions">
                                                
@@ -219,7 +209,7 @@ if(isset($_POST['cpassword'])){
                                                  <div class="form-actions">
                                                     <div class="row">
                                                         <div class="col-md-offset-3 col-md-9">
-                                                            <button type="submit" class="btn green">Submit</button>
+                                                            <button type="submit" class="btn yellow">Submit</button>
                                                             
                                                         </div>
                                                     </div>

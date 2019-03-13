@@ -1,4 +1,6 @@
-
+ <!--
+    http://cheatsheetworld.com/programming/html5-canvas-cheat-sheet/
+    -->
 <!doctype html>
     
     <html lang="en" dir="rtl">
@@ -244,3 +246,7 @@
                                                 
         </body>
     </html>
+    
+    <!--
+    http://cheatsheetworld.com/programming/html5-canvas-cheat-sheet/
+    -->

@@ -8,6 +8,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
 
 @require_once('require/api/db.php');
 @require_once('require/api/listsAPI.php');
+@require_once('require/api/regionAPI.php');
 
 if(isset($_GET['del']))
 {
@@ -30,7 +31,25 @@ if(isset($_GET['del']))
               die();
 }
 
-if(isset($_GET['id'])) 
+if(isset($_GET['citydel']))
+{
+//die($_GET['citydel']);
+            $_del = (int)$_GET['citydel'];
+            $dc = $_GET['dc'] ;
+            if($_del == 0)
+                die('Access Problem 2');
+
+             $result = region_delete($_del);
+             tinyf_db_close();
+             if($result){ header("Location: ?ddel=$dc");
+                   //die('Success');
+             }else {
+                      die('Failure delete');
+                  }
+              die();
+}
+
+if( (isset($_GET['id'])) && (!isset($_GET['region'])) )
 {
           //die($_GET['id']);
 
@@ -50,10 +69,8 @@ if(isset($_GET['id']))
                           {
                              $res = $user [$i] ;
                                     if (($res->id != $_id))
-                                    {
-                                        header("Location: ?beforeupdategetinfo=".$_POST['content']."&old=".$res->content."");
-                                         die();
-                                    }
+                                    { header("Location: ?beforeupdategetinfo=".$_POST['content']."&old=".$res->content."");
+                                         die(); }
                           }
                      tinyf_db_close();
               }
@@ -63,10 +80,7 @@ if(isset($_GET['id']))
                         //u_db_close();
                         $un = $_POST['content'];
                         if($result)
-                             {
-                              header("Location: ?contentupdate=$un");
-                            }
-                        else {
+                             { header("Location: ?contentupdate=$un"); } else {
                            //  header("Location: mfProfile.php?id=$_id");
                             die('Update Failure ');
                          }
@@ -91,15 +105,77 @@ if(isset($_GET['id']))
                                       header("Location:?beforeaddgetinfo=".$_POST['content']."&old=".$resu->content."");
                                       die();
                             }
-                      
-                          
-
                           $result = list_add($_POST['tname'],(ltrim($_POST['content'])));
                           tinyf_db_close();
                           if($result)
-                              {
-                                  header("Location:?added=".$_POST['content']."");
-                              }
+                              { header("Location:?added=".$_POST['content'].""); }
+                          else
+                          header("Location:?error=er");
+          }
+          die();
+}
+
+
+if( (isset($_GET['id'])) && (isset($_GET['region'])) )
+{
+          //die($_GET['id']);
+
+          $_id = (int)$_GET['id'];
+
+        //  if($_id != 0)
+            //die($_POST['ext']);
+            //  die('Bad Access 2');
+ if($_id != 0)
+{
+            $user = region_get_by_region_city($_POST['region'],$_POST['city']);
+       //     echo $_id;
+            if ($user != NULL)
+              {
+                        $rcount = count($user);
+                           for($i = 0 ; $i < $rcount; $i++)
+                          {
+                             $res = $user [$i] ;
+                                    if (($res->id != $_id))
+                                    { header("Location: ?beforeupdategetinfo=".$_POST['city']."&old=".$res->city."");
+                                         die(); }
+                          }
+                     tinyf_db_close();
+              }
+          {   
+                        $result = region_update($_id,$_POST['region'],$_POST['city']);
+                        tinyf_db_close();
+                        //u_db_close();
+                        $un = $_POST['city'];
+                        if($result)
+                             { header("Location: ?contentupdate=$un"); } else {
+                           //  header("Location: mfProfile.php?id=$_id");
+                            die('Update Failure ');
+                         }
+                         die();
+          }
+    }
+          if($_id == 0)
+          {
+                            if(!isset($_GET['id']) || (!isset($_POST['region'])) || (!isset($_GET['city']))  )
+                            {
+                                die('Problem2');
+                            }
+                            $user = region_get_by_region_city($_POST['region'],$_POST['city']);
+                            if ($user != NULL)
+                            {
+                                        $rcount =@count($user);
+                                           for($i = 0 ; $i < $rcount; $i++)
+                                          {
+                                             $resu = $user [$i];
+                                          }
+                                      tinyf_db_close();
+                                      header("Location:?beforeaddgetinfo=".$_POST['concitytent']."&old=".$resu->city."");
+                                      die();
+                            }
+                          $result = region_add($_POST['region'],(ltrim($_POST['city'])));
+                          tinyf_db_close();
+                          if($result)
+                              { header("Location:?added=".$_POST['city'].""); }
                           else
                           header("Location:?error=er");
           }
@@ -134,17 +210,7 @@ if(isset($_GET['id']))
         <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+
  <?php $lists="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
 
@@ -200,9 +266,9 @@ if(isset($_GET['id']))
                                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                     <div class="portlet light ">
                                         <div class="portlet-title">
-                                            <div class="caption font-green">
-                                                <i class="icon-settings font-green"></i>
-                                                <span class="caption-subject bold uppercase">Sites</span>
+                                            <div class="caption font-yellow">
+                                                <i class="icon-settings font-yellow"></i>
+                                                <span class="caption-subject bold uppercase">Regions & Ceties</span>
                                             </div>
                                             <div class="tools"> </div>
                                         </div>
@@ -212,13 +278,13 @@ if(isset($_GET['id']))
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="btn-group">
-                                                             <a class="btn green" data-toggle="modal" href="#sadd_modal"><i class="fa fa-plus"></i> Add New </a>
+                                                             <a class="btn yellow" data-toggle="modal" href="#sadd_modal"><i class="fa fa-plus"></i> Add New </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                              <?php
-                                                        $users = list_get('WHERE `tname` = "site" ORDER BY `id` DESC' );
+                                                        $users = region_get('ORDER BY `id` DESC' );
                                                         if($users == NULL)
                                                           //  die ('problem');
                                                               echo ('');
@@ -232,7 +298,8 @@ if(isset($_GET['id']))
                                                 <thead>
                                                     <tr>
                                                         <th style="display:none;" class="all">Id</th>
-                                                        <th class="min-phone-l">Site</th>
+                                                        <th class="min-phone-l">region</th>
+                                                        <th class="min-phone-l">city</th>
                                                         <th class="none">Edit</th>
                                                         <th class="none">Delete</th>
                                                     </tr>
@@ -244,9 +311,10 @@ if(isset($_GET['id']))
                                                           $user = $users[$i]; ?>
                                                     <tr>
                                                         <td style="display:none;"><?php echo $user->id ?></td>
-                                                        <td><?php echo $user->content ?></td>
+                                                        <td><?php echo $user->region ?></td>
+                                                        <td><?php echo $user->city ?></td>
                                                         <td> <a class="edit" href="javascript:;"> Edit </a> </td>
-                                                    <td> <a class="delete1" href="?del=<?php echo $user->id ?>&dc=<?php echo $user->content ?>&5945" onclick="return confirm('Are you sure to delete the (<?php echo $user->content ?>) ?')"> Delete </a> </td>
+                                                    <td> <a class="delete1" href="?citydel=<?php echo $user->id ?>&dc=<?php echo $user->city ?>&5945" onclick="return confirm('Are you sure to delete the (<?php echo $user->city ?>) ?')"> Delete </a> </td>
                                                     </tr>
                                                 <?php }  ?>
                                                     
@@ -260,22 +328,28 @@ if(isset($_GET['id']))
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                                    <h4 class="modal-title">Add New Site </h4>
+                                                    <h4 class="modal-title">Add New city </h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="?id=&tname=site" class="form-horizontal" method="post" enctype="multipart/form-data">
+                                                    <form action="?id=&region=e&city=c" class="form-horizontal" method="post" enctype="multipart/form-data">
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-4">Site</label>
+                                                            <label class="control-label col-md-4">region</label>
                                                             <div class="col-md-6">
-                                                                <input type="text" class="form-control" name="content" value="" />
+                                                                <input type="text" class="form-control" name="region" value="" />
                                                                  <span class="help-block"><P> </P>  </span>
                                                             </div>
                                                         </div> 
-                                                        <input type="hidden" name="tname" class="form-control" value="site" /> 
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-4">city</label>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="form-control" name="city" value="" />
+                                                                 <span class="help-block"><P> </P>  </span>
+                                                            </div>
+                                                        </div> 
                                                         <div class="form-actions">
                                                             <div class="row">
                                                                 <div class="col-md-offset-8 col-md-9">
-                                                                    <button type="submit" class="btn green btn-primary">Submit</button>
+                                                                    <button type="submit" class="btn yellow btn-primary">Submit</button>
                                                                     <button type="button" data-dismiss="modal" class="btn default" aria-hidden="true">Cancel</button>
                                                                 </div>
                                                             </div>
@@ -292,8 +366,8 @@ if(isset($_GET['id']))
                                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                     <div class="portlet light ">
                                         <div class="portlet-title">
-                                            <div class="caption font-green">
-                                                <i class="icon-settings font-green"></i>
+                                            <div class="caption font-yellow">
+                                                <i class="icon-settings font-yellow"></i>
                                                 <span class="caption-subject bold uppercase">Problems Types</span>
                                             </div>
                                             <div class="tools"> </div>
@@ -303,7 +377,7 @@ if(isset($_GET['id']))
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="btn-group">
-                                                             <a class="btn green" data-toggle="modal" href="#cadd_modal"><i class="fa fa-plus"></i> Add New </a>
+                                                             <a class="btn yellow" data-toggle="modal" href="#cadd_modal"><i class="fa fa-plus"></i> Add New </a>
                                                            
                                                         </div>
                                                     </div>
@@ -369,7 +443,7 @@ if(isset($_GET['id']))
                                                         <div class="form-actions">
                                                             <div class="row">
                                                                 <div class="col-md-offset-8 col-md-9">
-                                                                    <button type="submit" class="btn green btn-primary">Submit</button>
+                                                                    <button type="submit" class="btn yellow btn-primary">Submit</button>
                                                                     <button type="button" data-dismiss="modal" class="btn default" aria-hidden="true">Cancel</button>
                                                                 </div>
                                                             </div>
@@ -384,6 +458,7 @@ if(isset($_GET['id']))
                                     
                                 </div>
                             </div>
+                            
                            
                         </div>
                         <!-- END PAGE CONTENT INNER -->

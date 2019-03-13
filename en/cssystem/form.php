@@ -3,46 +3,108 @@
 
 require_once('log/adminlogsession.php');
 
-if($_SESSION['user_info'] != false  )
+if($_SESSION['user_info_2'] != false  )
 {
 
 @require_once ('log/logsession.php'); 
 @require_once('require/api/db.php');
-@require_once('require/api/requestsAPI.php');
-@require_once('require/api/recordsAPI.php');
-@require_once('require/api/listsAPI.php');
+@require_once('require/api/infoAPI.php');
 @require_once('require/api/usersAPI.php');
-$userinfo = users_get_by_id(@$_SESSION['user_info']->id);
+$userinfo = users_get_by_id(@$_SESSION['user_info_2']->id);
 
    if(isset($_POST['site'])){
 
-            $requestchek = request_get_by_site_ptype_status($_POST['site'],$_POST['ptype'],$_POST['status']);
+            $requestchek = info_get_by_region_zone_site($_POST['region'],$_POST['zone'],$_POST['site']);
 
             tinyf_db_close();
              $ucount = @count($requestchek) ;
-             echo $ucount ;
+           //  echo $ucount ;
           
                          
             if ($ucount != 0)
                    {
-                       $ptype=$_POST['ptype'];
-                       $site=$_POST['site'];
+                       
+                       
+                       $ptype=$_POST['ptype'];$site=$_POST['site'];
                        $name=$_POST['name'];
                        $problem=$_POST['problem'];
-                       header("Location: ?error=123&id=$requestchek->id&site=$site&ptype=$ptype&name=$name&problem=$problem");
-            		}  else {
+                       $region=$_POST['region'];
+                       $zone=$_POST['zone'];
+                       
+                       header("Location: ?error=123&id=$requestchek->id&site=$site&ptype=$ptype&name=$name&problem=$problem&region=$region&zone=$zone");
+            		}  else 
+            		
+            		{
 
-		       $result =  request_add($_POST['site'],$_POST['ptype'],$_POST['name'],$_POST['problem'],$_POST['ename'],$_POST['status']);
+                @$name1 = $_FILES['file']['name']; @$tmp_name = $_FILES['file']['tmp_name']; @$type = $_FILES['file']['type']; @$size = $_FILES['file']['size']; $ext = pathinfo($name1, PATHINFO_EXTENSION);@$error = $_FILES['file']['error']; $uniqid = uniqid(); $file_name = $uniqid.'.'.$ext  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name)){ $file = $file_name; } else {  $file = 'null' ; }
+                
+                 @$name2 = $_FILES['file2']['name']; @$tmp_name = $_FILES['file2']['tmp_name']; @$type = $_FILES['file2']['type']; @$size = $_FILES['file2']['size']; $ext2 = pathinfo($name2, PATHINFO_EXTENSION);@$error = $_FILES['file2']['error']; $uniqid = uniqid(); $file_name2 = $uniqid.'.'.$ext2  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name2)){ $file2 = $file_name2; } else {  $file2 = 'null' ; }
+                
+                @$name3 = $_FILES['file3']['name']; @$tmp_name = $_FILES['file3']['tmp_name']; @$type = $_FILES['file3']['type']; @$size = $_FILES['file3']['size']; $ext3 = pathinfo($name3, PATHINFO_EXTENSION);@$error = $_FILES['file3']['error']; $uniqid = uniqid(); $file_name3 = $uniqid.'.'.$ext3  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name3)){ $file3 = $file_name3; } else {  $file3 = 'null' ; }
+                
+                @$name4 = $_FILES['file4']['name']; @$tmp_name = $_FILES['file4']['tmp_name']; @$type = $_FILES['file4']['type']; @$size = $_FILES['file4']['size']; $ext4 = pathinfo($name4, PATHINFO_EXTENSION);@$error = $_FILES['file4']['error']; $uniqid = uniqid(); $file_name4 = $uniqid.'.'.$ext4  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name4)){ $file4 = $file_name4; } else {  $file4 = 'null' ; }
+                
+                @$name5 = $_FILES['file5']['name']; @$tmp_name = $_FILES['file5']['tmp_name']; @$type = $_FILES['file5']['type']; @$size = $_FILES['file5']['size']; $ext5 = pathinfo($name5, PATHINFO_EXTENSION);@$error = $_FILES['file5']['error']; $uniqid = uniqid(); $file_name5 = $uniqid.'.'.$ext5  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name5)){ $file5 = $file_name5; } else {  $file5 = 'null' ; }
+                
+                @$name6 = $_FILES['file6']['name']; @$tmp_name = $_FILES['file6']['tmp_name']; @$type = $_FILES['file6']['type']; @$size = $_FILES['file6']['size']; $ext6 = pathinfo($name6, PATHINFO_EXTENSION);@$error = $_FILES['file6']['error']; $uniqid = uniqid(); $file_name6 = $uniqid.'.'.$ext6  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name6)){ $file6 = $file_name6; } else {  $file6 = 'null' ; }
+                
+                @$name7 = $_FILES['file7']['name']; @$tmp_name = $_FILES['file7']['tmp_name']; @$type = $_FILES['file7']['type']; @$size = $_FILES['file7']['size']; $ext7 = pathinfo($name7, PATHINFO_EXTENSION);@$error = $_FILES['file7']['error']; $uniqid = uniqid(); $file_name7 = $uniqid.'.'.$name7  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name7)){ $file7 = $file_name7; } else {  $file7 = 'null' ; }
+                
+                @$name8 = $_FILES['file8']['name']; @$tmp_name = $_FILES['file8']['tmp_name']; @$type = $_FILES['file8']['type']; @$size = $_FILES['file8']['size']; $ext8 = pathinfo($name8, PATHINFO_EXTENSION);@$error = $_FILES['file8']['error']; $uniqid = uniqid(); $file_name8 = $uniqid.'.'.$ext8  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name8)){ $file8 = $file_name8; } else {  $file8 = 'null' ; }
+                
+                @$name9 = $_FILES['file9']['name']; @$tmp_name = $_FILES['file9']['tmp_name']; @$type = $_FILES['file9']['type']; @$size = $_FILES['file9']['size']; $ext9 = pathinfo($name9, PATHINFO_EXTENSION);@$error = $_FILES['file9']['error']; $uniqid = uniqid(); $file_name9 = $uniqid.'.'.$ext9  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name9)){ $file9 = $file_name9; } else {  $file9 = 'null' ; }
+                
+                @$name10 = $_FILES['file10']['name']; @$tmp_name = $_FILES['file10']['tmp_name']; @$type = $_FILES['file10']['type']; @$size = $_FILES['file10']['size']; $ext = pathinfo($name10, PATHINFO_EXTENSION); @$error = $_FILES['file10']['error']; $uniqid = uniqid(); $file_name10 = $uniqid.'.'.$ext10  ;
+                if(move_uploaded_file($tmp_name, "file/".$file_name10)){ $file10 = $file_name10; } else {  $file10 = 'null' ; }
+                
+                
+                
+                
+                
+                
+		       $result =  info_add($_POST['region'],$_POST['zone'],$_POST['site'],$_POST['letternumber'],$_POST['letterdate'],$_POST['sitename'],$_POST['btype'],$_POST['ficameras'],$_POST['micameras'],$_POST['fecameras'],$_POST['mecameras'],$_POST['dvr'],$_POST['nvr'],$_POST['pc'],$_POST['controld'],$_POST['screens'],$_POST['switch'],$_POST['ups'],$_POST['note'],$_POST['ename'],$file,$file2,$file3,$file4,$file5,$file6,$file7,$file8,$file9,$file10);
+		       
+
+		     //    echo mysql_insert_id();
+		         $LastId = mysql_insert_id();
+		        // echo $LastId;
+
+		       //   die();
+		       
+                  //  die ($result);
                     if($result){
-                        $idno = request_get_by_site_ptype_status($_POST['site'],$_POST['ptype'],$_POST['status']);
-                        $rid =  $idno->id ;
-                        $resultr = record_add($rid,$_POST['ename'],$_POST['problem'],$_POST['status']);
+                        
+                         file_add($LastId,$name1,$file).file_add($LastId,$name2,$file2).file_add($LastId,$name3,$file3).file_add($LastId,$name4,$file4).file_add($LastId,$name5,$file5).file_add($LastId,$name6,$file6).file_add($LastId,$name7,$file7).file_add($LastId,$name8,$file8).file_add($LastId,$name9,$file9).file_add($LastId,$name10,$file10);
+                        
+                    
+                      
+                      
                          header("Location: ?done=123");
+                    }else{
+                         header("Location: ?error2=123");
                     }
                      
              
             		}
    }
+   
+   
+   
+require_once("dbcontroller.php");
+$db_handle = new DBController();
+$query ="SELECT DISTINCT eregion FROM regions";
+$results = $db_handle->runQuery($query);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -66,23 +128,36 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
         <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+        
+        <script src="require/js/jquery.min.js"></script>
+        
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+
+
+<script>
+function getState(val) {
+	$.ajax({
+	type: "POST",
+	url: "get_state.php",
+	data:'country_id='+val,
+	success: function(data){
+		$("#state-list").html(data);
+	}
+	});
+}
+
+function selectCountry(val) {
+$("#search-box").val(val);
+$("#suggesstion-box").hide();
+}
+</script>
+<?php $arlink = "../../ar/cssystem/form.php" ?>
         <?php $newreq="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         <!-- END HEADER -->
@@ -96,7 +171,7 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                     <div class="container">
                         <!-- BEGIN PAGE TITLE -->
                         <div class="page-title">
-                            <h1 class="font-blue-dark"> <i class="icon-user"></i> <?php echo $_SESSION['user_info']->name ?>
+                            <h1 class="font-blue-dark"> <i class="icon-user"></i> <?php echo $_SESSION['user_info_2']->name ?>
                                 <small></small>
                             </h1>
                         </div>
@@ -132,93 +207,388 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                                         <div class="portlet-body">
                                              
                                             <!-- BEGIN FORM-->
-                                            <form method="post" id="form_sample_3" class="form-horizontal">
+                                            <form method="post" id="form_sample_3" class="form-horizontal" enctype="multipart/form-data">
                                                 <div class="form-body">
                                                     <div class="alert alert-danger display-hide">
                                                         <button class="close" data-close="alert"></button> You have some form errors. Please check below. </div>
                                                      <?php  if(isset($_GET['done'])){echo ' <div class="alert alert-success ">
                                                 <button class="close" data-close="alert"></button><strong>Success! </strong> The request has been added successfully! </div>';}?>
                                                      <?php if(isset($_GET['error'])) {
-                                            		echo '<div class="alert alert-danger"><button class="close" data-close="alert"></button><strong>There is error : This problem is added before <a href="ticket.php?id='.$_GET['id'].'">click here</a></strong></div>';
+                                            		echo '<div class="alert alert-danger"><button class="close" data-close="alert"></button><strong>There is error : This information on '.@$_GET['region'].'  '.@$_GET['zone'].'  '.@$_GET['site'].' is added before </strong></div>';
                                             		} ?>
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3">Site
+                                                        <label class="control-label col-md-3">Region
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-4">
-                                                            
-                                                            <?php
-                                                        $users = list_get('WHERE `tname` = "site" ORDER BY `id` DESC' );
-                                                        if($users == NULL)
-                                                              echo ('');
-                                                        $ucount = @count($users);
-            
-                                                        if($ucount == 0)
-                                                              echo ('');
-            
-                                                        ?>
-                                                            <select class="form-control select2me" name="site">
-                                                                 <option value="<?php echo @$_GET['site'] ?>"><?php echo @$_GET['site'] ?></option>
-                                                                <option value="">Select...</option>
-                                                                 <?php
-                                                      for($i = 0 ; $i < $ucount; $i++)
-                                                      {
-                                                          $user = $users[$i];
-                                                          
-                                                          ?>
-                                                          
-                                                                <option value="<?php echo $user->content ?>"><?php echo $user->content ?></option>
+                                                            <select class="form-control select2me basic" id="country-list" onChange="getState(this.value);" data-live-search="true" name="region">
                                                                 
-                                                            <?php } ?>
+                                                                <option value="">Select Region</option>
+                                                                <?php
+foreach($results as $country) {
+?>
+<option value="<?php echo $country["eregion"]; ?>"><?php echo $country["eregion"]; ?></option>
+<?php
+}
+?>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3">Problem Type
-                                                            <span class="required"> * </span>
-                                                        </label>
+                                                   
+
+                                                    <div class="form-group select2">
+                                                        <label class="control-label col-md-3">City&nbsp;&nbsp;<span class="required"> * </span></label>
                                                         <div class="col-md-4">
-                                                            <?php
-                                                             $usersp = list_get('WHERE `tname` = "ptype" ORDER BY `id` DESC' );
-                                                        if($usersp == NULL)
-                                                              echo ('');
-                                                        $ucountp = @count($usersp);
-            
-                                                        if($ucountp == 0)
-                                                              echo ('');
-                                                            ?>
-                                                            <select class="form-control select2me" name="ptype">
-                                                                <option value="<?php echo @$_GET['ptype'] ?>"><?php echo @$_GET['ptype'] ?></option>
-                                                                <option value="">Select...</option>
-                                                                 <?php
-                                                      for($i = 0 ; $i < $ucountp; $i++)
-                                                      {
-                                                          $userp = $usersp[$i];
-                                                          
-                                                          ?>
-                                                                <option value="<?php echo $userp->content ?>"><?php echo $userp->content ?></option>
-                                                               <?php } ?> </select>
+                                                            <select class="form-control select2me" id="state-list" name="zone">
+                                                                <option value="">Select State</option>
+                                                                
+                                                                
+                                                            </select>
+                                                         
+                                                        </div> 
+                                                    </div>
+                                                     
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Site<span class="required"> * </span></label>
+                                                        <div class="col-md-4">
+                                                            <input name="site" type="text" class="form-control" value="<?php echo @$_GET['site'] ?>" />
+                                                            <span class="help-block">Example : ...  </span>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Letter Number<span class="required"> * </span></label>
+                                                        <div class="col-md-4">
+                                                            <input name="letternumber" type="text" class="form-control" value="<?php echo @$_GET['letternumber'] ?>" />
+                                                            <span class="help-block"> </span>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Letter Date<span class="required"> * </span></label>
+                                                        <div class="col-md-4">
+                                                            <input name="letterdate" id="mask_date" placeholder="DD/MM/YYYY" type="text" class="form-control" value="<?php echo @$_GET['letterdate'] ?>" />
+                                                            <span class="help-block">e.g 02/05/1438</span>
+                                                            </div>
+                                                    </div>
+                                                    
+                             
+                                                    
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Site Name<span class="required"> * </span></label>
+                                                        <div class="col-md-4">
+                                                            <input name="sitename" type="text" class="form-control" value="<?php echo @$_GET['sitename'] ?>" />
+                                                            <span class="help-block"></span>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                    
+                                                   
+                                                  
+                                                    <div class="form-group form-md-radios">
+                                                        <label class="col-md-3 control-label font-dark" for="form_control_1">Building Type<span class="required"> * </span></label>
+                                                        <div class="col-md-9">
+                                                            <div class="md-radio-inline">
+                                                                <div class="md-radio">
+                                                                    <input type="radio" id="checkbox1_8" name="btype" value="Governmental" class="md-radiobtn">
+                                                                    <label for="checkbox1_8">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span> Governmental </label>
+                                                                </div>
+                                                                <div class="md-radio">
+                                                                    <input type="radio" id="checkbox1_9" name="btype" value="Rented" class="md-radiobtn">
+                                                                    <label for="checkbox1_9">
+                                                                        <span></span>
+                                                                        <span class="check"></span>
+                                                                        <span class="box"></span> Rented </label>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    
+                                                    
+                                
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3">Name&nbsp;&nbsp;</label>
-                                                        <div class="col-md-4">
-                                                            <input name="name" type="text" class="form-control" value="<?php echo @$_GET['name'] ?>" /> </div>
+                                                        <label class="control-label col-md-3">Fixed Internal Cameras<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="ficameras" type="text" class="mask_number form-control" value="<?php echo @$_GET['ficameras'] ?>" />
+                                                        </div>
+                                                    </div>
+                                     
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Moving Internal Cameras<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="micameras" type="text" id="mask_number2" class="form-control" value="<?php echo @$_GET['micameras'] ?>" /> </div>
+                                                    </div>
+                                               
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Fixed External Cameras<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="fecameras" type="text" class="mask_number form-control" value="<?php echo @$_GET['fecameras'] ?>" /> </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3">The Problem
-                                                            <span class="required"> * </span>
-                                                        </label>
-                                                        <div class="col-md-4">
-                                                            <textarea type="text" rows="5" name="problem" data-required="1" class="form-control" ><?php echo @$_GET['problem'] ?></textarea> </div>
+                                                        <label class="control-label col-md-3">Moving External Cameras<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="mecameras" type="text" class="mask_number form-control" value="<?php echo @$_GET['mecameras'] ?>" /> </div>
                                                     </div>
+                                                     <div class="form-group">
+                                                        <label class="control-label col-md-3">DVR<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="dvr" type="text" class="mask_number form-control" value="<?php echo @$_GET['dvr'] ?>" /> </div>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label class="control-label col-md-3">NVR<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="nvr" type="text" class="mask_number form-control" value="<?php echo @$_GET['nvr'] ?>" /> </div>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label class="control-label col-md-3">PC<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="pc" type="text" class="mask_number form-control" value="<?php echo @$_GET['pc'] ?>" /> </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Workstation<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="controld" type="text" class="mask_number form-control" value="<?php echo @$_GET['controld'] ?>" /> </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Screens<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="screens" type="text" class="mask_number form-control" value="<?php echo @$_GET['screens'] ?>" /> </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Switch<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="switch" type="text" class="mask_number form-control" value="<?php echo @$_GET['switch'] ?>" /> </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">UPS<span class="required"> * </span></label>
+                                                        <div class="col-md-3">
+                                                            <input name="ups" type="text" class="mask_number form-control" value="<?php echo @$_GET['ups'] ?>" /> </div>
+                                                    </div>
+                                                    <script>
+$(document).ready(function(){
+     $("#add2").click(function(){
+    	$("#input2").show();
+        $("#add3").show();
+         $("#add2").hide();
+    });
+    $("#add3").click(function(){
+    	$("#input2").show();
+        $("#input3").show();
+        $("#add4").show();
+       
+        $("#add3").hide();$("#add2").hide();
+    });
+     $("#add4").click(function(){
+        $("#input2").show();
+        $("#input3").show();
+        $("#input4").show();
+        $("#add5").show();
+         
+        $("#add4").hide(); $("#add3").hide();$("#add2").hide();
+    });
+    $("#add5").click(function(){
+        $("#input2").show();
+        $("#input3").show();
+        $("#input4").show();
+        $("#input5").show();
+        $("#add6").show();
+         
+        $("#add5").hide(); $("#add4").hide(); $("#add3").hide();$("#add2").hide();
+    });
+    $("#add6").click(function(){
+        $("#input2").show();
+        $("#input3").show();
+        $("#input4").show();
+        $("#input5").show();
+        $("#input6").show();
+        $("#add7").show();
+         
+         $("#add6").hide(); $("#add5").hide(); $("#add4").hide(); $("#add3").hide();$("#add2").hide();
+    });
+    $("#add7").click(function(){
+        $("#input2").show();
+        $("#input3").show();
+        $("#input4").show();
+        $("#input5").show();
+        $("#input6").show();
+        $("#input7").show();
+        $("#add8").show();
+         
+        $("#add7").hide(); $("#add6").hide(); $("#add5").hide(); $("#add4").hide(); $("#add3").hide();$("#add2").hide();
+    });
+    
+    
+    
+    
+    $("#add8").click(function(){
+        $("#input2").show();
+        $("#input3").show();
+        $("#input4").show();
+        $("#input5").show();
+        $("#input6").show();
+        $("#input7").show();
+        $("#input8").show();
+        $("#add9").show();
+     
+         
+         $("#add8").hide(); $("#add7").hide(); $("#add6").hide(); $("#add5").hide(); $("#add4").hide(); $("#add3").hide();$("#add2").hide();
+    });
+    
+    $("#add9").click(function(){
+        $("#input2").show();
+        $("#input3").show();
+        $("#input4").show();
+        $("#input5").show();
+        $("#input6").show();
+        $("#input7").show();
+        $("#input8").show();
+        $("#input9").show();
+        $("#add10").show();
+         
+        $("#add9").hide(); $("#add8").hide(); $("#add7").hide(); $("#add6").hide(); $("#add5").hide(); $("#add4").hide(); $("#add3").hide();$("#add2").hide();
+    });
+    
+    $("#add10").click(function(){
+        $("#input2").show();
+        $("#input3").show();
+        $("#input4").show();
+        $("#input5").show();
+        $("#input6").show();
+        $("#input7").show();
+        $("#input8").show();
+        $("#input9").show();
+        $("#input10").show();
+      //  $("#limit").show();
+         
+        $("#add10").hide(); $("#add9").hide(); $("#add8").hide(); $("#add7").hide(); $("#add6").hide(); $("#add5").hide(); $("#add4").hide(); $("#add3").hide();$("#add2").hide();
+    });
+});
+</script>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Attachment</label>
+                                                        
+                                                            
+                                                        <div class="col-md-4">
+                                                            <div class=" col-md-4 fileinput fileinput-new" data-provides="fileinput">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input2" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file2"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input3" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file3"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input4" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file4"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input5" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file5"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input6" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file6"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input7" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file7"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input8" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file8"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input9" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file9"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            <div class="col-md-4 fileinput fileinput-new" data-provides="fileinput" id="input10" style="display: none;">
+                                                                <span class="btn green btn-file">
+                                                                    <span class="fileinput-new"> Select file </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="file10"> </span>
+                                                                <span class="fileinput-filename"> </span> &nbsp;
+                                                                <a href="javascript:;" class="close fileinput-exists" data-dismiss="fileinput"> </a>
+                                                            </div>
+                                                            
+                                                             
+                                                            
+                                                            
+                                                             <!--<p id="limit" hidden>7 input limit</p>-->
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            
+                                                            <button class="col-md-4 btn green" id="add2" type="button">add more <i class="fa fa-plus"></i></button> 
+                                                            <button class="col-md-4 btn green" id="add3" type="button" style="display: none;">add more <i class="fa fa-plus"></i></button> 
+                                                            <button class="col-md-4 btn green" id="add4" type="button" style="display: none;">add more <i class="fa fa-plus"></i></button> 
+                                                            <button class="col-md-4 btn green" id="add5" type="button" style="display: none;">add more <i class="fa fa-plus"></i></button> 
+                                                            <button class="col-md-4 btn green" id="add6" type="button" style="display: none;">add more <i class="fa fa-plus"></i></button> 
+                                                            <button class="col-md-4 btn green" id="add7" type="button" style="display: none;">add more <i class="fa fa-plus"></i></button>
+                                                            <button class="col-md-4 btn green" id="add8" type="button" style="display: none;">add more <i class="fa fa-plus"></i></button> 
+                                                            <button class="col-md-4 btn green" id="add9" type="button" style="display: none;">add more <i class="fa fa-plus"></i></button> 
+                                                            <button class="col-md-4 btn green" id="add10" type="button" style="display: none;">add more <i class="fa fa-plus"></i></button>
+                                                        </div>
+   
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label class="control-label col-md-3">Note<span class="required">  </span></label>
+                                                        <div class="col-md-3">
+                                                            <textarea placeholder="note:This textarea has a limit of 225 characters." maxlength="225" type="text" rows="5" name="note" class="form-control" ></textarea>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                 
                                                     <input type="hidden" name="ename" data-required="1" class="form-control" value="<?php echo $userinfo->id ?>" />
-                                                    <input type="hidden" name="status" data-required="1" class="form-control" value="new" />
+                                                    
                                                 </div>
                                                 <div class="form-actions">
                                                     <div class="row">
                                                         <div class="col-md-offset-3 col-md-9">
-                                                            <button type="submit" class="btn green">Submit</button>
+                                                            <button type="submit" class="btn yellow">Submit</button>
+                                                            <button type="reset" class="btn help" value="Reset" onclick="return window.location.href = 'form.php'">Cancel</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -253,6 +623,12 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
         <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+           
+        <script src="require/js/jquery.inputmask.bundle.js" type="text/javascript"></script>
+        
+ 
+        
         <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
@@ -279,7 +655,7 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
 </html>
 
 <?php }
-if($_SESSION['user_info'] == false ){
+if($_SESSION['user_info_2'] == false ){
 	header("Location: login.php?error=r");
 }
 ?>

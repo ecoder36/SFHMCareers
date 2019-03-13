@@ -3,8 +3,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
-                        <h2>About</h2>
-                        <p> SUPPORTSystem Makkah. </p>
+                        <!--<h2>About</h2>-->
+                        <!--<p> CSSystem Makkah. </p>-->
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs12 footer-block">
                      <!--   <h2>Subscribe Email</h2>
@@ -21,11 +21,11 @@
                     </div>
                     
                     <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
-                        <h2>Contacts</h2>
-                        <address class="margin-bottom-40"> Phone: 
-                            <br> Email:
-                            <a href="mailto:info@sfhm.com"></a>
-                        </address>
+                        <!--<h2>Contacts</h2>-->
+                        <!--<address class="margin-bottom-40"> Phone: -->
+                        <!--    <br> Email:-->
+                        <!--    <a href="mailto:info@sfhm.com"></a>-->
+                        <!--</address>-->
                     </div>
                 </div>
             </div>
@@ -33,8 +33,8 @@
         <!-- END PRE-FOOTER -->
         <!-- BEGIN INNER FOOTER -->
         <div class="page-footer">
-            <div class="container"> All Rights Reserved 2016 &copy; SUPPORTSystem by sultan zagzoog .
-                <a href="#" title="" >SUPPORTSystem!</a>
+            <div class="container"> All Rights Reserved 2017 &copy; CSSystem by sultan zagzoog .
+                <a href="../home" title="" >Systems</a>
             </div>
         </div>
         <div class="scroll-to-top">

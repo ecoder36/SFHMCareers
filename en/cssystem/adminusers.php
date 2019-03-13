@@ -3,7 +3,7 @@
 
 require_once('log/logsession.php');
 
-if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
+if($_SESSION['user_info_2'] != false && $_SESSION['user_info_2']->isadmin == 1 )
 {
     
     
@@ -27,7 +27,7 @@ if(isset($_GET['del']) && isset($_GET['idstatus']))
                    //die('Success');
              }
              else {
-                      die('Failure delete');
+                      header("Location: ?nddel=d");
                   }
                   
               die();
@@ -64,23 +64,20 @@ if(isset($_GET['id']))
           {
                                         $pperm = $_POST['perm'] ;
                           $admin = "admin" ;
-                          $tech="technician";
                           $usr = "user" ;
                           $admin1 = "1" ;
-                          $tech2 = "2" ;
-                          $usr3 = "3" ;
+                          $usr3 = "2" ;
                           
                             if($pperm == $admin){ $perm = $admin1 ;  }
-                             if($pperm == $tech){ $perm = $tech2 ; } 
                             if($pperm == $usr) {  $perm = $usr3 ; }
                             echo trim($_POST['password']) ;
                         $result = users_update($_id,$_POST['name'],$_POST['uname'],trim($_POST['password']),$perm);
                         tinyf_db_close();
                         //u_db_close();
-                        $un = $_POST['uname'];
+                        $un = $_POST['name'];
                         if($result)
                              {
-                              header("Location: ?userupdate=$un");
+                              header("Location: ?userupdate=$un&perm=$pperm");
                             }
                         else {
                            //  header("Location: mfProfile.php?id=$_id");
@@ -112,14 +109,11 @@ if(isset($_GET['id']))
                             }
                           $pperm = $_POST['perm'] ;
                           $admin = "admin" ;
-                          $tech="technician";
                           $usr = "user" ;
                           $admin1 = "1" ;
-                          $tech2 = "2" ;
-                          $usr3 = "3" ;
+                          $usr3 = "2" ;
                           
                             if($pperm == $admin){ $perm = $admin1 ; } 
-                            if($pperm == $tech){ $perm = $tech2 ; } 
                             if($pperm == $usr)  { $perm = $usr3 ; }
 
                           $result = users_add($_POST['name'],$_POST['uname'],$_POST['password'],$perm);
@@ -161,17 +155,7 @@ if(isset($_GET['id']))
         <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+        <?php $arlink = "../../ar/cssystem/adminusers.php" ?>
         <?php $acadminusers ="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         <!-- END HEADER -->
@@ -185,7 +169,7 @@ if(isset($_GET['id']))
                     <div class="container">
                         <!-- BEGIN PAGE TITLE -->
                          <div class="page-title">
-                            <h1 class="font-blue-dark"> <i class="icon-user"></i> <?php echo $_SESSION['user_info']->name ?>
+                            <h1 class="font-blue-dark"> <i class="icon-user"></i> <?php echo $_SESSION['user_info_2']->name ?>
                                 <small></small>
                             </h1>
                         </div>
@@ -217,13 +201,16 @@ if(isset($_GET['id']))
                                 <div class="col-md-12">
                                      <?php
                     if(isset($_GET['userupdate'])){echo ' <div class="alert alert-success ">
-                    <button class="close" data-close="alert"></button><strong>Success! </strong>The user '.$_GET['userupdate'].' has been updated successfully! </div>';}
+                    <button class="close" data-close="alert"></button><strong>Success! </strong>The user '.$_GET['userupdate'].' has been updated to '.$_GET['perm'].' successfully! </div>';}
 
                      if(isset($_GET['added'])){echo ' <div class="alert alert-success ">
                       <button class="close" data-close="alert"></button><strong>Success! </strong>The user '.$_GET['added'].' has been Added successfully! </div>';}
 
                       if(isset($_GET['ddel'])){echo ' <div class="alert alert-success ">
                        <button class="close" data-close="alert"></button><strong>Success! </strong>The user has been updated successfully! </div>';}
+                       
+                        if(isset($_GET['nddel'])){echo ' <div class="alert alert-danger ">
+                       <button class="close" data-close="alert"></button><strong>Error! </strong>The user has not been updated  </div>';}
 
                      if(isset($_GET['error'])){echo ' <div class="alert alert-danger ">
                      <button class="close" data-close="alert"></button><strong>Error! </strong> Please fill In Name , UserName and Password </div>';}
@@ -249,7 +236,7 @@ if(isset($_GET['id']))
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="btn-group">
-                                                            <button id="sample_editable_1_new" class="btn green"> Add New
+                                                            <button id="sample_editable_1_new" class="btn yellow"> Add New
                                                                 <i class="fa fa-plus"></i>
                                                             </button>
                                                         </div>
@@ -288,8 +275,7 @@ if(isset($_GET['id']))
                                                       for($i = 0 ; $i < $ucount; $i++)
                                                       {
                                                           $user = $users[$i];
-                                                          if ($user->isadmin == '3' ){ $per = 'user' ;}
-                                                           if ($user->isadmin == '2' ){ $per = 'technician' ;}
+                                                          if ($user->isadmin == '2' ){ $per = 'user' ;}
                                                            if ($user->isadmin == '1' ){ $per = 'admin' ;}
                                                            if ($user->eid == '1'){ $statusu = "<a class=\"delete1\" href=\"?del=$user->id&5945&idstatus=2\" onclick=\"return confirm('Are you sure to lock ($user->name) ?')\"> Lock </a>" ; $tr = '<tr>' ;}
                                                            if ($user->eid == '2'){ $statusu = "<a class=\"label label-sm label-success delete1\" href=\"?del=$user->id&5945&idstatus=1\" onclick=\"return confirm('Are you sure to unlock ($user->name) ?')\"> Unlock </a>" ; $tr = '<tr class="danger">' ;}
@@ -373,10 +359,10 @@ if(isset($_GET['id']))
 
 </html>
 <?php  }
-if($_SESSION['user_info'] == false ){
+if($_SESSION['user_info_2'] == false ){
 	header("Location: login.php?error=r");
 }
-if(@$_SESSION['user_info']->isadmin != 1){
+if(@$_SESSION['user_info_2']->isadmin != 1){
 	header("Location: overview.php");
 }
 ?>

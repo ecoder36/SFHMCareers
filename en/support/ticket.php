@@ -27,7 +27,10 @@ if(empty($_GET['id'])){
  
 //if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['status'])){
  if(isset($_POST['problem'])){
-     $reply = $_POST['problem'] ;
+     
+$reply = nl2br($_POST['problem']);
+   //$reply = "<pre>".nl2br($_POST['problem'])."</pre>";
+   //  $reply = $_POST['problem'] ;
      $ustatus = $rq->status ;
      if(empty(trim($reply))){
          $themsg =  header("Location: ?id=".$rq->id."&replyp=notdone");
@@ -108,22 +111,12 @@ if(empty($_GET['id'])){
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN PAGE LEVEL STYLES -->
         <link href="../assets/pages/css/profile.min.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" />
-</head>
-    <!-- END HEAD -->
 
+ <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+ 
          <?php require_once ("require/bheader.php") ; ?>
         <!-- END HEADER -->
         <!-- BEGIN CONTAINER -->
@@ -224,13 +217,9 @@ if(empty($_GET['id'])){
                                                             <?php } ?>
                                                            
                                                            <?php  if($rq->status == 'received'){?> 
-                                                           <a class="btn btn-warning tooltips" data-original-title="Pending" href="?status=pending&id=<?php echo $rq->id ?>" aria-label="Settings">
-                                                                  <i class="fa fa-cog" aria-hidden="true"></i> 
-                                                                </a>&nbsp &nbsp
                                                                 <a class="btn btn-danger tooltips" data-original-title="Close" href="?status=closed&id=<?php echo $rq->id ?>" aria-label="Delete">
-                                                                  <i class="fa fa-times " aria-hidden="true"> </i>
+                                                                  <i class="fa fa-times " aria-hidden="true"> </i> Close
                                                                 </a>
-                                                           
                                                            <?php } ?>
                                                             
                                                             <?php  if($rq->status == 'pending'){?> 
@@ -270,6 +259,15 @@ if(empty($_GET['id'])){
                                                                         
                                                                         <td>
                                                                             <span class="font-blue-hoki">  <?php echo $rq->id  ?> </span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                             region / city  
+                                                                        </td>
+                                                                        
+                                                                        <td>
+                                                                            <span class="font-blue-hoki">  <?php echo $rq->region." / ".$rq->city  ?> </span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -338,7 +336,7 @@ if(empty($_GET['id'])){
                                                                             receiver 
                                                                         </td>
                                                                         <td>
-                                                                            <span class="font-blue-hoki"> <?php echo $userdn->name  ?> </span>
+                                                                            <span class="font-blue-hoki"> <?php echo @$userdn->name  ?> </span>
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -375,10 +373,10 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                         </div>
                                                                         <div class="cont-col2">
-                                                                            <div class="desc"> <?php echo $useren->uname ?> Add <span class="label label-sm label-success"> New</span> Request on
+                                                                            <div class="desc"> <?php echo @$useren->uname ?> Add <span class="label label-sm label-success"> New</span> Request on
                                                                                 
                                                                                 <br>
-                                                                                 <span class="font-grey-salsa"> <?php echo $dmsga->day ?>&nbsp<?php echo substr($dmsga->date,0,10) ?></span>
+                                                                                 <span class="font-grey-salsa"> <?php echo @$dmsga->day ?>&nbsp<?php echo substr($dmsga->date,0,10) ?></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -406,10 +404,10 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                         </div>
                                                                         <div class="cont-col2">
-                                                                            <div class="desc"> <?php echo $userrecord->uname ?> add <i class="fa fa-mail-forward font-green"></i> reply to request
+                                                                            <div class="desc"> <?php echo @$userrecord->uname ?> add <i class="fa fa-mail-forward font-green"></i> reply to request
                                                                                 on
                                                                                 <br>
-                                                                                <span class="font-grey-salsa"> <?php echo $user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
+                                                                                <span class="font-grey-salsa"> <?php echo @$user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -431,9 +429,9 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                             </div>
                                                                             <div class="cont-col2">
-                                                                                <div class="desc"> <?php echo $userrecord->uname ?> change request to <span class='label label-sm label-info'> Received </span>&nbsp  on
+                                                                                <div class="desc"> <?php echo @$userrecord->uname ?> change request to <span class='label label-sm label-info'> Received </span>&nbsp  on
                                                                                <br>
-                                                                                <span class="font-grey-salsa"> <?php echo $user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
+                                                                                <span class="font-grey-salsa"> <?php echo @$user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
                                                                                  </div>
                                                                             </div>
                                                                         </div>
@@ -456,7 +454,7 @@ if(empty($_GET['id'])){
                                                                         <div class="cont-col2">
                                                                             <div class="desc"><?php echo $userrecord->uname ?> change request to <span class='label label-sm label-warning'>  Pending </span>on
                                                                             <br>
-                                                                                 <span class="font-grey-salsa"> <?php echo $user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
+                                                                                 <span class="font-grey-salsa"> <?php echo @$user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -476,9 +474,9 @@ if(empty($_GET['id'])){
                                                                             </div>
                                                                             </div>
                                                                             <div class="cont-col2">
-                                                                                <div class="desc"> <?php echo $userrecord->uname ?> change request to <span class='label label-sm label-danger'> Closed </span>  on
+                                                                                <div class="desc"> <?php echo @$userrecord->uname ?> change request to <span class='label label-sm label-danger'> Closed </span>  on
                                                                                <br>
-                                                                                <span class="font-grey-salsa"> <?php echo $user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
+                                                                                <span class="font-grey-salsa"> <?php echo @$user->day ?>&nbsp<?php echo substr($user->date,0,10) ?></span>
                                                                                  </div>
                                                                             </div>
                                                                         </div>
@@ -551,15 +549,15 @@ if(empty($_GET['id'])){
                                                                     <div class="timeline-body-arrow"> </div>
                                                                     <div class="timeline-body-head">
                                                                         <div class="timeline-body-head-caption">
-                                                                            <span class="timeline-body-alerttitle font-green">Posted By : <?php echo $userrecord2->name ;?></span>
-                                                                            <span class="timeline-body-time font-grey-cascade"><?php echo $user->day ; ?>&nbsp <?php echo $user->date ?></span>
+                                                                            <span class="timeline-body-alerttitle font-green">Posted By : <?php echo @$userrecord2->name ;?></span>
+                                                                            <span class="timeline-body-time font-grey-cascade"><?php echo @$user->day ; ?>&nbsp <?php echo @$user->date ?></span>
                                                                         </div>
                                                                         <div class="timeline-body-head-actions">
                                                                             
                                                                         </div>
                                                                     </div>
                                                                     <div class="timeline-body-content">
-                                                                        <span class="font-blue-dark"> <?php echo $user->msg ?>
+                                                                        <span class="font-blue-dark"> <?php echo @nl2br($user->msg) ?>
                                                                            
                                                                         </span>
                                                                     </div>
@@ -591,7 +589,7 @@ if(empty($_GET['id'])){
                                                                             <div class="form-body">
                                                                                 <div class="form-group">
                                                                                     <div class="col-md-6">
-                                                                                        <textarea placeholder="Reply . note:This textarea has a limit of 225 characters." maxlength="225" type="text" rows="5" required name="problem" data-required="1" class="form-control" ></textarea> </div>
+                                                                                        <textarea  id="editor1" placeholder="Reply . note:This textarea has a limit of 225 characters." maxlength="225" type="text" rows="5" required name="problem" data-required="1" class="form-control" ></textarea> </div>
                                                                                 </div>
                                                                                 <div class="form-actions">
                                                                                     <div class="row">
@@ -681,7 +679,9 @@ if(empty($_GET['id'])){
         <script src="../assets/layouts/layout3/scripts/demo.min.js" type="text/javascript"></script>
         <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
-
+<script>
+                CKEDITOR.replace( 'editor1' );
+            </script>
     </body>
 
 </html>

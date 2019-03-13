@@ -52,14 +52,14 @@ else
 
 
 
-$to='ssz_102@hotmail.com';
+$to='sultan.zagzoog@gmail.com';
 $subject='SFHM: Application Form ';
 $message='testing';
 
  //$headers  = 'MIME-Version: 1.0' . "\r\n";
 // $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 // $headers .= 'From: admin <szagzoog@sfhm.med.sa>' . "\r\n";
-$headers  = 'From: admin <szagzoog@sfhm.med.sa>' . "\r\n" .
+$headers  = 'From: admin <sultan.zagzoog@gmail.com>' . "\r\n" .
             'Cc: szagzoog@sfhm.med.sa' . "\r\n" .
             'MIME-Version: 1.0' . "\r\n" .
             'Content-type: text/html; charset=utf-8';
@@ -68,7 +68,10 @@ $headers  = 'From: admin <szagzoog@sfhm.med.sa>' . "\r\n" .
   echo "Mail Successfully Sent..";
   exit;
  }
-
+else{
+    echo "not Sent..";
+  exit;
+}
 
 
 ?>

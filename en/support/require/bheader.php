@@ -1,4 +1,16 @@
-    <link rel="icon" href="require/111.png">
+            <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
+       <!-- <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />-->
+        <link href="require/default.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYLES -->
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+    <!-- END HEAD -->
+    <link rel="icon" href="require/logo.png">
     <body class="page-container-bg-solid">
 <!-- BEGIN HEADER -->
 <div class="page-header">
@@ -6,14 +18,15 @@
             <div class="page-header-top">
                 <div class="container">
                     <!-- BEGIN LOGO -->
-                    <div class="pull-right"><br><img width="50" height="50" src="require/111.png" alt="logo" class="logo-default"> </div>
-                   <div class="page-logo">
-                         <br>
-                       <font style="font-family : Verdana;font-size: 600%;  font-size: 3.0vh; " class="logo-default theme-font"><b>SUPPORTSystem</b></font>
+                    <div class="pull-right"><br><img width="50" height="50" src="require/logo.png" alt="logo" class="logo-default"> </div>
+                   <div class="" style="margin-top: 20px;">
+                        <!-- <br>-->
+                     <font style="font-family : Verdana;font-size: 100%;  font-size: 3.0vh; " class="logo-default theme-font"><b>SUPPORTSystem </b></font>
                        <!-- <a href="index.html">
                             <img src="../assets/layouts/layout3/img/logo-default.jpg" alt="logo" class="logo-default">
                         </a>-->
                     </div>
+                    
                     <!-- END LOGO -->
                     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
                     <a href="javascript:;" class="menu-toggler"></a>
@@ -56,14 +69,14 @@
                             <?php } ?>
                             <?php if(@$_SESSION['user_info']->isadmin ==  1 || 2 && @$_SESSION['user_info']->isadmin != 3){ ?>
                             <li class="menu-dropdown mega-menu-dropdown <?php  echo @$view ; ?>">
-                                <a href="overview.php"> View
+                                <a href="overview.php"> open tickets
                                     <span class="arrow"></span>
                                 </a>
                             </li>
                             <?php } ?>
                             <?php if(@$_SESSION['user_info']->isadmin ==  1){ ?>
                             <li class="menu-dropdown mega-menu-dropdown <?php  echo @$reports ; ?>">
-                                <a href="reports.php"> Reports
+                                <a href="reports.php"> closed tickets
                                     <span class="arrow"></span>
                                 </a>
                             </li>

@@ -1,0 +1,17 @@
+[26-Jul-2017 14:54:25 Etc/UTC] PHP Warning:  require(../PHPMailerAutoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/en/careers/sms/gmail.php on line 10
+[26-Jul-2017 14:54:25 Etc/UTC] PHP Stack trace:
+[26-Jul-2017 14:54:25 Etc/UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/sms/gmail.php:0
+[26-Jul-2017 14:54:25 Etc/UTC] PHP Fatal error:  require(): Failed opening required '../PHPMailerAutoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/en/careers/sms/gmail.php on line 10
+[26-Jul-2017 14:54:25 Etc/UTC] PHP Stack trace:
+[26-Jul-2017 14:54:25 Etc/UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/sms/gmail.php:0
+[26-Jul-2017 14:55:04 Etc/UTC] PHP Warning:  file_get_contents(contents.html): failed to open stream: No such file or directory in /home/ubuntu/workspace/en/careers/sms/gmail.php on line 62
+[26-Jul-2017 14:55:04 Etc/UTC] PHP Stack trace:
+[26-Jul-2017 14:55:04 Etc/UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/sms/gmail.php:0
+[26-Jul-2017 14:55:04 Etc/UTC] PHP   2. file_get_contents() /home/ubuntu/workspace/en/careers/sms/gmail.php:62
+[26-Jul-2017 14:55:34 Etc/UTC] PHP Warning:  file_get_contents(PHPMailer-master/contents.html): failed to open stream: No such file or directory in /home/ubuntu/workspace/en/careers/sms/gmail.php on line 62
+[26-Jul-2017 14:55:34 Etc/UTC] PHP Stack trace:
+[26-Jul-2017 14:55:34 Etc/UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/sms/gmail.php:0
+[26-Jul-2017 14:55:34 Etc/UTC] PHP   2. file_get_contents() /home/ubuntu/workspace/en/careers/sms/gmail.php:62
+[27-Jul-2017 14:43:03 Etc/UTC] PHP Fatal error:  Call to undefined method PHPMailer::From() in /home/ubuntu/workspace/en/careers/sms/gmailsend.php on line 46
+[27-Jul-2017 14:43:03 Etc/UTC] PHP Stack trace:
+[27-Jul-2017 14:43:03 Etc/UTC] PHP   1. {main}() /home/ubuntu/workspace/en/careers/sms/gmailsend.php:0

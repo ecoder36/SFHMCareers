@@ -32,7 +32,7 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                        header("Location: ?error=123&id=$requestchek->id&site=$site&ptype=$ptype&name=$name&problem=$problem");
             		}  else {
 
-		       $result =  request_add($_POST['site'],$_POST['ptype'],$_POST['name'],$_POST['problem'],$_POST['ename'],$_POST['status']);
+		       $result =  request_add($_POST['region'],$_POST['city'],$_POST['site'],$_POST['ptype'],$_POST['name'],$_POST['problem'],$_POST['ename'],$_POST['status']);
                     if($result){
                         $idno = request_get_by_site_ptype_status($_POST['site'],$_POST['ptype'],$_POST['status']);
                         $rid =  $idno->id ;
@@ -43,6 +43,14 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
              
             		}
    }
+
+
+   
+// require_once("dbcontroller.php");
+// $db_handle = new DBController();
+// $query ="SELECT DISTINCT region FROM regions";
+// $results = $db_handle->runQuery($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -72,17 +80,7 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
         <link href="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+
         <?php $newreq="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         <!-- END HEADER -->
@@ -141,14 +139,16 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                                                      <?php if(isset($_GET['error'])) {
                                             		echo '<div class="alert alert-danger"><button class="close" data-close="alert"></button><strong>There is error : This problem is added before <a href="ticket.php?id='.$_GET['id'].'">click here</a></strong></div>';
                                             		} ?>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3">Site
+                                            		
+                                            		
+                                            		  <div class="form-group">
+                                                        <label class="control-label col-md-3">Region
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-4">
                                                             
                                                             <?php
-                                                        $users = list_get('WHERE `tname` = "site" ORDER BY `id` DESC' );
+                                                        $users = list_get('WHERE `tname` = "region" ORDER BY `id` DESC' );
                                                         if($users == NULL)
                                                               echo ('');
                                                         $ucount = @count($users);
@@ -157,8 +157,8 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                                                               echo ('');
             
                                                         ?>
-                                                            <select class="form-control select2me" name="site">
-                                                                 <option value="<?php echo @$_GET['site'] ?>"><?php echo @$_GET['site'] ?></option>
+                                                            <select class="form-control select2me" name="region">
+                                                                 <option value="<?php echo @$_GET['region'] ?>"><?php echo @$_GET['region'] ?></option>
                                                                 <option value="">Select...</option>
                                                                  <?php
                                                       for($i = 0 ; $i < $ucount; $i++)
@@ -173,6 +173,45 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                                                             </select>
                                                         </div>
                                                     </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">City
+                                                            <span class="required"> * </span>
+                                                        </label>
+                                                        <div class="col-md-4">
+                                                            
+                                                            <?php
+                                                        $users = list_get('WHERE `tname` = "city" ORDER BY `id` DESC' );
+                                                        if($users == NULL)
+                                                              echo ('');
+                                                        $ucount = @count($users);
+            
+                                                        if($ucount == 0)
+                                                              echo ('');
+            
+                                                        ?>
+                                                            <select class="form-control select2me" name="city">
+                                                                 <option value="<?php echo @$_GET['city'] ?>"><?php echo @$_GET['city'] ?></option>
+                                                                <option value="">Select...</option>
+                                                                 <?php
+                                                      for($i = 0 ; $i < $ucount; $i++)
+                                                      {
+                                                          $user = $users[$i];
+                                                          
+                                                          ?>
+                                                          
+                                                                <option value="<?php echo $user->content ?>"><?php echo $user->content ?></option>
+                                                                
+                                                            <?php } ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Site</label>
+                                                        <div class="col-md-4">
+                                                            <input name="site" type="text" class="form-control" value="<?php echo @$_GET['site'] ?>" /> </div>
+                                                    </div>
+                                                    
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3">Problem Type
                                                             <span class="required"> * </span>
@@ -218,7 +257,7 @@ $userinfo = users_get_by_id(@$_SESSION['user_info']->id);
                                                 <div class="form-actions">
                                                     <div class="row">
                                                         <div class="col-md-offset-3 col-md-9">
-                                                            <button type="submit" class="btn green">Submit</button>
+                                                            <button type="submit" class="btn yellow">Submit</button>
                                                         </div>
                                                     </div>
                                                 </div>

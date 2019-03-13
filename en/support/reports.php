@@ -64,17 +64,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
         <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+
         <?php $reports="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         <!-- END HEADER -->
@@ -116,7 +106,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
                      <div class="page-content-inner">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form-horizontal form-row-seperated" action="#">
+                                    
                                         <div class="portlet">
                                             <div class="portlet-title">
                                                 <div class="row">
@@ -126,7 +116,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
                                                                 <label class="control-label col-md-2">Date</label>
                                                                 <div class="col-md-6">
                                                                     <div class="input-group input-large defaultrange_modal" >
-                                                                        <input required placeholder="Date Ranges" name="date" type="text" class="form-control" value="<?php echo $_GET['date'] ; ?>">
+                                                                        <input required placeholder="Date Ranges" name="date" type="text" class="form-control" value="<?php echo @$_GET['date'] ; ?>">
                                                                         <span class="input-group-btn">
                                                                             <button class="btn default date-range-toggle" type="button">
                                                                                 <i class="fa fa-calendar"></i>
@@ -136,7 +126,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="submit" class="btn green btn-primary" >View <i class="fa fa-save"></i></button>
+                                                                <button type="submit" class="btn yellow btn-primary" >View <i class="fa fa-save"></i></button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -150,8 +140,8 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="table-container">
-                                                                        <div class="portlet light  box blue-madison">
-                                                                            <div class="portlet-title">
+                                                                        <div class="portlet light  box blue-madison" style="border:1px solid #caa88e;">
+                                                                            <div class="portlet-title" style="background-color:#caa88e;">
                                                                                  <div class="caption">
                                                                                     &nbsp By users </div>
                                                                                 <div class="tools">
@@ -161,7 +151,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
                                                                                    <?php
                                                                                   
                                                                                        
-                                                                                     $ruserscl = request_get("WHERE `status` = 'closed'  group by doneby ORDER BY `status` ASC, `id` DESC");
+                                                                                     $ruserscl = request_get("WHERE `status` = 'closed' group by doneby ORDER BY `status` ASC, `id` DESC");
                                                                       
                                                                                     $rucountcl = @count($ruserscl);
                                                                                     ?>
@@ -199,8 +189,8 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="table-container">
-                                                                        <div class="portlet light  box blue-madison">
-                                                                            <div class="portlet-title">
+                                                                        <div class="portlet light  box blue-madison" style="border:1px solid #caa88e;">
+                                                                            <div class="portlet-title" style="background-color:#caa88e;">
                                                                                  <div class="caption">
                                                                                     &nbspBy sites </div>
                                                                                 <div class="tools">
@@ -230,15 +220,23 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
                                                                       }
                                                                                              $rucountcl1 = @count($ruserscl1);    
                                                                                               $cuserdn = users_get_by_id($rcuser->doneby);
+                                                                                                
+                                                                                                
+                                                                                                 if($rucountcl1 != "0"){
                                                                                           ?>
                                                                                
-                                                                                  
+                                                                                
                                                                                     <tr>
                                                                                         <td> <?php echo $rcuser->site ?> </td>
                                                                                         <td ><span class='label label-sm label-danger'> Closed </span> </td>
                                                                                       <td> <?php echo $rucountcl1 ?> </td>
                                                                                     </tr>
-                                                                                    <?php  } ?>
+                                                                                    <?php
+                                                                                    
+                                                                                                     
+                                                                                                 }
+                                                                                    
+                                                                                    } ?>
                                                                                 </tbody>
                                                                                 </table>
                                                                             </div>
@@ -248,7 +246,7 @@ if($_SESSION['user_info'] != false && $_SESSION['user_info']->isadmin == 1 )
                                                             </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>

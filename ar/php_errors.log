@@ -29,3 +29,56 @@
 [30-Jul-2016 12:10:18 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/ubuntu/workspace/ar/form/form.php on line 182
 [04-Aug-2016 13:19:13 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/ubuntu/workspace/ar/mail/link.php on line 117
 [28-Aug-2016 17:10:30 UTC] PHP Parse error:  syntax error, unexpected 'التقديم' (T_STRING), expecting ',' or ';' in /home/ubuntu/workspace/ar/careers/jobdisplay.php on line 151
+[04-Jan-2017 09:48:01 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/ubuntu/workspace/ar/cssystem/viewfull.php on line 84
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Warning:  move_uploaded_file(file/58bf5e9a90d45.Untitled.jpg): failed to open stream: No such file or directory in /home/ubuntu/workspace/ar/cssystem/form.php on line 37
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Stack trace:
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:37
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpqzjgR3' to 'file/58bf5e9a90d45.Untitled.jpg' in /home/ubuntu/workspace/ar/cssystem/form.php on line 37
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Stack trace:
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:37
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Warning:  move_uploaded_file(file/58bf5e9a93e61.Untitled.jpg): failed to open stream: No such file or directory in /home/ubuntu/workspace/ar/cssystem/form.php on line 46
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Stack trace:
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:46
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/php4tCS4v' to 'file/58bf5e9a93e61.Untitled.jpg' in /home/ubuntu/workspace/ar/cssystem/form.php on line 46
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Stack trace:
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:46
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Warning:  move_uploaded_file(file/58bf5e9a9407e.Untitled.jpg): failed to open stream: No such file or directory in /home/ubuntu/workspace/ar/cssystem/form.php on line 55
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Stack trace:
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:55
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpGttQFa' to 'file/58bf5e9a9407e.Untitled.jpg' in /home/ubuntu/workspace/ar/cssystem/form.php on line 55
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP Stack trace:
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[08-Mar-2017 04:30:02 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:55
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Warning:  move_uploaded_file(file/58c29520ee004.logo_kau.png): failed to open stream: No such file or directory in /home/ubuntu/workspace/ar/cssystem/form.php on line 58
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Stack trace:
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:58
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpRS8Ci7' to 'file/58c29520ee004.logo_kau.png' in /home/ubuntu/workspace/ar/cssystem/form.php on line 58
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Stack trace:
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:58
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Warning:  move_uploaded_file(file/58c29520eebcf.KAU_logo.png): failed to open stream: No such file or directory in /home/ubuntu/workspace/ar/cssystem/form.php on line 61
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Stack trace:
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:61
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpaKWhkR' to 'file/58c29520eebcf.KAU_logo.png' in /home/ubuntu/workspace/ar/cssystem/form.php on line 61
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Stack trace:
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:61
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Warning:  move_uploaded_file(file/58c29520eed05.imgres.png): failed to open stream: No such file or directory in /home/ubuntu/workspace/ar/cssystem/form.php on line 64
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Stack trace:
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:64
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phplvfIxB' to 'file/58c29520eed05.imgres.png' in /home/ubuntu/workspace/ar/cssystem/form.php on line 64
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP Stack trace:
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/form.php:0
+[10-Mar-2017 14:59:28 Asia/Riyadh] PHP   2. move_uploaded_file() /home/ubuntu/workspace/ar/cssystem/form.php:64
+[16-Mar-2017 01:20:00 Asia/Riyadh] PHP Warning:  unlink(file/58c9b18243f0c.jpg): No such file or directory in /home/ubuntu/workspace/ar/cssystem/viewfull.php on line 68
+[16-Mar-2017 01:20:00 Asia/Riyadh] PHP Stack trace:
+[16-Mar-2017 01:20:00 Asia/Riyadh] PHP   1. {main}() /home/ubuntu/workspace/ar/cssystem/viewfull.php:0
+[16-Mar-2017 01:20:00 Asia/Riyadh] PHP   2. unlink() /home/ubuntu/workspace/ar/cssystem/viewfull.php:68

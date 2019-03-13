@@ -6,7 +6,9 @@
 include_once('require/api/db.php');
 require_once('require/api/usersAPI.php');
 
-
+if($_SESSION['user_info_2'] != false ){
+	header("Location: form.php");
+}
 if(isset($_POST['username']) && (isset($_POST['password'])))
 {
    
@@ -33,9 +35,9 @@ if(isset($_POST['username']) && (isset($_POST['password'])))
             }
             
             $user->pass = 0;
-            $_SESSION['user_info'] = $user;
-            if($_SESSION['user_info'] != false ){
-             header('Location: form.php?id='.$_SESSION['user_info']->id.'');
+            $_SESSION['user_info_2'] = $user;
+            if($_SESSION['user_info_2'] != false ){
+             header('Location: form.php?id='.$_SESSION['user_info_2']->id.'');
             }else
             header('Location: login.php');
         }else{
@@ -85,17 +87,7 @@ if(isset($_POST['username']) && (isset($_POST['password'])))
         <link href="../assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../assets/layouts/layout3/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../assets/layouts/layout3/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+<?php $arlink = "../../ar/cssystem/login.php" ?>
         <?php $aclogin="active" ?>
         <?php require_once ("require/bheader.php") ; ?>
         
@@ -147,8 +139,8 @@ if(isset($_POST['username']) && (isset($_POST['password'])))
                                      <div class="portlet light portlet-fit portlet-form ">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                <i class="icon-settings font-green"></i>
-                                                <span class="caption-subject font-green sbold uppercase">Login</span>
+                                                <i class="icon-settings font-yellow"></i>
+                                                <span class="caption-subject font-yellow sbold uppercase">Login</span>
                                             </div>
                                             <div class="actions">
                                                
@@ -180,7 +172,7 @@ if(isset($_POST['username']) && (isset($_POST['password'])))
                                                                 <span class="input-group-addon">
                                                                     <i class="fa fa-user"></i>
                                                                 </span>
-                                                                <input type="text" name="username" class="form-control" placeholder="Username" value="<?php echo $_GET['uname'] ?>"> </div>
+                                                                <input type="text" name="username" class="form-control" placeholder="Username" value="<?php echo @$_GET['uname'] ?>"> </div>
                                                                 <span class="help-block"> Enter your Username </span>
                                                         </div>
                                                     </div>
@@ -202,7 +194,7 @@ if(isset($_POST['username']) && (isset($_POST['password'])))
                                                     <div class="form-actions">
                                                         <div class="row">
                                                             <div class="col-md-offset-3 col-md-9">
-                                                                <button type="submit" class="btn green" >Login</button>
+                                                                <button type="submit" class="btn yellow" >Login</button>
                                                             </div>
                                                         </div>
                                                     </div> 
@@ -286,6 +278,3 @@ if(isset($_POST['username']) && (isset($_POST['password'])))
     </body>
 
 </html>
-
-
-      

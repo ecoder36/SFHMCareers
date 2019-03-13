@@ -33,8 +33,8 @@
         <!-- END PRE-FOOTER -->
         <!-- BEGIN INNER FOOTER -->
         <div class="page-footer">
-            <div class="container"> All Rights Reserved 2016 &copy; SUPPORTSystem by sultan zagzoog .
-                <a href="#" title="" >SUPPORTSystem!</a>
+            <div class="container"> All Rights Reserved 2017 &copy; SUPPORTSystem by sultan zagzoog .
+                <a href="../home" title="" >Systems</a>
             </div>
         </div>
         <div class="scroll-to-top">

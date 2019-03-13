@@ -79,6 +79,46 @@ if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['status'])){
                                 
                             }                            
                             
+include('sms/sms.class.php');
+    if (isset($_POST['sendsms'])){
+                $DTT_SMS = new Malath_SMS("sultansz","555555",'UTF-8');
+                $Credits = $DTT_SMS->GetCredits();
+                $SenderName = $DTT_SMS->GetSenders();
+        	//	$SmS_Msg = @$_POST['Text'];
+        		$msg = @$_POST['smsormail'];
+        	
+        		$SmS_Msg = $msg;
+                $Mobiles = @$_POST['sendsms'];
+                $Originator ='SFHMCareers';
+               if(@$Mobiles){
+                $Sends = $DTT_SMS->Send_SMS($Mobiles,$Originator,$SmS_Msg);
+             }   
+    }
+    if (isset($_POST['sendmail'])){
+        require 'sms/gmailsend.php';
+        
+        $mail->addAddress('ssz_102@hotmail.com', 'SuLtAn');
+$addressCC = 'szagzoog@sfhm.med.sa' ;
+$mail->AddBCC($addressCC, 'bcc account');
+// $mail->addCustomHeader(
+
+//             'From: my mail <sultan.zagzoog@gmail.com>' . "\r\n" .
+//             'Cc: szagzoog@sfhm.med.sa' . "\r\n" .
+//             'MIME-Version: 1.0' . "\r\n" .
+//             'Content-type: text/html; charset=utf-8'
+//             ); 
+
+        $mail->Subject = 'PHPMailer GMail SMTP test';
+
+$mail->Body = $_POST['sendmail'];
+if (!$mail->send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+} else {
+    echo "Message sent!";
+}
+    
+        
+    }
 
 ?>
 
@@ -217,7 +257,42 @@ if(isset($_GET['id']) && isset($_GET['name']) && isset($_GET['status'])){
                                                 <div class="actions">
                                                 </div>
                                             </div>
-                                            
+                                     <a class="btn btn-success" title="Send Message" href="#sms_modal" data-toggle="modal" ><i class="fa fa-envelope-o blue-steel"></i> Message </a>
+                                         <div id="sms_modal" class="modal fade" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                        <h4 class="modal-title">Send Message to <?php echo $user->efullname ?></h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                         <div class="row">
+                                                            <div class="col-md-12">
+                                                                <form action="" method="post" class="form-horizontal">
+                                                                    <div class="form-group">
+                                                                       <label class="col-md-3">The Message</label>
+                                                                        <div class="col-md-8 checkbox-list">
+                                                                           <label><textarea type="checkbox" name="smsormail" rows="5" cols="50"></textarea></label>
+                                                                           
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="sendsms" value="<?php echo $rapp->mobile ?>" >Send SMS to <?php echo $rapp->mobile ?> </label>
+                                                                           <label><input type="checkbox" class="icheck" data-checkbox="icheckbox_flat-blue" name="sendmail" value="<?php echo $rapp->email ?>" >Send MAIL to <?php echo $rapp->email ?></label>
+                                                                           
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn green btn-primary" ><i class="fa fa-save"></i></button>
+                                                                        <button class="btn dark btn-outline" data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                   
+                                    
                                             <div class="margin-top-20 timeline-body-head-actions text-right">
                                                 <div class="btn-group">
                                                     <button class="btn btn-circle red btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Actions
